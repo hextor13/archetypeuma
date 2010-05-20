@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
 	<parent>
-		<artifactId>librae-adminconfig</artifactId>
-		<groupId>org.librae.adminconfig</groupId>
-		<version>0.5-SNAPSHOT</version>
+		<artifactId>archetypeUma</artifactId>
+		<groupId>org.archetypeUma</groupId>
+		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>librae-adminconfig-webapp</artifactId>
+	<artifactId>archetypeUma-web</artifactId>
 	<packaging>war</packaging>
-	<name>LibrÆ-SUB: Administracion y Configuracion - Web</name>
+	<name>archetypeUma - Web</name>
 	<build>
 		<resources>
 			<resource>
@@ -28,16 +28,14 @@
 			</resource>
 			<resource>
 				<filtering>true</filtering>
-				<directory>src/main/webapp/WEB-INF/spring
-				</directory>
+				<directory>src/main/webapp/WEB-INF/spring</directory>
 				<includes>
 					<include>applicationContext.xml</include>
-					<include>applicationContext-exporter.xml
-					</include>
-					<include>applicationContext-security.xml
-					</include>
+					<include>applicationContext-exporter.xml</include>
+					<include>applicationContext-security.xml</include>
+					<include>applicationContext-remote.xml</include>
 				</includes>
-				<targetPath>../${webapp.deploy.target.directory}/WEB-INF/spring</targetPath>
+				<targetPath>../${project.artifactId}-${project.version}/WEB-INF/spring</targetPath>
 			</resource>
 			<resource>
 				<filtering>true</filtering>
@@ -45,9 +43,8 @@
 				</directory>
 				<includes>
 					<include>web.xml</include>
-					<include>spring-ws-servlet.xml</include>
 				</includes>
-				<targetPath>../${webapp.deploy.target.directory}/WEB-INF</targetPath>
+				<targetPath>../${project.artifactId}-${project.version}/WEB-INF</targetPath>
 			</resource>
 		</resources>
 		<testResources>
@@ -81,59 +78,12 @@
 				<artifactId>tomcat-maven-plugin</artifactId>
 				<version>${tomcat.maven.version}</version>
 				<configuration>
-					<path>/${webapp.path.adminconfig}</path>
-					<port>${tomcat.port.adminconfig}</port>
-					<warDirectory>${webapp.deploy.directory}
-					</warDirectory>
+					<path>/${webapp.path.importexport}
+					</path>
+					<port>${tomcat.port.importexport}</port>
 				</configuration>
 			</plugin>
-			<plugin>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>${war.maven.version}</version>
-				<executions>
-					<execution>
-						<id>create-war</id>
-						<goals>
-							<goal>war</goal>
-						</goals>
-						<configuration>
-							<webappDirectory>${webapp.deploy.directory}</webappDirectory>
-							<warName>${webapp.path.adminconfig}</warName>
-							<archive>
-								<manifest>
-									<addClasspath>true</addClasspath>
-									<classpathPrefix>lib/</classpathPrefix>
-								</manifest>
-							</archive>
-							<dependentWarExcludes>
-								**/jdbc.properties,**/hibernate.cfg.xml,**/sql-map-config.xml,**/web.xml,WEB-INF/classes/META-INF/**
-							</dependentWarExcludes>
-						</configuration>
-					</execution>
-					<execution>
-						<id>create-skinny-war</id>
-						<goals>
-							<goal>war</goal>
-						</goals>
-						<configuration>
-							<webappDirectory>${webapp.deploy.directory}</webappDirectory>
-							<warSourceExcludes>WEB-INF/lib/*.jar</warSourceExcludes>
-							<archive>
-								<manifest>
-									<addClasspath>true</addClasspath>
-									<classpathPrefix>lib/</classpathPrefix>
-								</manifest>
-							</archive>
-							<dependentWarExcludes>
-								**/jdbc.properties,**/hibernate.cfg.xml,**/sql-map-config.xml,**/web.xml,WEB-INF/classes/META-INF/**
-							</dependentWarExcludes>
-						</configuration>
-					</execution>
-				</executions>
-				<configuration>
-					<webappDirectory>${webapp.deploy.directory}</webappDirectory>
-				</configuration>
-			</plugin>
+
 			<plugin>
 				<groupId>org.appfuse</groupId>
 				<artifactId>maven-warpath-plugin</artifactId>
@@ -194,8 +144,9 @@
 							org.springframework.ide.eclipse.core.springnature
 						</projectnature>
 						<!--
-							<projectnature> org.devzuz.q.maven.jdt.core.mavenNature
-							</projectnature>
+						<projectnature>
+							org.devzuz.q.maven.jdt.core.mavenNature
+						</projectnature>
 						-->
 					</additionalProjectnatures>
 					<additionalBuildcommands>
@@ -203,59 +154,32 @@
 							org.springframework.ide.eclipse.core.springbuilder
 						</buildcommand>
 						<!--
-							<buildcommand>
+						<buildcommand>
 							org.devzuz.q.maven.jdt.core.mavenIncrementalBuilder
-							</buildcommand>
+						</buildcommand>
 						-->
 					</additionalBuildcommands>
 					<additionalProjectFacets>
-						<jst.jsf>${eclipse.maven.jsf.facets.version}
-						</jst.jsf>
+						<jst.jsf>${eclipse.maven.jsf.facets.version}</jst.jsf>
 					</additionalProjectFacets>
-					<downloadSources>${eclipse.maven.downloadSources}
-					</downloadSources>
-					<downloadJavadocs>${eclipse.maven.downloadJavadocs}
-					</downloadJavadocs>
-					<wtpversion>${eclipse.maven.wtp.version}
-					</wtpversion>
+					<downloadSources>${eclipse.maven.downloadSources}</downloadSources>
+					<downloadJavadocs>${eclipse.maven.downloadJavadocs}</downloadJavadocs>
+					<wtpversion>${eclipse.maven.wtp.version}</wtpversion>
 					<useProjectReferences>
 						${eclipse.maven.useProjectReferences.webProjects}
 					</useProjectReferences>
 				</configuration>
 			</plugin>
-			<plugin>
-        		<groupId>org.apache.maven.plugins</groupId>
-        		<artifactId>maven-dependency-plugin</artifactId>
-        		<executions>
-          			<execution>
-            			<id>copy-dependencies</id>
-            			<phase>install</phase>
-            			<goals>
-              				<goal>copy-dependencies</goal>
-            			</goals>
-            			<configuration>
-                			<artifactItems>
-                  				<artifactItem>
-                     				<groupId>${project.groupId}</groupId>
-                     				<artifactId>${project.artifactId}</artifactId>
-                     				<version>${project.version}</version>
-                     				<type>${project.packaging}</type>
-                  				</artifactItem>
-                 			</artifactItems>
-                 			<excludeGroupIds>librae-theme</excludeGroupIds>
-                 			<!-- si ${server.shared.lib} viene vacío, se copiarán en: .\target\dependency -->
-               				<outputDirectory>${server.shared.lib}</outputDirectory>
-            			</configuration>
-          			</execution>
-        		</executions>
-      		</plugin>
 		</plugins>
 	</build>
 	<dependencies>
+		<!-- inicio DEPENDENCIAS javax.servlet -->
 		<dependency>
-			<groupId>${pom.parent.groupId}</groupId>
-			<artifactId>${pom.parent.artifactId}-core</artifactId>
-			<version>${pom.parent.version}</version>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+			<!--scope>provided</scope-->
 		</dependency>
+		<!-- fin DEPENDENCIAS javax.servlet -->
 	</dependencies>
 </project>
