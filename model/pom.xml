@@ -140,47 +140,47 @@
             </plugin>-->
 
             <!-- (2) test-compile: hibernate3-maven-plugin: hbm2ddl  -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>hibernate3-maven-plugin
-				</artifactId>
-                <version>${hibernate3.maven.version}</version>
-                <executions>
-                    <execution>
-                        <phase>test-compile</phase>
-                        <goals>
-                            <goal>hbm2ddl</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>${jdbc.groupId}</groupId>
-                        <artifactId>${jdbc.artifactId}</artifactId>
-                        <version>${jdbc.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>net.sourceforge.cobertura</groupId>
-                        <artifactId>cobertura</artifactId>
-                        <version>${cobertura.version}</version>
-                    </dependency>
-                </dependencies>
-                <configuration>
-                    <components>
-                        <component>
-                            <name>hbm2ddl</name>
-                            <implementation> annotationconfiguration</implementation>
-                        </component>
-                    </components>
-                    <componentProperties>
-                        <drop>${hbm2ddl.drop.model}</drop>
-                        <jdk5>true</jdk5>
-                        <propertyfile>target/test-classes/jdbc.properties</propertyfile>
-                        <skip>${maven.test.skip}</skip>
-                        <outputfilename>${hbm2ddl.outputfile.model}</outputfilename>
-                    </componentProperties>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.codehaus.mojo</groupId>-->
+<!--                <artifactId>hibernate3-maven-plugin-->
+<!--				</artifactId>-->
+<!--                <version>${hibernate3.maven.version}</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>test-compile</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>hbm2ddl</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--                <dependencies>-->
+<!--                    <dependency>-->
+<!--                        <groupId>${jdbc.groupId}</groupId>-->
+<!--                        <artifactId>${jdbc.artifactId}</artifactId>-->
+<!--                        <version>${jdbc.version}</version>-->
+<!--                    </dependency>-->
+<!--                    <dependency>-->
+<!--                        <groupId>net.sourceforge.cobertura</groupId>-->
+<!--                        <artifactId>cobertura</artifactId>-->
+<!--                        <version>${cobertura.version}</version>-->
+<!--                    </dependency>-->
+<!--                </dependencies>-->
+<!--                <configuration>-->
+<!--                    <components>-->
+<!--                        <component>-->
+<!--                            <name>hbm2ddl</name>-->
+<!--                            <implementation> annotationconfiguration</implementation>-->
+<!--                        </component>-->
+<!--                    </components>-->
+<!--                    <componentProperties>-->
+<!--                        <drop>${hbm2ddl.drop.model}</drop>-->
+<!--                        <jdk5>true</jdk5>-->
+<!--                        <propertyfile>target/test-classes/jdbc.properties</propertyfile>-->
+<!--                        <skip>${maven.test.skip}</skip>-->
+<!--                        <outputfilename>${hbm2ddl.outputfile.model}</outputfilename>-->
+<!--                    </componentProperties>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
 
             <!-- (3) process-test-classes: dbunit-maven-plugin: CLEAN_INSERT -->
             <plugin>
@@ -196,7 +196,7 @@
                         <configuration>
 		                    <dataTypeFactoryName> ${dbunit.dataTypeFactoryName}
 							</dataTypeFactoryName>
-		                    <src>src/test/resources/sample-data.xml
+		                    <src>src/main/resources/sample-data.xml
 							</src>
 		                    <type>${dbunit.operation.type}</type>
 		                </configuration>
