@@ -26,12 +26,7 @@
 			<profile.jdbc.url.cas>
 				<![CDATA[jdbc:mysql://${profile.jdbc.host}:${profile.jdbc.port}/${profile.jdbc.dbname}]]>
 			</profile.jdbc.url.cas>
-			<profile.hibernate.dialect>
-				org.librae.common.dao.hibernate.dialects.MySqlDialect
-			</profile.hibernate.dialect>
-			<hibernate.dialect.osworkflow>
-				org.hibernate.dialect.MySQLDialect
-			</hibernate.dialect.osworkflow>
+			<profile.hibernate.dialect>org.hibernate.dialect.MySQLDialect</profile.hibernate.dialect>
 			<profile.dbunit.dataTypeFactoryName>
 				org.dbunit.ext.mysql.MySqlDataTypeFactory
 			</profile.dbunit.dataTypeFactoryName>
