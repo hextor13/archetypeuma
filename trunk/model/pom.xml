@@ -28,179 +28,64 @@
         </testResources>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <!-- (1) test-compile: sql-maven-plugin: DROP DATABASE  -->
-            <!-- (4) process-test-classes: (create-view) Debido a que JPA solo permite
-                        mapear pojos con tablas es necesario crear las vistas a partir
-                        de un scripts con el mismo nombre que el atributo @table de
-                        los pojos y borrar la tabla que hbm2ddl crea.
-                        De esta manera se consigue un mapeo Pojo-Vista  -->
-            <!-- <plugin>
                 <groupId>org.codehaus.mojo</groupId>
-                <artifactId>sql-maven-plugin</artifactId>
-                <version>${sql.maven.version}</version>
+                <artifactId>hibernate3-maven-plugin</artifactId>
+                <version>${hibernate3.maven.version}</version>
                 <executions>
                     <execution>
-                        <id>drop-database</id>
                         <phase>test-compile</phase>
                         <goals>
-                            <goal>execute</goal>
+                            <goal>hbm2ddl</goal>
                         </goals>
-                        <configuration>
-                            <autocommit>true</autocommit>
-                            <srcFiles>
-                                <srcFile>target/test-classes/drop-database-${profile.database}.sql</srcFile>
-                            </srcFiles>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>create-view</id>
-                        <phase>process-test-classes</phase>
-                        <goals>
-                            <goal>execute</goal>
-                        </goals>
-                        <configuration>
-                            <autocommit>true</autocommit>
-                            <srcFiles>
-                                <srcFile>target/test-classes/create-view-${profile.database}.sql</srcFile>
-                            </srcFiles>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>recreate-auditoria-tables</id>
-                        <phase>process-test-classes</phase>
-                        <goals>
-                            <goal>execute</goal>
-                        </goals>
-                        <configuration>
-                            <autocommit>true</autocommit>
-                            <srcFiles>
-                                <srcFile>${profile.path.script.auditoria}/${hbm2ddl.outputfile.auditoria}</srcFile>
-                            </srcFiles>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>recreate-osworkflow-tables</id>
-                        <phase>process-test-classes</phase>
-                        <goals>
-                            <goal>execute</goal>
-                        </goals>
-                        <configuration>
-                            <autocommit>true</autocommit>
-                            <srcFiles>
-                                <srcFile>${profile.path.script.osworkflow}/${hbm2ddl.outputfile.osworkflow}</srcFile>
-                            </srcFiles>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>data-changes-for-orbe</id>
-                        <phase>process-test-classes</phase>
-                        <goals>
-                            <goal>execute</goal>
-                        </goals>
-                        <configuration>
-                            <autocommit>true</autocommit>
-                            <srcFiles>
-                                <srcFile>target/test-classes/data-changes-with-orbe-${orbe.activo}.sql</srcFile>
-                            </srcFiles>
-                        </configuration>
                     </execution>
                 </executions>
                 <dependencies>
-                   <dependency>
+                    <dependency>
                         <groupId>${jdbc.groupId}</groupId>
                         <artifactId>${jdbc.artifactId}</artifactId>
                         <version>${jdbc.version}</version>
                     </dependency>
                     <dependency>
-                      <groupId>net.sourceforge.cobertura</groupId>
-                      <artifactId>cobertura</artifactId>
-                      <version>${cobertura.version}</version>
+                        <groupId>net.sourceforge.cobertura</groupId>
+                        <artifactId>cobertura</artifactId>
+                        <version>${cobertura.version}</version>
                     </dependency>
                 </dependencies>
                 <configuration>
-                    <driver>${jdbc.driverClassName}</driver>
-                    <username>${jdbc.username}</username>
-                    <password>${jdbc.password}</password>
-                    <url>${jdbc.url}</url>
-                    <autocommit>true</autocommit>
-                    <skip>${maven.test.skip}</skip>
+                    <components>
+                        <component>
+                            <name>hbm2ddl</name>
+                            <implementation>annotationconfiguration</implementation>
+                        </component>
+                    </components>
+                    <componentProperties>
+                        <drop>${hbm2ddl.drop.model}</drop>
+                        <jdk5>true</jdk5>
+                        <propertyfile>target/classes/jdbc.properties</propertyfile>
+                        <skip>${maven.test.skip}</skip>
+                        <outputfilename>${hbm2ddl.outputfile.model}</outputfilename>
+                    </componentProperties>
                 </configuration>
-            </plugin>-->
+            </plugin>
 
-            <!-- (2) test-compile: hibernate3-maven-plugin: hbm2ddl  -->
+            <!-- (3) process-test-classes: dbunit-maven-plugin: CLEAN_INSERT -->
 <!--            <plugin>-->
 <!--                <groupId>org.codehaus.mojo</groupId>-->
-<!--                <artifactId>hibernate3-maven-plugin-->
-<!--				</artifactId>-->
-<!--                <version>${hibernate3.maven.version}</version>-->
+<!--                <artifactId>dbunit-maven-plugin</artifactId>-->
+<!--                <version>${dbunit.maven.version}</version>-->
 <!--                <executions>-->
 <!--                    <execution>-->
 <!--                        <phase>test-compile</phase>-->
 <!--                        <goals>-->
-<!--                            <goal>hbm2ddl</goal>-->
+<!--                            <goal>operation</goal>-->
 <!--                        </goals>-->
+<!--                        <configuration>-->
+<!--		                    <dataTypeFactoryName>${dbunit.dataTypeFactoryName}</dataTypeFactoryName>-->
+<!--		                    <src>src/main/resources/sample-data.xml-->
+<!--							</src>-->
+<!--		                    <type>${dbunit.operation.type}</type>-->
+<!--		                </configuration>-->
 <!--                    </execution>-->
-<!--                </executions>-->
-<!--                <dependencies>-->
-<!--                    <dependency>-->
-<!--                        <groupId>${jdbc.groupId}</groupId>-->
-<!--                        <artifactId>${jdbc.artifactId}</artifactId>-->
-<!--                        <version>${jdbc.version}</version>-->
-<!--                    </dependency>-->
-<!--                    <dependency>-->
-<!--                        <groupId>net.sourceforge.cobertura</groupId>-->
-<!--                        <artifactId>cobertura</artifactId>-->
-<!--                        <version>${cobertura.version}</version>-->
-<!--                    </dependency>-->
-<!--                </dependencies>-->
-<!--                <configuration>-->
-<!--                    <components>-->
-<!--                        <component>-->
-<!--                            <name>hbm2ddl</name>-->
-<!--                            <implementation> annotationconfiguration</implementation>-->
-<!--                        </component>-->
-<!--                    </components>-->
-<!--                    <componentProperties>-->
-<!--                        <drop>${hbm2ddl.drop.model}</drop>-->
-<!--                        <jdk5>true</jdk5>-->
-<!--                        <propertyfile>target/test-classes/jdbc.properties</propertyfile>-->
-<!--                        <skip>${maven.test.skip}</skip>-->
-<!--                        <outputfilename>${hbm2ddl.outputfile.model}</outputfilename>-->
-<!--                    </componentProperties>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-
-            <!-- (3) process-test-classes: dbunit-maven-plugin: CLEAN_INSERT -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>dbunit-maven-plugin</artifactId>
-                <version>${dbunit.maven.version}</version>
-                <executions>
-                    <execution>
-                        <phase>test-compile</phase>
-                        <goals>
-                            <goal>operation</goal>
-                        </goals>
-                        <configuration>
-		                    <dataTypeFactoryName> ${dbunit.dataTypeFactoryName}
-							</dataTypeFactoryName>
-		                    <src>src/main/resources/sample-data.xml
-							</src>
-		                    <type>${dbunit.operation.type}</type>
-		                </configuration>
-                    </execution>
                     <!-- execution>
                         <id>exporting</id>
 			            <phase>test</phase>
@@ -212,34 +97,81 @@
 			                <dest>target/sample-data.sql</dest>
 			            </configuration>
 			          </execution -->
-                </executions>
-                <configuration>
-	                <driver>${jdbc.driverClassName}</driver>
-                    <username>${jdbc.username}</username>
-                    <password>${jdbc.password}</password>
-                    <url>${jdbc.url}</url>
-                    <schema>${dbunit.schema}</schema>
-                    <skip>${maven.test.skip}</skip>
-                    <skipOracleRecycleBinTables>true</skipOracleRecycleBinTables>
-					<useQualifiedTableNames>false</useQualifiedTableNames>
-	            </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>${jdbc.groupId}</groupId>
-                        <artifactId>${jdbc.artifactId}</artifactId>
-                        <version>${jdbc.version}</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
+<!--                </executions>-->
+<!--                <configuration>-->
+<!--	                <driver>${jdbc.driverClassName}</driver>-->
+<!--                    <username>${jdbc.username}</username>-->
+<!--                    <password>${jdbc.password}</password>-->
+<!--                    <url>${jdbc.url}</url>-->
+<!--                    <schema>${dbunit.schema}</schema>-->
+<!--                    <skip>${maven.test.skip}</skip>-->
+<!--                    <skipOracleRecycleBinTables>true</skipOracleRecycleBinTables>-->
+<!--					<useQualifiedTableNames>false</useQualifiedTableNames>-->
+<!--	            </configuration>-->
+<!--                <dependencies>-->
+<!--                    <dependency>-->
+<!--                        <groupId>${jdbc.groupId}</groupId>-->
+<!--                        <artifactId>${jdbc.artifactId}</artifactId>-->
+<!--                        <version>${jdbc.version}</version>-->
+<!--                    </dependency>-->
+<!--                </dependencies>-->
+<!--            </plugin>-->
             <!-- DEPLOY PLUGIN -->
-            <plugin>
-        		<groupId>org.apache.maven.plugins</groupId>
-        		<artifactId>maven-deploy-plugin</artifactId>
-        		<version>${deploy.maven.version}</version>
-        		<configuration>
-        			<skip>${model.skip.deploy}</skip>
-        		</configuration>
-      		</plugin>
+<!--            <plugin>-->
+<!--        		<groupId>org.apache.maven.plugins</groupId>-->
+<!--        		<artifactId>maven-deploy-plugin</artifactId>-->
+<!--        		<version>${deploy.maven.version}</version>-->
+<!--        		<configuration>-->
+<!--        			<skip>${model.skip.deploy}</skip>-->
+<!--        		</configuration>-->
+<!--      		</plugin>-->
         </plugins>
     </build>
+    <dependencies>
+		<dependency>
+		  <groupId>org.hibernate</groupId>
+		  <artifactId>hibernate-core</artifactId>
+		  <version>3.5.0-CR-2</version>
+		</dependency>
+
+		<dependency>
+		  <groupId>org.hibernate</groupId>
+		  <artifactId>hibernate-annotations</artifactId>
+		  <version>3.5.0-CR-2</version>
+		</dependency>
+
+		<dependency>
+		  <groupId>org.hibernate</groupId>
+		  <artifactId>hibernate-entitymanager</artifactId>
+		  <version>3.5.0-CR-2</version>
+		</dependency>
+
+		<dependency>
+		  <groupId>javassist</groupId>
+		  <artifactId>javassist</artifactId>
+		  <version>3.9.0.GA</version>
+		  <scope>runtime</scope>
+		</dependency>
+
+		<!-- Logging -->
+		<dependency>
+		  <groupId>org.slf4j</groupId>
+		  <artifactId>slf4j-log4j12</artifactId>
+		  <version>1.5.10</version>
+		</dependency>
+
+		<dependency>
+		  <groupId>log4j</groupId>
+		  <artifactId>log4j</artifactId>
+		  <version>1.2.15</version>
+		</dependency>
+		<!-- fin DEPENDENCIAS librae-subs -->
+	</dependencies>
+	<repositories>
+	  <repository>
+	    <id>jboss</id>
+	    <name>JBoss repository</name>
+	    <url>http://repository.jboss.org/maven2</url>
+	  </repository>
+	</repositories>
 </project>
