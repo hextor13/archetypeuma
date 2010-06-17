@@ -41,42 +41,42 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>aspectj-maven-plugin</artifactId>
-				<version>1.0</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>compile</goal>
-						</goals>
-					</execution>
-				</executions>
-				<dependencies>
-					<dependency>
-						<groupId>org.aspectj</groupId>
-						<artifactId>aspectjrt</artifactId>
-						<version>${aspectj.version}</version>
-					</dependency>
-					<dependency>
-						<groupId>org.aspectj</groupId>
-						<artifactId>aspectjtools</artifactId>
-						<version>${aspectj.version}</version>
-					</dependency>
-				</dependencies>
-				<configuration>
-					<source>1.5</source>
-					<verbose>true</verbose>
-					<complianceLevel>1.5</complianceLevel>
-					<showWeaveInfo>true</showWeaveInfo>
-					<aspectLibraries>
-						<aspectLibrary>
-							<groupId>org.springframework</groupId>
-							<artifactId>spring-aspects</artifactId>
-						</aspectLibrary>
-					</aspectLibraries>
-				</configuration>
-			</plugin>
+<!--			<plugin>-->
+<!--				<groupId>org.codehaus.mojo</groupId>-->
+<!--				<artifactId>aspectj-maven-plugin</artifactId>-->
+<!--				<version>1.0</version>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<goals>-->
+<!--							<goal>compile</goal>-->
+<!--						</goals>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--				<dependencies>-->
+<!--					<dependency>-->
+<!--						<groupId>org.aspectj</groupId>-->
+<!--						<artifactId>aspectjrt</artifactId>-->
+<!--						<version>${aspectj.version}</version>-->
+<!--					</dependency>-->
+<!--					<dependency>-->
+<!--						<groupId>org.aspectj</groupId>-->
+<!--						<artifactId>aspectjtools</artifactId>-->
+<!--						<version>${aspectj.version}</version>-->
+<!--					</dependency>-->
+<!--				</dependencies>-->
+<!--				<configuration>-->
+<!--					<source>1.5</source>-->
+<!--					<verbose>true</verbose>-->
+<!--					<complianceLevel>1.5</complianceLevel>-->
+<!--					<showWeaveInfo>true</showWeaveInfo>-->
+<!--					<aspectLibraries>-->
+<!--						<aspectLibrary>-->
+<!--							<groupId>org.springframework</groupId>-->
+<!--							<artifactId>spring-aspects</artifactId>-->
+<!--						</aspectLibrary>-->
+<!--					</aspectLibraries>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
 			<!--
 				Assemblies para permitir generar por separado interfaz e
 				implementacion
@@ -113,11 +113,10 @@
 		</plugins>
 	</build>
 	<dependencies>
-        <dependency>
-            <groupId>org.librae</groupId>
-            <artifactId>librae-model</artifactId>
-            <version>0.5-SNAPSHOT</version>
-        </dependency>
-		<!-- fin DEPENDENCIAS librae-subs -->
+		<dependency>
+		    <groupId>org.archetypeUma</groupId>
+		    <artifactId>archetypeUma-model</artifactId>
+		    <version>1.0-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>
