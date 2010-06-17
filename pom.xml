@@ -5,8 +5,9 @@
     <groupId>org.archetypeUma</groupId>
     <artifactId>archetypeUma</artifactId>
     <packaging>pom</packaging>
-    <name>Proyecto de la Universidad de Málaga de un archetype de maven3</name>
+    <name>Proyecto de la Universidad de Malaga de un archetype de maven3</name>
     <version>1.0-SNAPSHOT</version>
+    <description>Este es un arquetipo de maven de la Universidad de Málaga</description>
     <url>http://www.uma.com</url>
     <prerequisites>
         <maven>2.0.9</maven>
@@ -35,10 +36,6 @@
             <comments />
         </license>
     </licenses>
-
-    <!-- ************************** -->
-    <!-- SERVIDORES SCM y SNAPSHOTS -->
-    <!-- ************************** -->
     <scm>
         <connection>
 			scm:svn:https://archetypeuma.googlecode.com/svn/trunk/
@@ -48,56 +45,6 @@
 		</developerConnection>
         <url></url>
     </scm>
-    <issueManagement>
-        <system />
-        <url />
-    </issueManagement>
-<!--    Terminar esto-->
-<!--    <distributionManagement>-->
-<!--        <repository>-->
-<!--            <id>librae.internal</id>-->
-<!--            <name>Internal Release Repository</name>-->
-<!--            <url>dav:http://dev.librae.org/archiva/repository/internal</url>-->
-<!--        </repository>-->
-<!--        <snapshotRepository>-->
-<!--            <id>librae.snapshots</id>-->
-<!--            <name>Internal Snapshot Repository</name>-->
-<!--            <url>dav:http://dev.librae.org/archiva/repository/snapshots</url>-->
-<!--        </snapshotRepository>-->
-<!--        <site>-->
-<!--            <id>www.librae.org</id>-->
-<!--            <url>scp://www.librae.org/www/docs/project/</url>-->
-<!--        </site>-->
-<!--    </distributionManagement>-->
-
-    <!-- ************ -->
-    <!-- REPOSITORIOS -->
-    <!-- ************ -->
-<!--    <repositories>-->
-<!--        <repository>-->
-<!--            <id>librae.internal</id>-->
-<!--            <url>http://dev.librae.org/archiva/repository/internal</url>-->
-<!--            <releases>-->
-<!--                <enabled>true</enabled>-->
-<!--                <updatePolicy>always</updatePolicy>-->
-<!--                <checksumPolicy>warn</checksumPolicy>-->
-<!--            </releases>-->
-<!--            <snapshots>-->
-<!--                <enabled>false</enabled>-->
-<!--                <updatePolicy>never</updatePolicy>-->
-<!--                <checksumPolicy>fail</checksumPolicy>-->
-<!--            </snapshots>-->
-<!--        </repository>-->
-<!--        <repository>-->
-<!--            <id>librae.snapshots</id>-->
-<!--            <url>http://dev.librae.org/archiva/repository/snapshots</url>-->
-<!--            <snapshots>-->
-<!--                <enabled>true</enabled>-->
-<!--                <updatePolicy>always</updatePolicy>-->
-<!--                <checksumPolicy>fail</checksumPolicy>-->
-<!--            </snapshots>-->
-<!--        </repository>-->
-<!--    </repositories>-->
     <pluginRepositories>
         <pluginRepository>
             <id>appfuse</id>
@@ -128,431 +75,33 @@
         </pluginRepository>
     </pluginRepositories>
 
-    <!-- ************ -->
-    <!-- CONSTRUCCION -->
-    <!-- ************ -->
-    <build>
-        <defaultGoal>package</defaultGoal>
-
-        <!-- CONFIGURACION PLUGINS COMUNES SUBMODULOS -->
-        <pluginManagement>
-            <plugins>
-                <!-- SOURCE PLUGIN -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-source-plugin</artifactId>
-                    <executions>
-                        <execution>
-                            <id>attach-sources</id>
-                            <goals>
-                                <goal>jar</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-
-                <!-- COMPILER PLUGIN -->
-                <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>2.0.2</version>
-                    <configuration>
-                        <source>1.5</source>
-                        <target>1.5</target>
-                    </configuration>
-                </plugin>
-
-                <!-- ECLIPSE PLUGIN -->
-                <plugin>
-					<artifactId>maven-eclipse-plugin</artifactId>
-					<version>${eclipse.maven.version}</version>
-					<configuration>
-						<buildOutputDirectory>${eclipse.maven.default.buildOutputDirectory}</buildOutputDirectory>
-						<additionalProjectnatures>
-							<projectnature>
-								org.springframework.ide.eclipse.core.springnature
-							</projectnature>
-							<!--
-							<projectnature>
-								org.devzuz.q.maven.jdt.core.mavenNature
-							</projectnature>
-							-->
-						</additionalProjectnatures>
-						<additionalBuildcommands>
-							<buildcommand>
-								org.springframework.ide.eclipse.core.springbuilder
-							</buildcommand>
-							<!--
-							<buildcommand>
-								org.devzuz.q.maven.jdt.core.mavenIncrementalBuilder
-							</buildcommand>
-							-->
-						</additionalBuildcommands>
-						<downloadSources>${eclipse.maven.downloadSources}</downloadSources>
-						<downloadJavadocs>${eclipse.maven.downloadJavadocs}</downloadJavadocs>
-						<wtpversion>${eclipse.maven.wtp.version}</wtpversion>
-						<useProjectReferences>${eclipse.maven.useProjectReferences}</useProjectReferences>
-					</configuration>
-				</plugin>
-
-                <!-- ASPECTJ PLUGIN -->
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>aspectj-maven-plugin
-                </artifactId>
-                    <version>1.0</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>compile</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.aspectj</groupId>
-                            <artifactId>aspectjrt</artifactId>
-                            <version>${aspectj.version}
-                        </version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.aspectj</groupId>
-                            <artifactId>aspectjtools
-                        </artifactId>
-                            <version>${aspectj.version}
-                        </version>
-                        </dependency>
-                    </dependencies>
-                    <configuration>
-                        <source>1.5</source>
-                        <verbose>true</verbose>
-                        <complianceLevel>1.5</complianceLevel>
-                        <showWeaveInfo>true</showWeaveInfo>
-                        <aspectLibraries>
-                            <aspectLibrary>
-                                <groupId>org.springframework
-                            </groupId>
-                                <artifactId>spring-aspects
-                            </artifactId>
-                            </aspectLibrary>
-                        </aspectLibraries>
-                    </configuration>
-                </plugin>
-
-                <!-- APPFUSE PLUGIN -->
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>appfuse-maven-plugin</artifactId>
-                    <version>${appfuse.version}</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>${jdbc.groupId}
-                        </groupId>
-                            <artifactId>${jdbc.artifactId}
-                        </artifactId>
-                            <version>${jdbc.version}
-                        </version>
-                        </dependency>
-                    </dependencies>
-                    <configuration>
-                        <genericCore>${amp.genericCore}
-                    </genericCore>
-                        <fullSource>${amp.fullSource}
-                    </fullSource>
-                    </configuration>
-                </plugin>
-
-                <!-- CHECKSTYLE PLUGIN -->
-                <plugin>
-                    <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>2.2</version>
-                    <configuration>
-                        <configLocation>${directorio_raiz}/src/resources/librae_checks.xml </configLocation>
-                    </configuration>
-                </plugin>
-
-                <!-- JAVADOC PLUGIN -->
-                <plugin>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <configuration>
-                        <aggregate>true</aggregate>
-                        <minmemory>128m</minmemory>
-                        <maxmemory>512</maxmemory>
-                        <breakiterator>true</breakiterator>
-                        <quiet>true</quiet>
-                        <verbose>false</verbose>
-                        <source>1.5</source>
-                        <linksource>true</linksource>
-                        <links>
-                            <link> http://java.sun.com/j2se/1.5.0/docs/api/ </link>
-                            <link> http://java.sun.com/javaee/5/docs/api/ </link>
-                        </links>
-                    </configuration>
-                </plugin>
-
-                <!-- JXR PLUGIN -->
-                <plugin>
-                    <artifactId>maven-jxr-plugin</artifactId>
-                    <configuration>
-                        <aggregate>true</aggregate>
-                    </configuration>
-                </plugin>
-
-                <!-- PMD PLUGIN -->
-                <plugin>
-                    <artifactId>maven-pmd-plugin</artifactId>
-                    <configuration>
-                        <rulesets>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/basic-jsf.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/basic-jsp.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/basic.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/braces.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/clone.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/codesize.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/coupling.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/design.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/finalizers.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/imports.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/j2ee.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/javabeans.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/naming.xml </ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/optimizations.xml</ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/strictexception.xml</ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/strings.xml</ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/sunsecure.xml</ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/typeresolution.xml</ruleset>
-                            <ruleset>${directorio_raiz}/src/resources/pmd-rulesets/unusedcode.xml</ruleset>
-                        </rulesets>
-                        <sourceEncoding>${encoding.scheme}</sourceEncoding>
-                        <minimumTokens>100</minimumTokens>
-                        <linkXref>true</linkXref>
-                        <targetJdk>1.5</targetJdk>
-                    </configuration>
-                </plugin>
-
-                <!-- LICENSE PLUGIN -->
-
-                <plugin>
-                    <groupId>com.google.code.maven-license-plugin</groupId>
-                    <artifactId>maven-license-plugin</artifactId>
-                    <version>${librae.maven-license-plugin}</version>
-                    <configuration>
-                        <header>${directorio_raiz}/src/resources/license.txt</header>
-                        <excludes>
-                            <exclude>**/LICENSE.txt</exclude>
-                            <exclude>**/COPYING.LESSER</exclude>
-                            <exclude>**/COPYING</exclude>
-                            <exclude>**/*.odt</exclude>
-                            <exclude>**/*.properties</exclude>
-                        </excludes>
-                        <mapping>
-                            <jspx>xml</jspx>
-                        </mapping>
-                        <properties>
-                            <year>${project.inceptionYear}</year>
-                            <company>${developer.company}</company>
-                        </properties>
-                        <encoding>${encoding.scheme}</encoding>
-                    </configuration>
-                </plugin>
-
-                <!-- SUREFIRE PLUGIN -->
-                <plugin>
-                    <artifactId>maven-surefire-report-plugin</artifactId>
-                </plugin>
-
-                <!-- RESOURCES PLUGIN -->
-        		<plugin>
-          			<groupId>org.apache.maven.plugins</groupId>
-          			<artifactId>maven-resources-plugin</artifactId>
-          			<version>${resources.maven.version}</version>
-          			<configuration>
-          				<encoding>${encoding.scheme}</encoding>
-        			</configuration>
-        		</plugin>
-
-        		<!-- WAR PLUGIN -->
-        		<plugin>
-					<artifactId>maven-war-plugin</artifactId>
-					<version>${war.maven.version}</version>
-				</plugin>
-
-                 <!-- DEPLOY PLUGIN -->
-                <plugin>
-          			<groupId>org.apache.maven.plugins</groupId>
-          			<artifactId>maven-deploy-plugin</artifactId>
-          			<version>${deploy.maven.version}</version>
-        		</plugin>
-            </plugins>
-        </pluginManagement>
-        <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.5</source>
-                    <target>1.5</target>
-                </configuration>
-            </plugin>
-            <plugin>
-				<groupId>com.google.code.maven-license-plugin</groupId>
-				<artifactId>maven-license-plugin</artifactId>
-				<version>${librae.maven-license-plugin}</version>
-			</plugin>
-        </plugins>
-    </build>
-
     <!-- ******* -->
     <!-- MODULOS -->
     <!-- ******* -->
     <modules>
         <module>model</module>
         <module>core</module>
+        <module>ws</module>
         <module>web</module>
+        <module>ear</module>
     </modules>
-
-    <!-- ********************************************* -->
-    <!-- REPORTING, INFORMES, CHEQUEO ESTILOS, JAVADOC -->
-    <!-- ********************************************* -->
-    <reporting>
-        <plugins>
-            <plugin>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>2.2</version>
-            </plugin>
-            <plugin>
-                <artifactId>maven-pmd-plugin</artifactId>
-            </plugin>
-            <!--
-                <plugin> <artifactId>maven-changelog-plugin</artifactId>
-                </plugin>
-            -->
-            <plugin>
-                <artifactId>maven-javadoc-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <artifactId>maven-jxr-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <artifactId>maven-surefire-report-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </reporting>
 
     <!-- ******************************************** -->
     <!-- PROPIEDADES Y VERSIONES COMUNES DEL PROYECTO -->
     <!-- ******************************************** -->
     <properties>
-        <!-- 1. Application settings -->
-        <copyright.year>2008</copyright.year>
-        <directorio_raiz>${env.LIBRAE_DIR}/librae</directorio_raiz>
-        <developer.company>UTE Sopra PROFit - Ingenia</developer.company>
+        <!-- Application settings -->
+        <copyright.year>2010</copyright.year>
+        <developer.company>Universidad de Málaga</developer.company>
+		<dbunit.maven.version>1.0-beta-3</dbunit.maven.version>
+		<deploy.maven.version>2.4</deploy.maven.version>
+		<aspectj.version>1.6.1</aspectj.version>
+		<tomcat.maven.version>1.0-alpha-1</tomcat.maven.version>
+		<eclipse.maven.version>2.8</eclipse.maven.version>
+		<jboss.maven.version>1.3.1</jboss.maven.version>
+		<war.maven.version>2.1-beta-1</war.maven.version>
 
-
-        <!-- 2. Web.xml params -->
-        <!-- Más info. http://myfaces.apache.org/core12/myfaces-impl/webconfig.html -->
-
-        <!-- 2.1 default values -->
-        <session.timeout>30</session.timeout><!-- 30 min -->
-        <upload.max.file.size>1048576</upload.max.file.size><!-- 1 MB -->
-        <org.ajax4jsf.VIEW_HANDLERS>com.sun.facelets.FaceletViewHandler</org.ajax4jsf.VIEW_HANDLERS>
-
-        <!-- Request Errors and Session Expiration Handling -->
-        <!-- http://docs.jboss.org/richfaces/3.3.2.GA/en/devguide/html/ArchitectureOverview.html -->
-        <org.ajax4jsf.handleViewExpiredOnClient>true</org.ajax4jsf.handleViewExpiredOnClient>
-        <!-- Note that custom "onError", "onExpire"  handlers do not work under MyFaces. It has to be disable   -->
-        <org.apache.myfaces.ERROR_HANDLING>false</org.apache.myfaces.ERROR_HANDLING>
-
-        <org.apache.myfaces.PRETTY_HTML>false</org.apache.myfaces.PRETTY_HTML>
-        <org.apache.myfaces.COMPRESS_STATE_IN_SESSION>false</org.apache.myfaces.COMPRESS_STATE_IN_SESSION>
-        <javax.faces.DEFAULT_SUFFIX>.xhtml</javax.faces.DEFAULT_SUFFIX>
-        <facelets.DEVELOPMENT>true</facelets.DEVELOPMENT>
-
-        <!-- 2.2 mejora de rendimiento -->
-        <!-- Más info. http://www.jroller.com/mert/entry/state_saving_method_client_side -->
-        <javax.faces.STATE_SAVING_METHOD>server</javax.faces.STATE_SAVING_METHOD>
-        <org.apache.myfaces.SERIALIZE_STATE_IN_SESSION>true</org.apache.myfaces.SERIALIZE_STATE_IN_SESSION>
-
-        <!-- 3. VERSIONES COMPONENTES DEL SIGB LIBRAE -->
-        <librae.version>0.5-SNAPSHOT</librae.version>
-
-        <jzkit.version>3.0.0</jzkit.version>
-
-        <!-- extensión de OSWorkflow 2.8.0 -->
-        <osworkflow-groupId>org.librae.common</osworkflow-groupId>
-		<osworkflow-artifactId>librae-common-osworkflow</osworkflow-artifactId>
-		<osworkflow-version>2.8.0-SNAPSHOT</osworkflow-version>
-
-        <!-- 4. PLUGINS Y UTILS -->
-        <!-- Librae Maven Plugin -->
-        <librae.maven.plugin.version>0.1</librae.maven.plugin.version>
-        <librae.maven.plugin.autorName>${developer.company}</librae.maven.plugin.autorName>
-        <librae.maven.plugin.appfusePackage>org.librae.common</librae.maven.plugin.appfusePackage>
-        <librae.maven.plugin.genericCore>false</librae.maven.plugin.genericCore>
-        <librae.maven.plugin.fullSource>false</librae.maven.plugin.fullSource>
-        <librae.maven-license-plugin>1.4.0</librae.maven-license-plugin>
-
-        <!-- Eclipse Maven Plugin -->
-        <eclipse.maven.version>2.5.1</eclipse.maven.version>
-        <eclipse.maven.jsf.facets.version>1.1</eclipse.maven.jsf.facets.version>
-        <eclipse.maven.wtp.version>1.5</eclipse.maven.wtp.version>
-        <eclipse.maven.downloadSources>true</eclipse.maven.downloadSources>
-        <eclipse.maven.downloadJavadocs>true</eclipse.maven.downloadJavadocs>
-        <eclipse.maven.useProjectReferences>false</eclipse.maven.useProjectReferences>
-        <eclipse.maven.useProjectReferences.webProjects>true</eclipse.maven.useProjectReferences.webProjects>
-        <eclipse.maven.default.buildOutputDirectory>target/classes</eclipse.maven.default.buildOutputDirectory>
-        <!-- necesario para evitar problemas con los compilados de los recursos -->
-        <eclipse.maven.webapp.buildOutputDirectory>bin/classes</eclipse.maven.webapp.buildOutputDirectory>
-
-        <!-- Tomcat 5.5.x -->
-        <tomcat.maven.version>1.0-alpha-1</tomcat.maven.version>
-        <!-- Tomcat 6.0.x -->
-        <!--<tomcat.maven.version>1.0-beta-1</tomcat.maven.version>-->
-        <server.shared.lib>${profile.server.shared.lib}</server.shared.lib>
-
-        <jboss.maven.version>1.3.1</jboss.maven.version>
-        <aspectj.maven.version>1.1</aspectj.maven.version>
-        <dbunit.maven.version>1.0-beta-2</dbunit.maven.version>
-        <sql.maven.version>1.3</sql.maven.version>
-        <resources.maven.version>2.3</resources.maven.version>
-        <war.maven.version>2.0.2</war.maven.version>
-        <deploy.maven.version>2.4</deploy.maven.version>
-        <!-- FIN VERSIONES COMPONENTES LIBRAE -->
-
-        <!-- Hibernate Maven Plugin -->
-        <hibernate3.maven.version>2.2</hibernate3.maven.version>
-        <hbm2ddl.drop.auditoria>false</hbm2ddl.drop.auditoria>
-        <hbm2ddl.drop.model>false</hbm2ddl.drop.model>
-        <hbm2ddl.drop.osworkflow>false</hbm2ddl.drop.osworkflow>
-        <!-- output files created in target/hibernate3/sql/ -->
-        <hbm2ddl.outputfile.auditoria>schema-auditoria.sql</hbm2ddl.outputfile.auditoria>
-        <hbm2ddl.outputfile.osworkflow>schema-osworkflow.sql</hbm2ddl.outputfile.osworkflow>
-        <hbm2ddl.outputfile.model>schema-model.sql</hbm2ddl.outputfile.model>
-        <cobertura.version>1.9rc1</cobertura.version>
-
-        <dao.framework>hibernate</dao.framework>
-        <web.framework>jsf</web.framework>
-        <encoding.scheme>utf-8</encoding.scheme>
-
-        <!-- 5. DEPENDENCIAS -->
-        <appfuse.version>2.0.2</appfuse.version>
-        <spring.version>2.5.6.SEC01</spring.version>
-        <spring.security.version>2.0.4</spring.security.version>
-        <spring-ws.version>1.5.6</spring-ws.version>
-        <amp.fullSource>true</amp.fullSource>
-        <amp.genericCore>true</amp.genericCore>
-
-        <saaj.version>1.3</saaj.version>
-
-        <!-- Testing dependency versions -->
-        <jmock.version>1.1.0</jmock.version>
-        <!--jmock.version>2.4.0</jmock.version-->
-        <junit.version>4.4</junit.version>
-        <shale.version>1.0.4</shale.version>
-        <wiser.version>1.2</wiser.version>
-
-        <!-- WebTest dependency versions  -->
-        <webtest.version>R_1702</webtest.version>
-
-        <!-- 6. Database settings -->
+		<!-- Database settings -->
         <dbunit.dataTypeFactoryName> ${profile.dbunit.dataTypeFactoryName}
 		</dbunit.dataTypeFactoryName>
         <dbunit.schema>${profile.jdbc.schema}</dbunit.schema>
@@ -570,117 +119,35 @@
         <jdbc.url.cas>${profile.jdbc.url.cas}</jdbc.url.cas>
         <jndi.name>${jboss.jndi.name}</jndi.name>
         <hibernate.annotations.version>3.4.0.GA</hibernate.annotations.version>
-        <hibernate.dialect> ${profile.hibernate.dialect} </hibernate.dialect>
-        <hibernate.version>3.3.2.GA</hibernate.version>
+        <hibernate.dialect>${profile.hibernate.dialect}</hibernate.dialect>
+        <hibernate.version>3.5.1</hibernate.version>
 
-        <!-- Cargo settings -->
-        <cargo.container>jboss4x</cargo.container>
-        <cargo.container.home>${env.JBOSS_HOME}</cargo.container.home>
-        <cargo.host>localhost</cargo.host>
-        <cargo.port>8081</cargo.port>
-        <cargo.container.url />
-        <cargo.wait>false</cargo.wait>
-        <jboss.home>${profile.jboss.home}</jboss.home>
-        <jboss.port>${profile.server.port}</jboss.port>
+        <!-- Hibernate Maven Plugin -->
+        <hibernate3.maven.version>2.2</hibernate3.maven.version>
+        <hbm2ddl.drop.model>false</hbm2ddl.drop.model>
+		<cobertura.version>1.9.4</cobertura.version>
 
-        <!-- WS dependencies -->
-        <axis2.version>1.4</axis2.version>
-        <wsdl4j.version>1.6.1</wsdl4j.version>
-        <activation.version>1.1</activation.version>
-        <javamail.version>1.4</javamail.version>
-        <axiom-impl.version>1.2.7</axiom-impl.version>
-        <aopalliance.version>1.0</aopalliance.version>
-        <jsr181.version>1.0</jsr181.version>
-
-        <!-- Axis WS client 4 alfresco -->
-        <axis.version>1.4</axis.version>
-        <axis-ant.version>1.3</axis-ant.version>
-        <axis-saaj.version>1.2</axis-saaj.version>
-        <xalan.version>2.6.0</xalan.version>
-        <xerces.version>2.8.0</xerces.version>
-        <wss4j.version>1.5.1</wss4j.version>
-        <jaxrpc.version>1.1</jaxrpc.version>
-        <xmlsec.version>1.2.1</xmlsec.version>
-        <opensaml.version>1.0.1</opensaml.version>
-        <bcprov.version>136</bcprov.version>
-        <wsdl.version>1.4</wsdl.version>
-        <javax-act.version>1.0.2</javax-act.version>
-        <alfresco.wsclient.version>2.1.0</alfresco.wsclient.version>
-
-        <!-- 7. JSF dependencies -->
-        <!-- Compatibilidad J2EE -->
-        <jsp.version>2.1</jsp.version>
-        <servlet.version>2.4</servlet.version>
-        <jstl.version>1.1.2</jstl.version>
-        <!-- Compatibilidad JavaEE 5 -->
-        <!--
-        <jsp.version>2.1</jsp.version>
-        <servlet.version>2.5</servlet.version>
-        <jstl.version>1.2</jstl.version>
-        -->
-        <!-- Expression Language -->
-        <el.version>1.0</el.version>
-        <el-ri.version>1.2</el-ri.version>
-        <!-- Apache MyFaces + Tomahawk + Sandbox + Facelets -->
-        <myfaces.version>1.2.3</myfaces.version>
-        <myfaces.tomahawk.version>1.1.8</myfaces.tomahawk.version>
-        <myfaces.tomahawk.sandbox.version>1.1.8</myfaces.tomahawk.sandbox.version>
-        <facelets.version>1.1.14</facelets.version>
-        <primefaces.version>0.8.1</primefaces.version>
-        <!--facelets.version>1.1.15.B1</facelets.version-->
-
-        <acegijsf.version>1.1.3</acegijsf.version>
-        <corejsf.validator.version>1.0</corejsf.validator.version>
-
-        <!-- Ajax -->
-        <sandbox.version>1.1.6</sandbox.version>
-        <ajax4jsf.version>1.0.6</ajax4jsf.version>
-        <dwr.version>2.0.1</dwr.version>
-        <clickstream.version>1.0.2</clickstream.version>
-        <velocity.version>1.4</velocity.version>
-
-        <standard.version>1.1.2</standard.version>
-
-        <jpa.version>1.0</jpa.version>
-        <xmlschema.version>1.3.1</xmlschema.version>
-        <xbean.version>2.2.0</xbean.version>
-        <ehcache.version>1.3.0</ehcache.version>
-        <aspectj.version>1.6.1</aspectj.version>
-
-        <!-- Apache Commons -->
-        <commons.dbcp.version>1.2.2</commons.dbcp.version>
-        <commons.beanutils.version>1.7.0</commons.beanutils.version>
-        <commons.lang.version>2.3</commons.lang.version>
-        <commons-io.version>1.3.2</commons-io.version>
-        <commons.attributes.version>2.1</commons.attributes.version>
-        <commons-fileupload.version>1.2</commons-fileupload.version>
-        <commons.logging.version>1.1.1</commons.logging.version>
-        <commons-net.version>2.0</commons-net.version>
-        <commons-vfs.version>20050307052300</commons-vfs.version>
-        <solr.version>1.3.0</solr.version>
-        <oscache.version>2.3</oscache.version>
-        <log4j.version>1.2.15</log4j.version>
-        <slf4j.version>1.5.6</slf4j.version>
-        <stax-api.version>1.0.1</stax-api.version>
-        <urlrewrite.version>3.0.4</urlrewrite.version>
-        <jdom.version>1.0</jdom.version>
-        <!-- Quartz dependecies -->
-        <quartz.version>1.6.0</quartz.version>
-        <commons.collections.version>3.2</commons.collections.version>
-        <jta.version>1.0.1B</jta.version>
-        <!-- ognl -->
-        <ognl.version>2.7.3</ognl.version>
-        <!-- jasperreports -->
-        <jasperreports.version>2.0.2</jasperreports.version>
-        <jfreechart.version>1.0.9</jfreechart.version>
-        <!-- xstream -->
-        <!-- <xstream.version>1.3.1</xstream.version>-->
-        <xstream.version>1.1.2</xstream.version>
-        <xml.apis.version>1.0.b2</xml.apis.version>
-        <!-- ncip -->
-        <jconfig.version>2.9</jconfig.version>
-
-        <!-- Page settings -->
-        <page.bienvenida>inicio.htm</page.bienvenida>
+		<!-- Eclipse Maven Plugin -->
+        <eclipse.maven.version>2.5.1</eclipse.maven.version>
+        <eclipse.maven.jsf.facets.version>1.1</eclipse.maven.jsf.facets.version>
+        <eclipse.maven.wtp.version>1.5</eclipse.maven.wtp.version>
+        <eclipse.maven.downloadSources>true</eclipse.maven.downloadSources>
+        <eclipse.maven.downloadJavadocs>true</eclipse.maven.downloadJavadocs>
+        <eclipse.maven.useProjectReferences>false</eclipse.maven.useProjectReferences>
+        <eclipse.maven.useProjectReferences.webProjects>true</eclipse.maven.useProjectReferences.webProjects>
+        <eclipse.maven.default.buildOutputDirectory>target/classes</eclipse.maven.default.buildOutputDirectory>
     </properties>
+    <build>
+    	<plugins>
+        	<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.0.2</version>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+    	</plugins>
+    </build>
 </project>
