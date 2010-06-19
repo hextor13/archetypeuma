@@ -2,15 +2,15 @@
 
 = What is? =
 
-Maven es una aplicación que ayuda a gestionar el ciclo de vida de los proyectos.
+Maven es una aplicación que ayuda a gestionar el ciclo de vida de los proyectos. En este proyecto utilizamos la versión 3 aún en versión beta.
 
-= Instalation =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+= Installation = 
+
+La instalación de maven necesita unicamente dos pasos en nuestros sistemas operativos:
+  * Incluir la variable M2_REPO y MAVEN_HOME
+  * Inluir la carpeta bin de MAVEN_HOME en el path
 
 = Links =
 
-   * http://apache.maven.org
+   * http://maven.apache.org
