@@ -1,0 +1,16 @@
+#summary One-sentence summary of this page.
+
+= What is? =
+
+Jetty es un contenedor de servlets y un servidor HTTP. Ha sido escrito en JAVA. Tiene licencia de Apache 2.
+Entre sus principales características esta la sencillez, 
+
+
+= Instalation =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
+
+= Links =
