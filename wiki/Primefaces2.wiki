@@ -1,0 +1,15 @@
+#summary Primefaces 2.0
+
+= What is? =
+
+Primefaces es una galería de tags para jsf que cumple con el estándar.
+
+
+= Instalation =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
+
+= Links =
