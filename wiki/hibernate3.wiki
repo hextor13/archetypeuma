@@ -1,0 +1,23 @@
+#Hibernate 3.5
+
+= What is? =
+
+Hibernate es un ORM
+
+
+= Instalation =
+
+
+
+= Links = 
+
+http://www.hibernate.org/
+
+Documentation core
+http://docs.jboss.org/hibernate/stable/core/reference/en/html/
+
+Documentation entityManager
+http://docs.jboss.org/hibernate/stable/entitymanager/reference/en/html/
+
+Documentation annotation
+http://docs.jboss.org/hibernate/stable/annotations/reference/en/html/
