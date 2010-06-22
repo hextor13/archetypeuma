@@ -1,13 +1,52 @@
-#summary One-sentence summary of this page.
+#summary Apache CFX
 
-= Introduction =
+= What is? =
 
-Add your content here.
+Apache CFX es un framework de Apache que ofrece una suite para el trabajo con web sercices.
 
+= Instalation =
 
-= Details =
+<pre>
+	    <dependency>
+	        <groupId>org.apache.cxf</groupId>
+	        <artifactId>cxf-rt-core</artifactId>
+	        <version>2.2.9</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.apache.cxf</groupId>
+	        <artifactId>cxf-rt-frontend-simple</artifactId>
+	        <version>2.2.9</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.apache.cxf</groupId>
+	        <artifactId>cxf-rt-frontend-jaxws</artifactId>
+	        <version>2.2.9</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.apache.cxf</groupId>
+	        <artifactId>cxf-rt-transports-local</artifactId>
+	        <version>2.2.9</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.apache.cxf</groupId>
+	        <artifactId>cxf-rt-transports-http</artifactId>
+	        <version>2.2.9</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.apache.cxf</groupId>
+	        <artifactId>cxf-common-utilities</artifactId>
+	        <version>2.2.9</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>junit</groupId>
+	        <artifactId>junit</artifactId>
+	        <version>4.5</version>
+	        <scope>test</scope>
+	    </dependency>
+</pre>
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+= Use =
+
+= Links =
+
+http://cxf.apache.org/
