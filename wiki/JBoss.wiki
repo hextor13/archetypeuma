@@ -1,0 +1,18 @@
+#summary Jboss
+#labels JBoss,archetypeUma,Download,use
+
+= What is? =
+
+JBoss es un servidor de aplicaciones.
+
+= Instalation =
+
+Download: http://www.jboss.org/jbossas/downloads/
+
+Crea la variable JBOSS_HOME referenciando al directorio donde tengamos el directorio de instalación.
+
+= Use =
+
+= Links =
+
+http://www.jboss.org/jbossas
