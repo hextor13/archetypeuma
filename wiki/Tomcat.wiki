@@ -30,7 +30,7 @@ http://code.google.com/p/archetypeuma/downloads/detail?name=apache-tomcat-7.0.0.
 Las rutas que utiliza Apache Tomcat son relativas a una variable de entorno. Tenemos que declararla en nuestro sistema operativo:
 
   * _En linux_:
-export CATALINA_HOME=/home/user/carpetasInstalacion/apache-tomcat-7.0.0
+{export CATALINA_HOME=/home/user/carpetasInstalacion/apache-tomcat-7.0.0}
 
   * _En windows_:
 set CATALINA_HOME=/C:/carpetasInstalacion/apache-tomcat-7.0.0
