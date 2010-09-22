@@ -44,10 +44,15 @@ set CATALINA_HOME=/C:/carpetasInstalacion/apache-tomcat-7.0.0
 A varias formas de utilizar el servidor de Tomcat. Las más utilizadas son el arranque desde la consola de comandos y desde el eclipse.
 
 Arranque desde la consola de comandos:
-En Windows:
-/carpetaInstalacion/apache-tomcat-7.0.0/bin/catalina.bat run
-o en Linux
+  * _En linux_:
+{{{
 /carpetaInstalacion/apache-tomcat-7.0.0/bin/catalina.sh run
+}}}
+
+  * _En windows_:
+{{{
+/carpetaInstalacion/apache-tomcat-7.0.0/bin/catalina.bat run
+}}}
 
 Arrancará todos los proyectos que hay en la carpeta de webapps de tomcat y los que se definan en el fichero context.xml
 
