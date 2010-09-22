@@ -1,4 +1,5 @@
 #summary Apache CFX
+#labels ApacheCXF,CXF,XFire,webservices,maven,dependency
 
 = What is? =
 
@@ -6,6 +7,7 @@ Apache CFX es un framework de Apache que ofrece una suite para el trabajo con we
 
 = Instalation =
 
+{{{
 <pre>
 	    <dependency>
 	        <groupId>org.apache.cxf</groupId>
@@ -44,6 +46,7 @@ Apache CFX es un framework de Apache que ofrece una suite para el trabajo con we
 	        <scope>test</scope>
 	    </dependency>
 </pre>
+}}}
 
 = Use =
 
