@@ -11,22 +11,22 @@ import javax.persistence.Table;
 /**
  * @author jcisneros
  */
-@Entity(name = City.ENTITY_NAME)
-@Table(name = City.TABLE_NAME)
-public class City extends BaseObject {
+@Entity(name = User.ENTITY_NAME)
+@Table(name = User.TABLE_NAME)
+public class User extends BaseObject {
 
     /**
-     * BaseObject is Serializable, so City needs a Serial Version UID
+     * BaseObject is Serializable, so USER needs a Serial Version UID
      */
-    private static final long   serialVersionUID   = 7550335133725207117L;
+    private static final long   serialVersionUID   = 7550335133725207118L;
 
-    public static final String  ENTITY_NAME        = "org.archetype.model.pojos.City";
-    public static final String  TABLE_NAME         = "TABLE_CITY";
-    private static final String ID_GENERATOR_NAME  = "GENERATOR_CITY";
-    private static final String ID_SEQUENCE_NAME   = "SEQ_CITY";
-    public static final String  COLUMN_NAME_ID     = "PK_CITY";
-    public static final String  COLUMN_NAME_CODE   = "CODE_CITY";
-    public static final String  COLUMN_NAME_NOMBRE = "NAME_CITY";
+    public static final String  ENTITY_NAME        = "org.archetype.model.pojos.User";
+    public static final String  TABLE_NAME         = "TABLE_USER";
+    private static final String ID_GENERATOR_NAME  = "GENERATOR_USER";
+    private static final String ID_SEQUENCE_NAME   = "SEQ_USER";
+    public static final String  COLUMN_NAME_ID     = "PK_USER";
+    public static final String  COLUMN_NAME_NICK   = "NICK_USER";
+    public static final String  COLUMN_NAME_NAME   = "NAME_USER";
 
     /**
      * Clave primaria autonumérica sin significado
@@ -34,19 +34,19 @@ public class City extends BaseObject {
     private Long                id;
 
     /**
-     * Code of city
+     * Código INE
      */
-    private String              code;
+    private String              nick;
 
     /**
-     * Nombre del city
+     * User name.
      */
     private String              name;
 
     /**
      * Constructor protected.
      */
-    protected City() {
+    protected User() {
         super();
     }
 
@@ -56,10 +56,10 @@ public class City extends BaseObject {
      * @param codigo
      * @param nombre
      */
-    public City(String code, String nombre) {
+    public User(String nick, String name) {
         super();
-        this.code = code;
-        this.name = nombre;
+        this.nick = nick;
+        this.name = name;
     }
 
     /**
@@ -68,7 +68,7 @@ public class City extends BaseObject {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = ID_GENERATOR_NAME)
     @SequenceGenerator(name = ID_GENERATOR_NAME, sequenceName = ID_SEQUENCE_NAME)
-    @Column(name = City.COLUMN_NAME_ID)
+    @Column(name = User.COLUMN_NAME_ID)
     public Long getId() {
         return id;
     }
@@ -84,16 +84,16 @@ public class City extends BaseObject {
     /**
      * @return the codigo
      */
-    public String getCode() {
-        return code;
+    public String getNick() {
+        return nick;
     }
 
     /**
      * @param codigo
      *            the codigo to set
      */
-    public void setCode(String code) {
-        this.code = code;
+    public void setNick(String nick) {
+        this.nick = nick;
     }
 
     /**
@@ -123,13 +123,13 @@ public class City extends BaseObject {
         }
 
         // if they are classify in different classes
-        if (!(obj instanceof City)) {
+        if (!(obj instanceof User)) {
             return false;
         }
 
-        final City other = (City) obj;
+        final User other = (User) obj;
 
-        if (!getCode().equals(other.getCode())) {
+        if (!getNick().equals(other.getNick())) {
             return false;
         }
 
@@ -145,7 +145,7 @@ public class City extends BaseObject {
         int result = prime;
         result += ((id == null) ? 0 : getId().hashCode());
         result = prime * result
-                + ((getCode() == null) ? 0 : getCode().hashCode());
+                + ((getNick() == null) ? 0 : getNick().hashCode());
 
         return result;
     }
