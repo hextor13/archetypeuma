@@ -20,6 +20,7 @@
         <!-- FIN configuración de sessionFactory -->
 
     <mapping class="org.archetypeUma.model.pojos.City" />
+    <mapping class="org.archetypeUma.model.pojos.User" />
 
   </session-factory>
 </hibernate-configuration>
