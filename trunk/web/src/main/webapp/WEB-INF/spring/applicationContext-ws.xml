@@ -8,6 +8,5 @@
 
 	<bean id="cityWSImpl" class="org.archetypeUma.ws.implementations.CityWSImpl" />
 
-	<jaxws:endpoint id="cityWS" implementor="#cityWSImpl"
-		address="/Cities" />
+	<jaxws:endpoint id="cityWS" implementor="#cityWSImpl" address="/cities" />
 </beans>
