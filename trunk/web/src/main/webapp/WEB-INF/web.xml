@@ -35,6 +35,10 @@
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.html</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.htm</url-pattern>
+	</servlet-mapping>
 	<listener>
 		<listener-class>org.apache.myfaces.webapp.StartupServletContextListener</listener-class>
 	</listener>
@@ -58,18 +62,18 @@
 		<param-value>
 			classpath:/spring/applicationContext-dao.xml
 			classpath:/spring/applicationContext-service.xml
+			classpath:/spring/applicationContext-ws.xml
 		</param-value>
 	</context-param>
-<!--			classpath:/spring/applicationContext-ws.xml-->
-<!--	<servlet>-->
-<!--		<servlet-name>CXFServlet</servlet-name>-->
-<!--		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>-->
-<!--		<load-on-startup>1</load-on-startup>-->
-<!--	</servlet>-->
-<!--	<servlet-mapping>-->
-<!--		<servlet-name>CXFServlet</servlet-name>-->
-<!--		<url-pattern>/*</url-pattern>-->
-<!--	</servlet-mapping>-->
+	<servlet>
+		<servlet-name>CXFServlet</servlet-name>
+		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CXFServlet</servlet-name>
+		<url-pattern>/ws/*</url-pattern>
+	</servlet-mapping>
 	<!-- Tiempo de expiracion de la sesion -->
 <!--	<session-config>-->
 <!--		<session-timeout>30</session-timeout>-->
