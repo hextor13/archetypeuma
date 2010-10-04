@@ -5,7 +5,7 @@ import javax.jws.WebService;
 import org.archetypeUma.model.pojos.City;
 import org.archetypeUma.ws.interfaces.ICityWS;
 
-@WebService(endpointInterface = "org.archetype.model.pojos.City")
+@WebService(endpointInterface = "org.archetypeUma.ws.interfaces.ICityWS")
 public class CityWSImpl implements ICityWS {
 
     public String example(String name) {
