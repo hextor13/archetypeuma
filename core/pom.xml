@@ -14,13 +14,6 @@
 				<filtering>true</filtering>
 				<directory>src/main/resources</directory>
 			</resource>
-			<resource>
-				<directory>src/main/resources</directory>
-				<includes>
-					<include>applicationContext-dao.xml
-					</include>
-				</includes>
-			</resource>
 		</resources>
 		<testResources>
 			<testResource>
@@ -29,18 +22,6 @@
 			</testResource>
 		</testResources>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
 <!--			<plugin>-->
 <!--				<groupId>org.codehaus.mojo</groupId>-->
 <!--				<artifactId>aspectj-maven-plugin</artifactId>-->
@@ -77,39 +58,6 @@
 <!--					</aspectLibraries>-->
 <!--				</configuration>-->
 <!--			</plugin>-->
-			<!--
-				Assemblies para permitir generar por separado interfaz e
-				implementacion
-			-->
-			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<configuration>
-					<descriptors>
-						<descriptor>src/main/assembly/model.xml
-						</descriptor>
-						<descriptor>src/main/assembly/dao-api.xml
-						</descriptor>
-						<descriptor>src/main/assembly/dao-impl.xml
-						</descriptor>
-						<descriptor>src/main/assembly/service-api.xml
-						</descriptor>
-						<descriptor>src/main/assembly/service-impl.xml
-						</descriptor>
-					</descriptors>
-					<archive>
-						<manifestEntries>
-							<Implementation-Version>${pom.version}
-							</Implementation-Version>
-							<Implementation-Title>LibrÆ AdminConfig
-							</Implementation-Title>
-							<Extension-Name>librae-adminconfig
-							</Extension-Name>
-							<Built-By>INGENIA</Built-By>
-						</manifestEntries>
-						<addMavenDescriptor>false</addMavenDescriptor>
-					</archive>
-				</configuration>
-			</plugin>
 		</plugins>
 	</build>
 	<dependencies>
@@ -117,6 +65,16 @@
 		    <groupId>org.archetypeUma</groupId>
 		    <artifactId>archetypeUma-model</artifactId>
 		    <version>1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context</artifactId>
+		    <version>3.0.3.RELEASE</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-orm</artifactId>
+		    <version>3.0.3.RELEASE</version>
 		</dependency>
 	</dependencies>
 </project>
