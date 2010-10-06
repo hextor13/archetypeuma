@@ -67,64 +67,52 @@
                     </componentProperties>
                 </configuration>
             </plugin>
-
-            <!-- (3) process-test-classes: dbunit-maven-plugin: CLEAN_INSERT -->
-<!--            <plugin>-->
-<!--                <groupId>org.codehaus.mojo</groupId>-->
-<!--                <artifactId>dbunit-maven-plugin</artifactId>-->
-<!--                <version>${dbunit.maven.version}</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <phase>test-compile</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>operation</goal>-->
-<!--                        </goals>-->
-<!--                        <configuration>-->
-<!--		                    <dataTypeFactoryName>${dbunit.dataTypeFactoryName}</dataTypeFactoryName>-->
-<!--		                    <src>src/main/resources/sample-data.xml-->
-<!--							</src>-->
-<!--		                    <type>${dbunit.operation.type}</type>-->
-<!--		                </configuration>-->
-<!--                    </execution>-->
-                    <!-- execution>
-                        <id>exporting</id>
-			            <phase>test</phase>
-			            <goals>
-			              <goal>export</goal>
-			            </goals>
-			            <configuration>
-			                <format>sql</format>
-			                <dest>target/sample-data.sql</dest>
-			            </configuration>
-			          </execution -->
-<!--                </executions>-->
-<!--                <configuration>-->
-<!--	                <driver>${jdbc.driverClassName}</driver>-->
-<!--                    <username>${jdbc.username}</username>-->
-<!--                    <password>${jdbc.password}</password>-->
-<!--                    <url>${jdbc.url}</url>-->
-<!--                    <schema>${dbunit.schema}</schema>-->
-<!--                    <skip>${maven.test.skip}</skip>-->
-<!--                    <skipOracleRecycleBinTables>true</skipOracleRecycleBinTables>-->
-<!--					<useQualifiedTableNames>false</useQualifiedTableNames>-->
-<!--	            </configuration>-->
-<!--                <dependencies>-->
-<!--                    <dependency>-->
-<!--                        <groupId>${jdbc.groupId}</groupId>-->
-<!--                        <artifactId>${jdbc.artifactId}</artifactId>-->
-<!--                        <version>${jdbc.version}</version>-->
-<!--                    </dependency>-->
-<!--                </dependencies>-->
-<!--            </plugin>-->
-            <!-- DEPLOY PLUGIN -->
-<!--            <plugin>-->
-<!--        		<groupId>org.apache.maven.plugins</groupId>-->
-<!--        		<artifactId>maven-deploy-plugin</artifactId>-->
-<!--        		<version>${deploy.maven.version}</version>-->
-<!--        		<configuration>-->
-<!--        			<skip>${model.skip.deploy}</skip>-->
-<!--        		</configuration>-->
-<!--      		</plugin>-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>dbunit-maven-plugin</artifactId>
+                <version>${dbunit.maven.version}</version>
+                <executions>
+                    <execution>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>operation</goal>
+                        </goals>
+                        <configuration>
+		                    <dataTypeFactoryName>${dbunit.dataTypeFactoryName}</dataTypeFactoryName>
+		                    <src>src/main/resources/sample-data.xml</src>
+		                    <type>${dbunit.operation.type}</type>
+		                </configuration>
+                    </execution>
+<!--                     execution>-->
+<!--                        <id>exporting</id>-->
+<!--			            <phase>test</phase>-->
+<!--			            <goals>-->
+<!--			              <goal>export</goal>-->
+<!--			            </goals>-->
+<!--			            <configuration>-->
+<!--			                <format>sql</format>-->
+<!--			                <dest>target/sample-data.sql</dest>-->
+<!--			            </configuration>-->
+<!--			          </execution -->
+                </executions>
+                <configuration>
+	                <driver>${jdbc.driverClassName}</driver>
+                    <username>${jdbc.username}</username>
+                    <password>${jdbc.password}</password>
+                    <url>${jdbc.url}</url>
+                    <schema>${dbunit.schema}</schema>
+                    <skip>${maven.test.skip}</skip>
+                    <skipOracleRecycleBinTables>true</skipOracleRecycleBinTables>
+					<useQualifiedTableNames>false</useQualifiedTableNames>
+	            </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>${jdbc.groupId}</groupId>
+                        <artifactId>${jdbc.artifactId}</artifactId>
+                        <version>${jdbc.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
         </plugins>
     </build>
     <dependencies>
@@ -153,13 +141,11 @@
 		  <scope>runtime</scope>
 		</dependency>
 
-		<!-- Logging -->
 		<dependency>
 		  <groupId>log4j</groupId>
 		  <artifactId>log4j</artifactId>
 		  <version>1.2.15</version>
 		</dependency>
-		<!-- fin DEPENDENCIAS librae-subs -->
 	</dependencies>
 	<repositories>
 	  <repository>
