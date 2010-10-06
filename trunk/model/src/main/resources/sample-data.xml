@@ -1,4 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-    
+	<table name="table_city">
+		<column>PK_CITY</column>
+		<column>CODE_CITY</column>
+		<column>NAME_CITY</column>
+		<row>
+			<value description="PK_CITY">-1</value>
+			<value description="CODE_CITY">MA</value>
+			<value description="NAME_CITY">Málaga</value>
+		</row>
+		<row>
+			<value description="PK_CITY">-2</value>
+			<value description="CODE_CITY">GR</value>
+			<value description="NAME_CITY">Granada</value>
+		</row>
+		<row>
+			<value description="PK_CITY">-3</value>
+			<value description="CODE_CITY">CA</value>
+			<value description="NAME_CITY">Cádiz</value>
+		</row>
+	</table>
+	<table name="table_user">
+		<column>PK_USER</column>
+		<column>NICK_USER</column>
+		<column>NAME_USER</column>
+		<row>
+			<value description="PK_USER">-1</value>
+			<value description="NICK_USER">jcisneros</value>
+			<value description="NAME_USER">Javier Cisneros González</value>
+		</row>
+		<row>
+			<value description="PK_CITY">-2</value>
+			<value description="CODE_CITY">admin</value>
+			<value description="NAME_USER">Administrator</value>
+		</row>
+	</table>
 </dataset>
