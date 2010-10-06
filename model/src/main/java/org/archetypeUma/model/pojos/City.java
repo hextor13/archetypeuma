@@ -9,6 +9,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
+ * Clase que representa una ciudad.
+ *
  * @author jcisneros
  */
 @Entity(name = City.ENTITY_NAME)
@@ -18,15 +20,15 @@ public class City extends BaseObject {
     /**
      * BaseObject is Serializable, so City needs a Serial Version UID
      */
-    private static final long   serialVersionUID   = 7550335133725207117L;
+    private static final long   serialVersionUID  = 7550335133725207117L;
 
-    public static final String  ENTITY_NAME        = "org.archetype.model.pojos.City";
-    public static final String  TABLE_NAME         = "TABLE_CITY";
-    private static final String ID_GENERATOR_NAME  = "GENERATOR_CITY";
-    private static final String ID_SEQUENCE_NAME   = "SEQ_CITY";
-    public static final String  COLUMN_NAME_ID     = "PK_CITY";
-    public static final String  COLUMN_NAME_CODE   = "CODE_CITY";
-    public static final String  COLUMN_NAME_NOMBRE = "NAME_CITY";
+    public static final String  ENTITY_NAME       = "org.archetype.model.pojos.City";
+    public static final String  TABLE_NAME        = "TABLE_CITY";
+    private static final String ID_GENERATOR_NAME = "GENERATOR_CITY";
+    private static final String ID_SEQUENCE_NAME  = "SEQ_CITY";
+    public static final String  COLUMN_NAME_ID    = "PK_CITY";
+    public static final String  COLUMN_NAME_CODE  = "CODE_CITY";
+    public static final String  COLUMN_NAME_NAME  = "NAME_CITY";
 
     /**
      * Clave primaria autonumérica sin significado
@@ -39,7 +41,7 @@ public class City extends BaseObject {
     private String              code;
 
     /**
-     * Nombre del city
+     * Name of city
      */
     private String              name;
 
@@ -84,6 +86,7 @@ public class City extends BaseObject {
     /**
      * @return the codigo
      */
+    @Column(name = COLUMN_NAME_CODE, length = 100)
     public String getCode() {
         return code;
     }
@@ -99,6 +102,7 @@ public class City extends BaseObject {
     /**
      * @return the nombre
      */
+    @Column(name = COLUMN_NAME_NAME, length = 100)
     public String getName() {
         return name;
     }
@@ -154,9 +158,10 @@ public class City extends BaseObject {
      * @see java.lang.Object#toString()
      */
     public String toString() {
-        return null;
-        // new StringBuilder(this).append(COLUMN_NAME_ID,
-        // getId()).append(COLUMN_NAME_CODIGO, getCodigo())
-        // .append(COLUMN_NAME_NOMBRE, getNombre()).toString();
+        StringBuilder sb = new StringBuilder();
+        sb.append(COLUMN_NAME_ID).append(getId()).append(" ");
+        sb.append(COLUMN_NAME_CODE).append(getCode()).append(" ");
+        sb.append(COLUMN_NAME_NAME).append(getName()).append(" ").toString();
+        return sb.toString();
     }
 }

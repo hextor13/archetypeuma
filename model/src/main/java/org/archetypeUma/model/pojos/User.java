@@ -9,6 +9,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
+ * Clase que representa un usuario.
+ *
  * @author jcisneros
  */
 @Entity(name = User.ENTITY_NAME)
@@ -18,15 +20,15 @@ public class User extends BaseObject {
     /**
      * BaseObject is Serializable, so USER needs a Serial Version UID
      */
-    private static final long   serialVersionUID   = 7550335133725207118L;
+    private static final long   serialVersionUID  = 7550335133725207118L;
 
-    public static final String  ENTITY_NAME        = "org.archetype.model.pojos.User";
-    public static final String  TABLE_NAME         = "TABLE_USER";
-    private static final String ID_GENERATOR_NAME  = "GENERATOR_USER";
-    private static final String ID_SEQUENCE_NAME   = "SEQ_USER";
-    public static final String  COLUMN_NAME_ID     = "PK_USER";
-    public static final String  COLUMN_NAME_NICK   = "NICK_USER";
-    public static final String  COLUMN_NAME_NAME   = "NAME_USER";
+    public static final String  ENTITY_NAME       = "org.archetype.model.pojos.User";
+    public static final String  TABLE_NAME        = "TABLE_USER";
+    private static final String ID_GENERATOR_NAME = "GENERATOR_USER";
+    private static final String ID_SEQUENCE_NAME  = "SEQ_USER";
+    public static final String  COLUMN_NAME_ID    = "PK_USER";
+    public static final String  COLUMN_NAME_NICK  = "NICK_USER";
+    public static final String  COLUMN_NAME_NAME  = "NAME_USER";
 
     /**
      * Clave primaria autonumérica sin significado
@@ -84,6 +86,7 @@ public class User extends BaseObject {
     /**
      * @return the codigo
      */
+    @Column(name = COLUMN_NAME_NICK, length = 100)
     public String getNick() {
         return nick;
     }
@@ -99,6 +102,7 @@ public class User extends BaseObject {
     /**
      * @return the nombre
      */
+    @Column(name = COLUMN_NAME_NAME, length = 100)
     public String getName() {
         return name;
     }
@@ -154,9 +158,10 @@ public class User extends BaseObject {
      * @see java.lang.Object#toString()
      */
     public String toString() {
-        return null;
-        // new StringBuilder(this).append(COLUMN_NAME_ID,
-        // getId()).append(COLUMN_NAME_CODIGO, getCodigo())
-        // .append(COLUMN_NAME_NOMBRE, getNombre()).toString();
+        StringBuilder sb = new StringBuilder();
+        sb.append(COLUMN_NAME_ID).append(getId()).append(" ");
+        sb.append(COLUMN_NAME_NICK).append(getNick()).append(" ");
+        sb.append(COLUMN_NAME_NAME).append(getName()).append(" ").toString();
+        return sb.toString();
     }
 }
