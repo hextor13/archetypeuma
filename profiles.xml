@@ -43,6 +43,58 @@
 	</profile>
 	<!-- fin mysql -->
 
+	<!-- inicio postgresql (activeProfile en %M2_HOME%/conf/settings.xml) -->
+	<profile>
+		<id>postgresql</id>
+
+    	<activation>
+      		<property>
+        		<name>db</name>
+        		<value>postgresql</value>
+      		</property>
+    	</activation>
+
+		<properties>
+			<profile.jdbc.host>postgresql.db</profile.jdbc.host>
+			<profile.jdbc.port>3306</profile.jdbc.port>
+			<profile.jdbc.dbname>archetype_db</profile.jdbc.dbname>
+			<profile.jdbc.username>archetype_user</profile.jdbc.username>
+			<profile.jdbc.password>archetype_pwd</profile.jdbc.password>
+			<profile.jdbc.url>
+				<![CDATA[jdbc:postgresql://${profile.jdbc.host}:${profile.jdbc.port}/${profile.jdbc.dbname}]]>
+			</profile.jdbc.url>
+			<profile.jdbc.url.cas>
+				<![CDATA[jdbc:mysql://${profile.jdbc.host}:${profile.jdbc.port}/${profile.jdbc.dbname}]]>
+			</profile.jdbc.url.cas>
+			<profile.hibernate.dialect>org.hibernate.dialect.MySQLDialect</profile.hibernate.dialect>
+			<profile.dbunit.dataTypeFactoryName>
+				org.dbunit.dataset.datatype.DefaultDataTypeFactory
+			</profile.dbunit.dataTypeFactoryName>
+			<profile.jdbc.driverClassName>org.postgresql.Driver</profile.jdbc.driverClassName>
+			<profile.jdbc.groupId>postgresql</profile.jdbc.groupId>
+			<profile.database>postgresql</profile.database>
+			<profile.jdbc.artifactId>8.3-604.jdbc3</profile.jdbc.artifactId>
+			<profile.jdbc.version>5.0.8</profile.jdbc.version>
+
+			<profile.dbunit.dataTypeFactoryName>
+				org.dbunit.dataset.datatype.DefaultDataTypeFactory
+			</profile.dbunit.dataTypeFactoryName>
+			<profile.hibernate.dialect>
+				org.hibernate.dialect.PostgreSQLDialect
+			</profile.hibernate.dialect>
+			<hibernate.dialect.osworkflow>
+				${profile.hibernate.dialect}
+			</hibernate.dialect.osworkflow>
+			<profile.jdbc.groupId>postgresql</profile.jdbc.groupId>
+			<profile.jdbc.artifactId>postgresql</profile.jdbc.artifactId>
+			<profile.jdbc.version>8.3-604.jdbc3</profile.jdbc.version>
+			<profile.jdbc.driverClassName>
+				org.postgresql.Driver
+			</profile.jdbc.driverClassName>
+		</properties>
+	</profile>
+	<!-- fin mysql -->
+
 	<!--
 	 Configuración:
 	 =======================
