@@ -57,7 +57,7 @@ public class UserListAction implements Serializable {
     public void init() {
         try {
             users = new LinkedList<SelectItem>();
-            userManager.getAll();
+            // userManager.getAll();
         } catch (Exception ex) {
             Logger.getLogger(UserListAction.class.getName()).log(Level.SEVERE, null, ex);
         }

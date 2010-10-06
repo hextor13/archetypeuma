@@ -119,10 +119,10 @@
 		<managed-bean-name>userListAction</managed-bean-name>
 		<managed-bean-class>org.archetypeUma.actions.UserListAction</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
-		<managed-property>
-			<property-name>userManager</property-name>
-			<value>#{userManager}</value>
-		</managed-property>
+<!--		<managed-property>-->
+<!--			<property-name>userManager</property-name>-->
+<!--			<value>#{userManager}</value>-->
+<!--		</managed-property>-->
 	</managed-bean>
 
 </faces-config>

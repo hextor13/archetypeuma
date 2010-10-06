@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.archetypeUma</groupId>
+		<artifactId>archetypeUma</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<groupId>org.archetypeUma</groupId>
+	<artifactId>archetypeUma-ear</artifactId>
+	<packaging>ear</packaging>
+	<name>archetypeUma: Enterprise Application Resource</name>
+	<version>1.0-SNAPSHOT</version>
+
+	<build>
+		<finalName>archetypeUma</finalName>
+		<resources>
+			<resource>
+				<filtering>true</filtering>
+				<directory>src/main/application</directory>
+				<targetPath>./</targetPath>
+				<includes>
+					<include>hibernate.cfg.xml_tpl</include>
+					<include>sigb-jboss-ds.xml_tpl</include>
+					<include>jdbc.properties</include>
+				</includes>
+			</resource>
+			<resource>
+				<filtering>true</filtering>
+				<directory>src/main/application/META-INF</directory>
+				<targetPath>./META-INF</targetPath>
+				<includes>
+					<include>jboss-app.xml</include>
+					<include>orion-application.xml</include>
+					<include>MANIFEST.MF</include>
+				</includes>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jboss-maven-plugin</artifactId>
+				<version>${jboss.maven.version}</version>
+				<configuration>
+					<jbossHome>${jboss.home}</jbossHome>
+					<port>${jboss.port}</port>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+
+            <!-- generación de paquete EAR con todos los JARs y WARs -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<configuration>
+					<resourcesDir>target/classes</resourcesDir>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<modules>
+						<webModule>
+							<groupId>org.archetypeUma</groupId>
+							<artifactId>archetypeUma-web</artifactId>
+							<contextRoot>/archetypeUma</contextRoot>
+							<bundleDir>/</bundleDir>
+						</webModule>
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+<!--		<dependency>-->
+<!--		    <groupId>org.archetypeUma</groupId>-->
+<!--		    <artifactId>archetypeUma-core</artifactId>-->
+<!--		    <version>1.0-SNAPSHOT</version>-->
+<!--		</dependency>-->
+		<dependency>
+		    <groupId>org.archetypeUma</groupId>
+		    <artifactId>archetypeUma-web</artifactId>
+		    <version>1.0-SNAPSHOT</version>
+		    <type>war</type>
+		</dependency>
+	</dependencies>
+</project>
