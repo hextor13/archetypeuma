@@ -12,6 +12,6 @@ import java.util.List;
  */
 public interface IBaseDao<T, PK extends Serializable> {
 
-    List<T> getAll(Class<T> persistentClass);
+    List<T> getAll();
 
 }
