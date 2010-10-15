@@ -12,16 +12,15 @@
 
 	<description>beans service and aspects</description>
 
-	<context:component-scan base-package="org.archetypeUma.dao.implementation.*"/>
-	<context:component-scan base-package="org.archetypeUma.service.implementation.*"/>
     <context:annotation-config/>
+	<context:component-scan base-package="org.archetypeUma.service.implementation"/>
 
     <!-- Capturamos de librae-context-ear la declaración de Transactional -->
 <!--    <import resource="classpath:/spring/applicationContext-transactional.xml"/>-->
 
 	<!-- Managers: For accessing DAOs -->
-    <bean id="userManager" class="org.archetypeUma.service.implementation.UserManagerImpl">
+    <!--<bean id="userManager" class="org.archetypeUma.service.implementation.UserManagerImpl">
        <property name="cityDao" ref="cityDAO"/>
        <property name="userDao" ref="userDAO"/>
     </bean>
-</beans>
+--></beans>

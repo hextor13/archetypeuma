@@ -31,14 +31,14 @@ public class UserManagerImpl implements IUserManager {
      * @return
      */
     public List<User> getAll() {
-        return userDao.getAll(User.class);
+        return userDao.getAll();
     }
 
     /**
      * @return
      */
     public List<City> getAllCity() {
-        return cityDao.getAll(City.class);
+        return cityDao.getAll();
     }
 
     // Getters && Setters
