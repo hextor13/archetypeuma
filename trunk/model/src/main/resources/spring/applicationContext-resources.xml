@@ -34,14 +34,11 @@
                 hibernate.dialect=${hibernate.dialect}
                 hibernate.query.substitutions=true 'Y', false 'N'
                 hibernate.cache.use_second_level_cache=true
-                hibernate.cache.use_query_cache=true
-                hibernate.cache.provider_class=org.hibernate.cache.OSCacheProvider
+                hibernate.cache.use_query_cache=false
             </value>
+<!--                hibernate.cache.provider_class=org.hibernate.cache.OSCacheProvider-->
             <!-- Turn batching off for better error messages under PostgreSQL -->
             <!-- hibernate.jdbc.batch_size=0 -->
-        </property>
-        <property name="entityInterceptor">
-            <ref bean="entityAuditLogInterceptor" />
         </property>
         <!-- configuracion de nomenclatura -->
         <!--property name="namingStrategy" ref="namingStrategy" /-->
