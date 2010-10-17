@@ -14,50 +14,50 @@ Tomcat isn´t a Applications Server, like JBoss. It´s includes Jasper Compiler,
 This is the Tomcat´s folder structure and a little description about each folder:
 
   * bin: this folder contains all Software Applications which has Apache Tomcat. Here we get Sotfware Applications to startup the server, to stop the server and others.
-  * Conf: es el directorio de configuración. Destacan los ficheros server.xml, web.xml y context.xml ya que son los que controlan las características que va a tener el Tomcat definido.
-  * Lib: aquí tiene cabida las librerías Java que utiliza Tomcat para su ejecución. Este directorio también es utilizado en algunos proyectos cuando se quiere compartir libreríaas entre diferentes aplicaciones desplegadas en Tomcat.
-  * Logs: se crean los ficheros de logs. Es bueno mandar los ficheros de logs a esta carpeta para tener centralizados los logs.
-  * Temp: Carpeta temporal de Tomcat que seguramente pasará de desapercibida para el usuario.
-  * Webapps: en esta carpeta es la que utiliza Tomcat para desplegar las aplicaciones. Contiene varios proyectos de prueba y la aplicación de administración de Tomcat.
+  * Conf: it´s configuration directory. In this folder, there are three very important files: server.xml, web.xml and context.xml. These files control the characteristics that our Tomcat is going to take.
+  * Lib: here we find Java´s libraries which Tomcat uses for its ejecution. This folder is used too in some projects when we want to share libraries between different applications deployed in Tomcat.
+  * Logs: in this folder are created the log files. It´s recommended save the log files into this folder to centralize.
+  * Temp: it´s temporal folder of Tomcat that will probably unnoticed by the user
+  * Webapps: this folder is used by Tomcat to deploy the applications. It contains several test projects and the management Tomcat application.
 
 = Instalation =
 
-Descargaremos el fichero del enlace, lo descomprimiremos  y moveremos  a la carpeta que queramos dentro de nuestro sistema de ficheros:
+Get the file from the following download link. Later, unzip it and move to the folder you want in your file system:
 http://code.google.com/p/archetypeuma/downloads/detail?name=apache-tomcat-7.0.0.zip
 
-Las rutas que utiliza Apache Tomcat son relativas a una variable de entorno. Tenemos que declararla en nuestro sistema operativo:
+Apache Tomcat uses relative paths to an environment variable. You must declare this variable in your Operating System:
 
-  * _En linux_:
+  * _In Linux_:
 {{{
 export CATALINA_HOME=/home/user/carpetasInstalacion/apache-tomcat-7.0.0
 }}}
 
-  * _En windows_:
+  * _In Windows_:
 {{{
 set CATALINA_HOME=/C:/carpetasInstalacion/apache-tomcat-7.0.0
 }}}
 
 = Use =
 
-A varias formas de utilizar el servidor de Tomcat. Las más utilizadas son el arranque desde la consola de comandos y desde el eclipse.
+There are several ways to use Tomcat Server. The most used are startup from command console or from Eclipse IDE.
 
-Arranque desde la consola de comandos:
-  * _En linux_:
+Startup Tomcat from command console:
+  * _In linux_:
 {{{
 /carpetaInstalacion/apache-tomcat-7.0.0/bin/catalina.sh run
 }}}
 
-  * _En windows_:
+  * _In windows_:
 {{{
 /carpetaInstalacion/apache-tomcat-7.0.0/bin/catalina.bat run
 }}}
 
-Arrancará todos los proyectos que hay en la carpeta de webapps de tomcat y los que se definan en el fichero context.xml
+Thus  the startup all projects which are into Webapps and those which are defined into the file named context.xml. 
 
-El servidor se detiene con el programa shutdown.bat o shutdown.sh según estemos en Windows o en Linux.
+The Server stops using shutdown.bat when you work with Windows or shutdown.sh when you work in Linux.
 
-Arranque desde el Eclipse:
-Eclipse incluye un plugin con el que se permite interactuar directamente con el servidor desde el propio Eclipse. 
+Startup from Eclipse IDE:
+Eclipse IDE has a plugin to incluye un plugin con el que se permite interactuar directamente con el servidor desde el propio Eclipse. 
 Si el eclipse que esta utilizando el usuario no lo incluye se puede descargar desde http://www.eclipse.org/webtools/ 
 Para relacionar el Eclipse con Tomcat desde Eclipse hay que clickear en New - Server – Seleccionar Apache Tomcat. Esto creará un nuevo proyecto en el workspace llamado server.
 Este proyecto contiene un fichero llamado context.xml. Se añade un contexto nuevo cuando queramos añadir un nuevo proyecto basado en el arquetipo. De la siguiente forma: 
