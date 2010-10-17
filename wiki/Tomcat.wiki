@@ -3,10 +3,10 @@
 
 = What´s it? =
 
-Apache Tomcat is a Servlets and JSP (Java Server Page) container. It´s an Open Source Code create and y mantenido por la comunidad de Apache. Tiene licencia Apache License version 2. 
-Actualmente es el contenedor de servlets más utilizado por su velocidad y su robustez.
-La última versión es la 7.1 que soporta la especificaciones más modernas, Servlet 3.0, JSP 2.2 and EL 2.2.
-Tomcat no es un servidor de aplicaciones, como JBoss. Incluye el compilador Jasper, que compila JSPs convirtiendolas en servlets. El motor de servlets de Tomcat a menudo se presenta en combinación con el servidor web Apache 2.0.
+Apache Tomcat is a Servlets and JSP (Java Server Page) container. It´s an Open Source Code created and y maintained for Apache community. Its license is "Apache License version 2". 
+Today, it´s the most commonly used Servlets container because of its speed and robustness.
+The last version is 7.1, which supports the most modern specifications:Servlet 3.0, JSP 2.2 and EL 2.2.
+Tomcat isn´t a Applications Server, como JBoss. Incluye el compilador Jasper, que compila JSPs convirtiendolas en servlets. El motor de servlets de Tomcat a menudo se presenta en combinación con el servidor web Apache 2.0.
 
 
 = Como funciona ? =
