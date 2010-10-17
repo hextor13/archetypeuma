@@ -6,16 +6,14 @@
 Apache Tomcat is a Servlets and JSP (Java Server Page) container. It´s an Open Source Code created and y maintained for Apache community. Its license is "Apache License version 2". 
 Today, it´s the most commonly used Servlets container because of its speed and robustness.
 The last version is 7.1, which supports the most modern specifications:Servlet 3.0, JSP 2.2 and EL 2.2.
-Tomcat isn´t a Applications Server, como JBoss. Incluye el compilador Jasper, que compila JSPs convirtiendolas en servlets. El motor de servlets de Tomcat a menudo se presenta en combinación con el servidor web Apache 2.0.
+Tomcat isn´t a Applications Server, like JBoss. It´s includes Jasper Compiler, which compiles JSP pages and makes them servlets. The Tomcat Servlets Engine often presents in combination with Apache 2.0 Web Server. 
 
 
-= Como funciona ? =
+= How does it work? =
 
-Esta es la es la estructura de carpetas que tiene el Apache Tomcat:
+This is the Tomcat´s folder structure and a little description about each folder:
 
-Una breve descripción de la utilizad de cada carpeta:
-
-  * bin: Se guardan todas las aplicaciones software que trae Apache Tomcat. Encontramos aplicaciones para arrancar el servidor, para pararlo y algunas más.
+  * bin: this folder contains all Software Applications which has Apache Tomcat. Here we get Sotfware Applications to startup the server, to stop the server and others.
   * Conf: es el directorio de configuración. Destacan los ficheros server.xml, web.xml y context.xml ya que son los que controlan las características que va a tener el Tomcat definido.
   * Lib: aquí tiene cabida las librerías Java que utiliza Tomcat para su ejecución. Este directorio también es utilizado en algunos proyectos cuando se quiere compartir libreríaas entre diferentes aplicaciones desplegadas en Tomcat.
   * Logs: se crean los ficheros de logs. Es bueno mandar los ficheros de logs a esta carpeta para tener centralizados los logs.
