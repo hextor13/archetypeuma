@@ -15,9 +15,9 @@
 	</http>
 	<authentication-manager>
 	    <authentication-provider>
-	        <password-encoder hash="md5"/>
+<!--	        <password-encoder hash="md5"/>-->
 	        <user-service>
-	            <user name="bob" password="12b141f35d58b8b3a46eea65e6ac179e" authorities="ROLE_SUPERVISOR, ROLE_USER" />
+	            <user name="admin" password="admin" authorities="ROLE_SUPERVISOR, ROLE_USER" />
 	            <user name="sam" password="d1a5e26d0558c455d386085fad77d427" authorities="ROLE_USER" />
 	        </user-service>
 	    </authentication-provider>
