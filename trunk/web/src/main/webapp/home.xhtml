@@ -4,8 +4,10 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
 
-    <ui:composition template="templates/template.xhtml">
-        <ui:insert name="pageTitle"></ui:insert>
+    <ui:composition template="template.xhtml">
+        <ui:insert name="pageTitle">
+        </ui:insert>
+
         <ui:define name="content">
             <h:selectOneMenu forceId="true" id="idUser" value="1">
 				<f:selectItem itemValue="0"
