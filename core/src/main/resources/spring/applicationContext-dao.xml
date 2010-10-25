@@ -11,10 +11,4 @@
     <context:annotation-config/>
 	<context:component-scan base-package="org.archetypeUma.dao.implementation"/>
 
-<!--    <bean id="cityDAO" class="org.archetypeUma.dao.implementation.CityDaoImpl">-->
-<!--        <property name="sessionFactory" ref="sessionFactory"/>-->
-<!--    </bean>-->
-<!--    <bean id="userDAO" class="org.archetypeUma.dao.implementation.UserDaoImpl">-->
-<!--        <property name="sessionFactory" ref="sessionFactory"/>-->
-<!--    </bean>-->
 </beans>
