@@ -5,6 +5,7 @@ import org.archetypeUma.ws.interfaces.ICityWS;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import static org.junit.Assert.*;
@@ -16,10 +17,11 @@ import static org.junit.Assert.*;
  *  el cliente, el cual cumplirá con la interfaz del Web Service.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath:/applicationContext-test.xml"})
+@ContextConfiguration(locations={"classpath:/spring/applicationContext-test.xml"})
 public class CityClientWsTest {
 
     @Autowired
+    @Qualifier("citiesClient")
     private ICityWS citiesClient;
 
     /**
@@ -27,13 +29,16 @@ public class CityClientWsTest {
      */
     @Test
     public void testDecirHola() {
-        System.out.println("decirHola");
         String nombre = "Zim";
         String expResult = "Hola, " + nombre;
-
         City result = citiesClient.getCity(nombre);
-
         assertEquals(expResult, result);
+    }
+
+    // Getters && Setters
+
+    public void setCitiesClient(ICityWS citiesClient) {
+        this.citiesClient = citiesClient;
     }
 
 }
