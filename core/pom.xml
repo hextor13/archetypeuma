@@ -8,6 +8,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>archetypeUma-core</artifactId>
 	<name>archetypeUma - core</name>
+	<version>1.0-SNAPSHOT</version>
 	<build>
 		<resources>
 			<resource>
@@ -22,70 +23,34 @@
 			</testResource>
 		</testResources>
 		<plugins>
-<!--			<plugin>-->
-<!--				<groupId>org.codehaus.mojo</groupId>-->
-<!--				<artifactId>aspectj-maven-plugin</artifactId>-->
-<!--				<version>1.0</version>-->
-<!--				<executions>-->
-<!--					<execution>-->
-<!--						<goals>-->
-<!--							<goal>compile</goal>-->
-<!--						</goals>-->
-<!--					</execution>-->
-<!--				</executions>-->
-<!--				<dependencies>-->
-<!--					<dependency>-->
-<!--						<groupId>org.aspectj</groupId>-->
-<!--						<artifactId>aspectjrt</artifactId>-->
-<!--						<version>${aspectj.version}</version>-->
-<!--					</dependency>-->
-<!--					<dependency>-->
-<!--						<groupId>org.aspectj</groupId>-->
-<!--						<artifactId>aspectjtools</artifactId>-->
-<!--						<version>${aspectj.version}</version>-->
-<!--					</dependency>-->
-<!--				</dependencies>-->
-<!--				<configuration>-->
-<!--					<source>1.5</source>-->
-<!--					<verbose>true</verbose>-->
-<!--					<complianceLevel>1.5</complianceLevel>-->
-<!--					<showWeaveInfo>true</showWeaveInfo>-->
-<!--					<aspectLibraries>-->
-<!--						<aspectLibrary>-->
-<!--							<groupId>org.springframework</groupId>-->
-<!--							<artifactId>spring-aspects</artifactId>-->
-<!--						</aspectLibrary>-->
-<!--					</aspectLibraries>-->
-<!--				</configuration>-->
-<!--			</plugin>-->
-            <plugin>
-		        <groupId>org.apache.maven.plugins</groupId>
-		        <artifactId>maven-antrun-plugin</artifactId>
-		        <version>1.4</version>
-		        <executions>
-		          <execution>
-		            <id>compile</id>
-		            <phase>compile</phase>
-		            <configuration>
-		              <tasks>
-		                <property name="compile_classpath" refid="maven.compile.classpath"/>
-		                <property name="runtime_classpath" refid="maven.runtime.classpath"/>
-		                <property name="test_classpath" refid="maven.test.classpath"/>
-		                <property name="plugin_classpath" refid="maven.plugin.classpath"/>
-
-		                <echo message="compile classpath: ${compile_classpath}"/>
-		                <echo message="runtime classpath: ${runtime_classpath}"/>
-		                <echo message="test classpath:    ${test_classpath}"/>
-		                <echo message="plugin classpath:  ${plugin_classpath}"/>
-		                <echo message="JAVA_HOME  ${JAVA_HOME}"/>
-		              </tasks>
-		            </configuration>
-		            <goals>
-		              <goal>run</goal>
-		            </goals>
-		          </execution>
-		        </executions>
-		      </plugin>
+<!--            <plugin>-->
+<!--		        <groupId>org.apache.maven.plugins</groupId>-->
+<!--		        <artifactId>maven-antrun-plugin</artifactId>-->
+<!--		        <version>1.4</version>-->
+<!--		        <executions>-->
+<!--		          <execution>-->
+<!--		            <id>compile</id>-->
+<!--		            <phase>compile</phase>-->
+<!--		            <configuration>-->
+<!--		              <tasks>-->
+<!--		                <property name="compile_classpath" refid="maven.compile.classpath"/>-->
+<!--		                <property name="runtime_classpath" refid="maven.runtime.classpath"/>-->
+<!--		                <property name="test_classpath" refid="maven.test.classpath"/>-->
+<!--		                <property name="plugin_classpath" refid="maven.plugin.classpath"/>-->
+<!---->
+<!--		                <echo message="compile classpath: ${compile_classpath}"/>-->
+<!--		                <echo message="runtime classpath: ${runtime_classpath}"/>-->
+<!--		                <echo message="test classpath:    ${test_classpath}"/>-->
+<!--		                <echo message="plugin classpath:  ${plugin_classpath}"/>-->
+<!--		                <echo message="JAVA_HOME  ${JAVA_HOME}"/>-->
+<!--		              </tasks>-->
+<!--		            </configuration>-->
+<!--		            <goals>-->
+<!--		              <goal>run</goal>-->
+<!--		            </goals>-->
+<!--		          </execution>-->
+<!--		        </executions>-->
+<!--		      </plugin>-->
 		</plugins>
 	</build>
 	<dependencies>
@@ -125,6 +90,7 @@
 			<groupId>org.jmock</groupId>
 			<artifactId>jmock-junit4</artifactId>
 			<version>2.5.1</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>commons-dbcp</groupId>
@@ -138,9 +104,14 @@
 			</exclusions>
 		</dependency>
         <dependency>
-            <groupId>${jdbc.groupId}</groupId>
-            <artifactId>${jdbc.artifactId}</artifactId>
-            <version>${jdbc.version}</version>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.0.8</version>
         </dependency>
+        <dependency>
+			<groupId>opensymphony</groupId>
+			<artifactId>oscache</artifactId>
+			<version>2.4</version>
+		</dependency>
 	</dependencies>
 </project>
