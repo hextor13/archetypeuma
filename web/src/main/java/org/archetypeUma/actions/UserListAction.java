@@ -57,7 +57,7 @@ public class UserListAction implements Serializable {
     public void init() {
         try {
             users = new LinkedList<SelectItem>();
-            // userManager.getAll();
+            userManager.getAll();
         } catch (Exception ex) {
             Logger.getLogger(UserListAction.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -67,7 +67,7 @@ public class UserListAction implements Serializable {
         this.users = projectItems;
     }
 
-    @Secured ({"ROLE_ADMIN"})
+//    @Secured ({"ROLE_ADMIN"})
     public List<SelectItem> getUsers() {
         return users;
     }
