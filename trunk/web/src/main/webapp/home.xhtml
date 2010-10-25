@@ -2,18 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:t="http://myfaces.apache.org/tomahawk"
       xmlns:f="http://java.sun.com/jsf/core">
 
-    <ui:composition template="template.xhtml">
-        <ui:insert name="pageTitle">
-        </ui:insert>
-
-        <ui:define name="content">
-            <h:selectOneMenu forceId="true" id="idUser" value="1">
-				<f:selectItem itemValue="0"
-					itemLabel="Select please..." />
-				<f:selectItems value="#{userListAction.users}" />
-			</h:selectOneMenu>
+    <ui:composition template="/templates/template.xhtml">
+       <ui:define name="body">
+       		<f:view>
+        	    <h:selectOneMenu forceId="true" id="idUser" value="1">
+					<f:selectItem itemValue="0"
+						itemLabel="Select please..." />
+					<f:selectItems value="#{userListAction.users}" />
+				</h:selectOneMenu>
+			</f:view>
         </ui:define>
     </ui:composition>
 </html>
