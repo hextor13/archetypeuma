@@ -1,0 +1,4 @@
+@charset "utf-8";
+.footer {color:#003366;float:left;text-align:center;background-color:#EEEEEE;border-bottom:14px solid #3D689B}
+.header {background:url("images/header.jpg") no-repeat;height:165px;padding-top:26px;float:left;}
+.content {float:left;}

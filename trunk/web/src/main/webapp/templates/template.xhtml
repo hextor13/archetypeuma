@@ -2,20 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:t="http://myfaces.apache.org/tomahawk"
       xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
-        <h:outputStylesheet library="css/1_1" name="/styles/styles.css"/>
-        <h:outputScript     library="js" name="/js/general.js"/>
+        <link href="styles/styles.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="js/general.js"></script>
         <ui:include src="/common/meta.xhtml" />
         <ui:insert name="head" />
     </h:head>
     <h:body>
-		<t:div id="header">
-		    <ui:include src="/common/header.xhtml" />
-		</h:panelGroup>
-		<ui:insert name="body" />
-		<t:div id="footer">
-		        <ui:include src="/common/footer.xhtml" />
+	    <ui:include src="/common/header.xhtml" />
+	    <t:div class="content">
+			<ui:insert name="body" />
 		</t:div>
+	    <ui:include src="/common/footer.xhtml" />
     </h:body>
 </html>
