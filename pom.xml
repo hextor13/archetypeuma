@@ -93,6 +93,8 @@
     <!-- PROPIEDADES Y VERSIONES COMUNES DEL PROYECTO -->
     <!-- ******************************************** -->
     <properties>
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
         <!-- Application settings -->
         <copyright.year>2010</copyright.year>
         <developer.company>Universidad de Málaga</developer.company>
@@ -107,24 +109,19 @@
 		<war.name>archetypeUma</war.name>
 
 		<!-- Database settings -->
-        <dbunit.dataTypeFactoryName> ${profile.dbunit.dataTypeFactoryName}
-		</dbunit.dataTypeFactoryName>
-        <dbunit.schema>${profile.jdbc.schema}</dbunit.schema>
+        <dbunit.dataTypeFactoryName>org.dbunit.ext.mysql.MySqlDataTypeFactory</dbunit.dataTypeFactoryName>
         <dbunit.operation.type>CLEAN_INSERT</dbunit.operation.type>
-        <jdbc.groupId>${profile.jdbc.groupId}</jdbc.groupId>
-        <jdbc.artifactId>${profile.jdbc.artifactId}</jdbc.artifactId>
-        <jdbc.driverClassName> ${profile.jdbc.driverClassName}
-		</jdbc.driverClassName>
-        <jdbc.version>${profile.jdbc.version}</jdbc.version>
-        <jdbc.host>${profile.jdbc.host}</jdbc.host>
-        <jdbc.dbname>${profile.jdbc.dbname}</jdbc.dbname>
-        <jdbc.username>${profile.jdbc.username}</jdbc.username>
-        <jdbc.password>${profile.jdbc.password}</jdbc.password>
-        <jdbc.url>${profile.jdbc.url}</jdbc.url>
-        <jdbc.url.cas>${profile.jdbc.url.cas}</jdbc.url.cas>
-        <jndi.name>${jboss.jndi.name}</jndi.name>
+        <jdbc.groupId>mysql</jdbc.groupId>
+        <jdbc.artifactId>mysql-connector-java</jdbc.artifactId>
+        <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
+        <jdbc.version>5.0.8</jdbc.version>
+        <jdbc.host>mysql.sigb</jdbc.host>
+        <jdbc.dbname>archetype_db</jdbc.dbname>
+        <jdbc.username>archetype_user</jdbc.username>
+        <jdbc.password>archetype_pwd</jdbc.password>
+        <jdbc.url><![CDATA[jdbc:mysql://${profile.jdbc.host}:${profile.jdbc.port}/${profile.jdbc.dbname}?createDatabaseIfNotExist=true&amp;amp;useUnicode=true&amp;amp;characterEncoding=utf-8]]></jdbc.url>
         <hibernate.annotations.version>3.4.0.GA</hibernate.annotations.version>
-        <hibernate.dialect>${profile.hibernate.dialect}</hibernate.dialect>
+        <hibernate.dialect>org.hibernate.dialect.MySQLDialect</hibernate.dialect>
         <hibernate.version>3.5.1</hibernate.version>
 
         <!-- Hibernate Maven Plugin -->
