@@ -57,10 +57,10 @@ Thus  the startup all projects which are into Webapps and those which are define
 The Server stops using shutdown.bat when you work with Windows or shutdown.sh when you work in Linux.
 
 Startup from Eclipse IDE:
-Eclipse IDE has a plugin to incluye un plugin con el que se permite interactuar directamente con el servidor desde el propio Eclipse. 
-Si el eclipse que esta utilizando el usuario no lo incluye se puede descargar desde http://www.eclipse.org/webtools/ 
-Para relacionar el Eclipse con Tomcat desde Eclipse hay que clickear en New - Server – Seleccionar Apache Tomcat. Esto creará un nuevo proyecto en el workspace llamado server.
-Este proyecto contiene un fichero llamado context.xml. Se añade un contexto nuevo cuando queramos añadir un nuevo proyecto basado en el arquetipo. De la siguiente forma: 
+Eclipse IDE includes a plugin that allows interincluye un plugin con el que se permite interaction with the server from within Eclipse.
+To include this plugin in our Eclipse, we can download it from http://www.eclipse.org/webtools/ 
+To relate Eclipse with Tomcat from Eclipse, we must to clicking in New - Server – and then selecting Apache Tomcat. In this way, we obtain a new project into the Workspace which was named Server.
+This new project named Server contains a file named context.xml. When we want add a new proyect which is based in the archetype, a new context will appear into that file on the following way:.Se añade un contexto nuevo cuando queramos añadir un nuevo proyecto basado en el arquetipo. De la siguiente forma: 
 
 {{{
 <Context autoDeploy="true" cookies="true" crossContext="false" docBase="/home/user/archetypeUma/web/target/archetypeUma" path="/archetypeUma" reloadable="true"/>
