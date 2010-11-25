@@ -67,7 +67,10 @@ This new project named Server contains a file named context.xml. When we want ad
 }}}
 
 
-Creating a context for archetypeUma project in the path defined on docBase.Creando un contexto para el proyecto archetypeUma en la ruta que se define en docBase.
+Creating a context for archetypeUma project in the path defined on docBase.
+
+
+
 
 #summary Apache Tomcat.
 
