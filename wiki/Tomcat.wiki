@@ -60,14 +60,14 @@ Startup from Eclipse IDE:
 Eclipse IDE includes a plugin that allows interincluye un plugin con el que se permite interaction with the server from within Eclipse.
 To include this plugin in our Eclipse, we can download it from http://www.eclipse.org/webtools/ 
 To relate Eclipse with Tomcat from Eclipse, we must to clicking in New - Server – and then selecting Apache Tomcat. In this way, we obtain a new project into the Workspace which was named Server.
-This new project named Server contains a file named context.xml. When we want add a new proyect which is based in the archetype, a new context will appear into that file on the following way:.Se añade un contexto nuevo cuando queramos añadir un nuevo proyecto basado en el arquetipo. De la siguiente forma: 
+This new project named Server contains a file named context.xml. When we want add a new proyect which is based in the archetype, a new context'll appear into that file on the following way:
 
 {{{
 <Context autoDeploy="true" cookies="true" crossContext="false" docBase="/home/user/archetypeUma/web/target/archetypeUma" path="/archetypeUma" reloadable="true"/>
 }}}
 
 
-Creando un contexto para el proyecto archetypeUma en la ruta que se define en docBase.
+Creating a context for archetypeUma project in the path defined on docBase.Creando un contexto para el proyecto archetypeUma en la ruta que se define en docBase.
 
 #summary Apache Tomcat.
 
