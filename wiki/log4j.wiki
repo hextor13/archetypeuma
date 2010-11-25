@@ -24,15 +24,15 @@ We include into the project the dependency through the ,jar file. It's probably,
 <version>1.2.16</version>
 </dependency>
 }}}
-It's essential to have a properties file or a xml file that is defined in project´s classpath. El fichero log4j.xml es el que hará las veces de fichero de configuración de log4j. En la sección de 'Uso' hay un ejemplo de fichero de configuración.
+It's essential to have a properties file or a xml file that is defined in project´s classpath. The log4j.xml file serves as a configuration file for log4j file. In 'Use' section there's an example about configuration file.
 
-= Uso =
+= Use =
 
-Log4j proporciona diferentes niveles de trazas según sus métodos:
+Log4j provide different trace levels depending their methods:
 
-public void debug(Object message); → Es el nivel más bajo, debe de ser utilizado por los programadores en la fase de desarrollo y pruebas.
+public void debug(Object message); → This is the lowest level, it must be used for programers during the development and testing.
 
-public void info(Object message); → Es un nivel medio en el que se intenta dejar constancia a los lectores de las trazas que el evento que acaba de ocurrir en el programa es significativo.
+public void info(Object message); → This is an intermediate level. It offers traces about important events occured while the applicating is running.
 
 public void warn(Object message); → Es en nivel alto en el que se advierte que no se debería estar produciendo el evento.
 
