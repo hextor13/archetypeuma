@@ -108,13 +108,6 @@ log.error(“mensaje”);
 
 http://jakarta.apache.org/log4j/
 
-
-
-
-
-
-#summary log4j
-
 = ¿Qué es? =
 
 Log4j es una API para la monitorización de trazas en el código Java. En sus inicios los programadores en Java escribían en la salida estándar por medio de Sytem.out.println(arg). Esto era muy poco flexible ya que los programadores exigían poder escribir de determinadas formas y en diferentes sitios. Fue entonces cuando log4j se empezó a incluir en todos los proyectos como la librería que gestionaba las trazas.
