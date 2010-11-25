@@ -34,13 +34,13 @@ public void debug(Object message); → This is the lowest level, it must be used
 
 public void info(Object message); → This is an intermediate level. It offers traces about important events occured while the applicating is running.
 
-public void warn(Object message); → Es en nivel alto en el que se advierte que no se debería estar produciendo el evento.
+public void warn(Object message); → This is the highest level which warns that should not be producing the event.
 
-public void error(Object message); → Es un nivel alto que formaliza un error que no se debería de haber producido en la aplicación. Nótese que no se debería de haber producido. Si es un error controlado lo mejor es bajar a un nivel más bajo.
+public void error(Object message); → This is the highest level which reports an error should not be producing in the application. Note that error should not be producing. If it´s a known error, we must go down to lower level.
 
-public void fatal(Object message); → El nivel más alto, si ha ocurrido esta clase de error en probable que algún sistema deje de funcionar dentro de la aplicación.
+public void fatal(Object message); → This is the highest error level. If this type of error occurs, it´s probable some system has stopped working into the application. 
 
-Es importante en producción que el nivel de traza este lo más alto posible. Ya que la entrada-salida en un servidor esta muy penalizada y hace que se ralenticé el rendimiento de la aplicación.
+When our application is in production, it´s important the trace level should be the highest posible. So, input-output in a server will be too slowcontrolledEs importante en producción que el nivel de traza este lo más alto posible. Ya que la entrada-salida en un servidor esta muy penalizada y hace que se ralenticé el rendimiento de la aplicación.
 {{{
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
     <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
