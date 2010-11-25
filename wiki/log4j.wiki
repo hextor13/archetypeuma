@@ -40,7 +40,8 @@ public void error(Object message); → This is the highest level which reports a
 
 public void fatal(Object message); → This is the highest error level. If this type of error occurs, it´s probable some system has stopped working into the application. 
 
-When our application is in production, it´s important the trace level should be the highest posible. So, input-output in a server will be too slowcontrolledEs importante en producción que el nivel de traza este lo más alto posible. Ya que la entrada-salida en un servidor esta muy penalizada y hace que se ralenticé el rendimiento de la aplicación.
+When our application is in production, it´s important the trace level should be the highest posible. So, input and output of the server is too slow and it makes that the application performance in production is too slow.
+
 {{{
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
     <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
@@ -71,8 +72,8 @@ When our application is in production, it´s important the trace level should be
     </root>
 </log4j:configuration>
 }}}
-En el caso de estudio, se habrán declarado dos appenders. Uno para la salida estándar, normalmente la pantalla, y otro para fichero. Naturalmente lo mejor es dejar el fichero para los sistemas en producción o similar y la pantalla para los equipos de desarrollo.
-Las trazas por defecto están a nivel de error, definidos en:
+In study case, will be declarated two appenders. One of them for standar output, usually the monitor, and the other one for a file. Obviously the best option is use the file for systems in production or similar and the monitor for development systems.
+Default traces are in error level, these are defined in:
 {{{
 <root>
 <level value="ERROR"/>
@@ -80,7 +81,7 @@ Las trazas por defecto están a nivel de error, definidos en:
 <appender-ref ref="FILE"/>
 </root>
 }}}
-Pero los paquetes org.hibnate y org.apache están a INFO. Se han puesto como ejemplo de los diferentes niveles de trazas que se pueden hacer con log4j.
+But org.hibnate and org.apache packages are into INFO. Here we are several examples with different trace levels which can be done with log4j.
 {{{
 <logger name="org.hibernate">
 <level value="INFO"/>
@@ -89,16 +90,16 @@ Pero los paquetes org.hibnate y org.apache están a INFO. Se han puesto como eje
 <level value="INFO"/>
 </logger>
 }}}
-Solo falta añadirlo a la clase Java que quiera imprimir algo en los logs. Esto se hace con la declaración de los imports en la cabecera:
+Only it must be added the following lines in the header of the Java class which should print traces into the logs:
 {{{
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 }}}
-Crear la variable de clase
+Create the class variable:
 {{{
 protected final Log  log = LogFactory .getLog(this.getClass());
 }}}
-y con el siguiente código en el método:
+and the following lines into the Java method:
 {{{
 log.error(“mensaje”);
 }}}
