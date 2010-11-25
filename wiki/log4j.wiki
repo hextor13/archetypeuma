@@ -14,9 +14,9 @@ Appenders: they serve to define what do with the information, where must it be w
 Layouts: they serve to define the information which will be enclosed to each new trace line and give it a format.
 We can define different Layouts. For example, we have a output to file and another to send an email, we may to define one for each.
 
-= Instalación =
+= Instalation=
 
-Hay que incluir en el proyecto la dependencia con el jar. Es probable y sobre todo si la aplicación es  grande que la dependencia ya esta incluida en el proyecto porque sea dependencia de otro jar que ya tengamos en los pom.xml.
+We include into the project the dependency through the ,jar file. It's probably, and especially if our application is large, this dependency is already included into the project because it is contained into another .jar file which is already in pom.xml file.
 {{{
 <dependency>
 <groupId>log4j</groupId>
@@ -24,7 +24,7 @@ Hay que incluir en el proyecto la dependencia con el jar. Es probable y sobre to
 <version>1.2.16</version>
 </dependency>
 }}}
-Es imprescindible tener un fichero de propiedades o un xml en el classpath del proyecto. El fichero log4j.xml es el que hará las veces de fichero de configuración de log4j. En la sección de 'Uso' hay un ejemplo de fichero de configuración.
+It's essential to have a properties file or a xml file that is defined in project´s classpath. El fichero log4j.xml es el que hará las veces de fichero de configuración de log4j. En la sección de 'Uso' hay un ejemplo de fichero de configuración.
 
 = Uso =
 
