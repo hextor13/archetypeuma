@@ -2,6 +2,31 @@
 
 = What is? =
 
+Myfaces is a framework for JSF. It´s a free software deployment.
+
+= Instalation =
+
+We must to add in pom.xml file of web level the dependencies of MyFaces 2.0
+
+<dependency>
+   <groupId>org.apache.myfaces.core</groupId>
+   <artifactId>myfaces-api</artifactId>
+   <version>2.0.0</version>
+</dependency>
+<dependency>
+   <groupId>org.apache.myfaces.core</groupId>
+   <artifactId>myfaces-impl</artifactId>
+   <version>2.0.0</version>
+</dependency>
+
+= Links =
+
+http://myfaces.apache.org/core20/index.html
+
+#summary Myfaces 2.0
+
+= What is? =
+
 Myfaces es un framework para jsf. Es una implementación de software libre.
 
 = Instalation =
