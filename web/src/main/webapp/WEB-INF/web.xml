@@ -54,10 +54,10 @@
 			classpath:/spring/applicationContext-security.xml
 		</param-value>
 	</context-param>
-	<context-param>
-        <param-name>facelets.LIBRARIES</param-name>
-        <param-value>/META-INF/tomahawk.taglib.xml;</param-value>
-	</context-param>
+<!--	<context-param>-->
+<!--        <param-name>facelets.LIBRARIES</param-name>-->
+<!--        <param-value>/META-INF/tomahawk.taglib.xml;</param-value>-->
+<!--	</context-param>-->
 	<!-- Apache CFX -->
 <!--	<servlet>-->
 <!--		<servlet-name>CXFServlet</servlet-name>-->
@@ -83,29 +83,29 @@
 <!--        <url-pattern>/*</url-pattern>-->
 <!--    </filter-mapping>-->
 
-	<filter>
-		<filter-name>MyFacesExtensionsFilter</filter-name>
-		<filter-class>org.apache.myfaces.webapp.filter.ExtensionsFilter</filter-class>
-	    <init-param>
-	        <param-name>uploadMaxFileSize</param-name>
-	        <param-value>20m</param-value>
-	        <description>Set the size limit for uploaded files.
-	            Format: 10 - 10 bytes
-	                    10k - 10 KB
-	                    10m - 10 MB
-	                    1g - 1 GB
-	        </description>
-	    </init-param>
-	</filter>
-
-	<filter-mapping>
-	    <filter-name>MyFacesExtensionsFilter</filter-name>
-	    <servlet-name>Faces Servlet</servlet-name>
-	</filter-mapping>
-
-	<filter-mapping>
-	    <filter-name>MyFacesExtensionsFilter</filter-name>
-	    <url-pattern>/faces/myFacesExtensionResource/*</url-pattern>
-	</filter-mapping>
+<!--	<filter>-->
+<!--		<filter-name>MyFacesExtensionsFilter</filter-name>-->
+<!--		<filter-class>org.apache.myfaces.webapp.filter.ExtensionsFilter</filter-class>-->
+<!--	    <init-param>-->
+<!--	        <param-name>uploadMaxFileSize</param-name>-->
+<!--	        <param-value>20m</param-value>-->
+<!--	        <description>Set the size limit for uploaded files.-->
+<!--	            Format: 10 - 10 bytes-->
+<!--	                    10k - 10 KB-->
+<!--	                    10m - 10 MB-->
+<!--	                    1g - 1 GB-->
+<!--	        </description>-->
+<!--	    </init-param>-->
+<!--	</filter>-->
+<!---->
+<!--	<filter-mapping>-->
+<!--	    <filter-name>MyFacesExtensionsFilter</filter-name>-->
+<!--	    <servlet-name>Faces Servlet</servlet-name>-->
+<!--	</filter-mapping>-->
+<!---->
+<!--	<filter-mapping>-->
+<!--	    <filter-name>MyFacesExtensionsFilter</filter-name>-->
+<!--	    <url-pattern>/faces/myFacesExtensionResource/*</url-pattern>-->
+<!--	</filter-mapping>-->
 
 </web-app>

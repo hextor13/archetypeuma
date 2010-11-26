@@ -1,49 +1,50 @@
 package org.archetypeUma.actions;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
-import javax.faces.model.DataModel;
-import javax.faces.model.ListDataModel;
-import javax.faces.model.SelectItem;
-import javax.faces.validator.ValidatorException;
-
-import org.archetypeUma.service.interfaces.IUserManager;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.access.annotation.Secured;
-import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
+import javax.faces.model.SelectItem;
+
+import org.archetypeUma.model.pojos.City;
+import org.archetypeUma.model.pojos.User;
+import org.archetypeUma.service.interfaces.IUserManager;
+
 /**
+ * Bean control to users.
+ *
  * @author jcisneros
  */
 @ManagedBean(name = "userListAction")
 @RequestScoped
 public class UserListAction implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1234124123412L;
     private List<SelectItem> users;
+    private List<City> cities;
 
-    @Autowired
-    @Qualifier("userManager")
+    @ManagedProperty(value="#{userManager}")
     private IUserManager userManager = null;
 
 
     @PostConstruct
     public void construct() {
-        init();
+        try {
+            users = new LinkedList<SelectItem>();
+            List<User> usuarios = new ArrayList<User>();
+            usuarios = userManager.getAll();
+            Object[] use = usuarios.toArray();
+        } catch (Exception ex) {
+            Logger.getLogger(UserListAction.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @PreDestroy
@@ -54,26 +55,16 @@ public class UserListAction implements Serializable {
     	}
     }
 
-    public void init() {
-        try {
-            users = new LinkedList<SelectItem>();
-            userManager.getAll();
-        } catch (Exception ex) {
-            Logger.getLogger(UserListAction.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public Object[] getCities() {
+        cities = userManager.getAllCity();
+        return cities.toArray();
     }
 
-    public void setProjectItems(List<SelectItem> projectItems) {
-        this.users = projectItems;
-    }
-
-//    @Secured ({"ROLE_ADMIN"})
-    public List<SelectItem> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<SelectItem> users) {
-        this.users = users;
+    //    @Secured ({"ROLE_ADMIN"})
+    public Object[] getUsers() {
+        List<User> usuarios = new ArrayList<User>();
+        usuarios = userManager.getAll();
+        return usuarios.toArray();
     }
 
     // Getters && Setters
