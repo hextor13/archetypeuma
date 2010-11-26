@@ -2,16 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:t="http://myfaces.apache.org/tomahawk"
       xmlns:f="http://java.sun.com/jsf/core">
 
     <ui:composition template="/templates/template.xhtml">
        <ui:define name="body">
        		<f:view>
-        	    <h:selectOneMenu forceId="true" id="idUser" value="1">
-					<f:selectItem itemValue="0"
-						itemLabel="Select please..." />
-					<f:selectItems value="#{userListAction.users}" />
+		        <h:outputStylesheet library="css/1_1" name="styles.css"/>
+		        <h:outputScript     library="js" name="general.js" target="head"/>
+
+        	    <h:selectOneMenu forceId="true" id="idUser" value="">
+					<f:selectItem itemValue="" itemLabel="#{i18n['select.item']}" />
+					<f:selectItems value="#{userListAction.cities.name}" />
 				</h:selectOneMenu>
 			</f:view>
         </ui:define>
