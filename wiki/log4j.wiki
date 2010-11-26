@@ -40,7 +40,7 @@ public void error(Object message); → This is the highest level which reports a
 
 public void fatal(Object message); → This is the highest error level. If this type of error occurs, it´s probable some system has stopped working into the application. 
 
-When our application is in production, it´s important the trace level should be the highest posible. So, input and output of the server is too slow and it makes that the application performance in production is too slow.
+When our application is in production, the trace level should be the highest posible, because the input and output of the server is too slow and it makes that the application performance in production is too slow.
 
 {{{
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
