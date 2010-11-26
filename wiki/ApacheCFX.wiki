@@ -3,6 +3,62 @@
 
 = What is? =
 
+Apache CFX is a framework of Apache. It offers a suite to work with web services.
+
+= Instalation =
+
+{{{
+<pre>
+	    <dependency>
+	        <groupId>org.apache.cxf</groupId>
+	        <artifactId>cxf-rt-core</artifactId>
+	        <version>2.2.9</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.apache.cxf</groupId>
+	        <artifactId>cxf-rt-frontend-simple</artifactId>
+	        <version>2.2.9</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.apache.cxf</groupId>
+	        <artifactId>cxf-rt-frontend-jaxws</artifactId>
+	        <version>2.2.9</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.apache.cxf</groupId>
+	        <artifactId>cxf-rt-transports-local</artifactId>
+	        <version>2.2.9</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.apache.cxf</groupId>
+	        <artifactId>cxf-rt-transports-http</artifactId>
+	        <version>2.2.9</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.apache.cxf</groupId>
+	        <artifactId>cxf-common-utilities</artifactId>
+	        <version>2.2.9</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>junit</groupId>
+	        <artifactId>junit</artifactId>
+	        <version>4.5</version>
+	        <scope>test</scope>
+	    </dependency>
+</pre>
+}}}
+
+= Use =
+
+= Links =
+
+http://cxf.apache.org/
+
+
+#summary Apache CFX
+
+= What is? =
+
 Apache CFX es un framework de Apache que ofrece una suite para el trabajo con web sercices.
 
 = Instalation =
