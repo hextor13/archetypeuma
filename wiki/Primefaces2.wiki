@@ -2,7 +2,7 @@
 
 = What is? =
 
-Primefaces es una galería de tags para jsf que cumple con el estándar.
+Primefaces is a tag galery which to JSF standar.
 
 
 = Instalation =
