@@ -3,13 +3,13 @@
 
 = What is? =
 
-JBoss es un servidor de aplicaciones.
+JBoss is an application server.
 
 = Instalation =
 
 Download: http://www.jboss.org/jbossas/downloads/
 
-Crea la variable JBOSS_HOME referenciando al directorio donde tengamos el directorio de instalación.
+It creates JBOSS_HOME variable which references to instalation folder.
 
 = Use =
 
