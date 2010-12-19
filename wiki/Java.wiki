@@ -21,9 +21,9 @@ No dependiente de la arquitectura
 
 = ¿Como funciona? =
 
-El programador escribe los ficheros de fuente java en un editor de texto y los guarda como ficheros *.java. El compilador de java los compila convirtiéndolos en ficheros *.class. 
+El programador escribe los ficheros de fuente java en un editor de texto y los guarda como ficheros .java. El compilador de java los compila convirtiéndolos en ficheros .class. 
 Hasta aquí todo es igual que el resto de los lenguajes de programación. Ahora es cuando entra en juego la Máquina Virtual de Java. 
-El fichero *.class llega a la máquina virtual de java que se encarga de interpretar el programa y lo ejecuta. Así se consigue que el programa se abstraiga de la arquitectura en la que está implantado dejándose esto en manos de la máquina virtual.
+El fichero .class llega a la máquina virtual de java que se encarga de interpretar el programa y lo ejecuta. Así se consigue que el programa se abstraiga de la arquitectura en la que está implantado dejándose esto en manos de la máquina virtual.
 Instalación
 
 Los principales navegadores de Internet y algunos sistemas operativos ya vienen con la máquina virtual de java instalados. Aunque siempre se le ofrece paquetes, a los usuarios de programas Java, que son accesibles desde la red y puede bajarse en http://sun.java.es 
