@@ -1,5 +1,5 @@
+#summary Hibernate 3.5
 #labels Hibernate,ORM,examples,JPA
-#Hibernate 3.5
 
 = What is? =
 
