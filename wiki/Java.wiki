@@ -1,4 +1,4 @@
-#summary JUnit
+#summary JAVA
 #labels Java,Instalation
 
 = ¿Qué es? =
