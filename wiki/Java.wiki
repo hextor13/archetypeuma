@@ -1,6 +1,59 @@
 #summary JAVA
 #labels Java,Instalation
 
+= What´s it? =
+
+Java is an object oriented programming language which is based in syntax from C. Currently, Java is the best between the oriented programming languages, not because of its performance compared with other languages, but because of its approach for Internet.
+Java was maked by Sun Microsystems. At the beginnings, the main motivation for that company was to unify in one language all incompatible archetypes which were appearing. Later, Java language took Internet as base to grow and to become stronger.
+Java was originally created as a programming tool for a set-top-box proyect called *7. This proyect was maked for a team with thirteen members which were governed by James Gosling.
+The main advantages of Java language are:
+Robust
+Dinamic
+Multithreaded
+High performance
+Interpreted
+Portable
+Secure
+Distributed
+Object oriented
+Architecture Neutral
+
+= ¿Como funciona? =
+
+El programador escribe los ficheros de fuente java en un editor de texto y los guarda como ficheros .java. El compilador de java los compila convirtiéndolos en ficheros .class. 
+Hasta aquí todo es igual que el resto de los lenguajes de programación. Ahora es cuando entra en juego la Máquina Virtual de Java. 
+El fichero .class llega a la máquina virtual de java que se encarga de interpretar el programa y lo ejecuta. Así se consigue que el programa se abstraiga de la arquitectura en la que está implantado dejándose esto en manos de la máquina virtual.
+Instalación
+
+Los principales navegadores de Internet y algunos sistemas operativos ya vienen con la máquina virtual de java instalados. Aunque siempre se le ofrece paquetes, a los usuarios de programas Java, que son accesibles desde la red y puede bajarse en http://sun.java.es 
+Los paquetes JDK (Java Developers Kits) contienen un sistema de compilación y de interpretación para los desarrolladores de programas Java.
+Los paquetes de instalación tanto en Windows los ficheros exe o en Linux (suele traer java ya instalado), suelen instalar todo lo necesario para su uso.
+Se suele incluir una variable de entorno JAVA_HOME y se incluye el directorio bin en el path, para poder ejecutar java desde cualquier ubicación en el sistema de ficheros.
+
+= Instalación =
+
+= Uso =
+
+Si JAVA esta instalado hay muchas formas de utilizarlo. Las mas comunes son por applets que se ejecutan en un navegador, ejecutar un jar o ejecutar directamente una clase java.
+
+Las clases java se ejecutan desde la líneas de comando o desde IDE especializados (más adelante se habla de los IDE y de su utilidad en la arquitectura).
+Lanzándolo desde la línea de comando con la aplicación javac.
+
+javac @options @classes
+Es importante explicar el concepto de POJO en este apartado ya que será muy utilizado en los apartados de hibernate y en la arquitectura.
+
+= Links =
+
+
+
+
+
+
+
+
+
+#summary JAVA
+
 = ¿Qué es? =
 
 Java es un lenguaje de programación orientado a objetos, basado en la sintaxis que definió el lenguaje C. Actualmente Java es el máximo exponente de los lenguajes orientados a objetos, no por su rendimiento frente a otros lenguajes sino por su movimiento hacia el sector de internet.
