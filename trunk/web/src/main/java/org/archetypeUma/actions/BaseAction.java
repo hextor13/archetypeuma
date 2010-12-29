@@ -19,13 +19,19 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * BasePage class JSF común a todas las acciones. Incluye una serie de móetodos
- * y de propiedades que facilitan la navegación entre páginas.
+ * BasePage cl
  */
-public class BasePage {
+public class BaseAction {
 
+    /**
+     * constants
+     */
     public static final String JSF_PAGE_EXTENSION = ".xhtml";
     public static final String JSF_URL_EXTENSION  = ".html";
+
+    /**
+     * log.
+     */
     protected final Log        log                = LogFactory.getLog(this
                                                           .getClass());
 
@@ -83,7 +89,7 @@ public class BasePage {
 
     /**
      * Servlet API Convenience method
-     *
+     * 
      * @return HttpServletRequest from the FacesContext
      */
     protected HttpServletRequest getRequest() {
@@ -93,7 +99,7 @@ public class BasePage {
 
     /**
      * Servlet API Convenience method
-     *
+     * 
      * @return String from the FacesContext
      */
     protected String getRequestParam(final String param) {
@@ -107,7 +113,7 @@ public class BasePage {
 
     /**
      * Servlet API Convenience method
-     *
+     * 
      * @return the current user's session
      */
     protected HttpSession getSession() {
@@ -116,7 +122,7 @@ public class BasePage {
 
     /**
      * Servlet API Convenience method
-     *
+     * 
      * @return HttpServletResponse from the FacesContext
      */
     protected HttpServletResponse getResponse() {
@@ -126,7 +132,7 @@ public class BasePage {
 
     /**
      * Servlet API Convenience method
-     *
+     * 
      * @return the ServletContext form the FacesContext
      */
     protected ServletContext getServletContext() {
@@ -136,7 +142,7 @@ public class BasePage {
 
     /**
      * Sort list according to which column has been clicked on.
-     *
+     * 
      * @param list
      *            the java.util.List to sort
      * @return ordered list
