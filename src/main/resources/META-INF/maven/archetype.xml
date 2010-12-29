@@ -5,12 +5,42 @@
 
 	<resources>
 		<!-- Model resources -->
-		<resource>core-module/src/main/java/App.java</resource>
-		<resource>core-module/pom.xml</resource>
+		<resource>model/pom.xml</resource>
+		<resource>model/src/main/java/org/archetypeUma/model/pojos/BaseObject.java</resource>
+		<resource>model/src/main/java/org/archetypeUma/model/pojos/City.java</resource>
+		<resource>model/src/main/java/org/archetypeUma/model/pojos/User.java</resource>
 
+		<resource>model/src/main/resources/spring/applicationContext-resources.xml</resource>
+		<resource>model/src/main/resources/hibernate.cfg.xml</resource>
+		<resource>model/src/main/resources/jdbc.properties</resource>
+		<resource>model/src/main/resources/oscache.properties</resource>
+		<resource>model/src/main/resources/sample-data.xml</resource>
+
+		<!-- Core resources -->
+		<resource>core/pom.xml</resource>
+		<resource>core/src/main/java/org/archetypeUma/dao/implementation/BaseDaoImpl.java</resource>
+		<resource>core/src/main/java/org/archetypeUma/dao/implementation/CityDaoImpl.java</resource>
+		<resource>core/src/main/java/org/archetypeUma/dao/implementation/UserDaoImpl.java</resource>
+		<resource>core/src/main/java/org/archetypeUma/dao/interfaces/IBaseDao.java</resource>
+		<resource>core/src/main/java/org/archetypeUma/dao/interfaces/ICityDao.java</resource>
+		<resource>core/src/main/java/org/archetypeUma/dao/interfaces/IUserDao.java</resource>
+
+		<resource>core/src/main/java/org/archetypeUma/service/implementation/UserManagerImpl.java</resource>
+		<resource>core/src/main/java/org/archetypeUma/service/interfaces/IUserManager.java</resource>
+		
+		<resource>core/src/main/resources/spring/applicationContext-dao.xml</resource>
+		<resource>core/src/main/resources/spring/applicationContext-service.xml</resource>
+		<resource>core/src/main/resources/spring/applicationContext-transactional.xml</resource>
+		
+		<resource>core/src/test/java/org/archetypeUma/dao/interfaces/IUserManagerTest.java</resource>
+		<resource>core/src/test/java/org/archetypeUma/service/interfaces/IUserManagerTest.java</resource>
+		<resource>core/src/test/resources/log4j.xml</resource>
+		
 		<!-- Web resources -->
-		<resource>web-module/resources/commons-logging.properties</resource>
-		<resource>web-module/pom.xml</resource>
+		<resource>web/pom.xml</resource>
+		
+		<!-- Ear resources -->
+		<resource>ear/pom.xml</resource>
 		<!-- Parent resources -->
 		<resource>pom.xml</resource>
 	</resources>
