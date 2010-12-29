@@ -1,0 +1,18 @@
+<archetype>
+	<id>archetypeUma</id>
+	<sources>
+	</sources>
+
+	<resources>
+		<!-- Model resources -->
+		<resource>core-module/src/main/java/App.java</resource>
+		<resource>core-module/pom.xml</resource>
+
+		<!-- Web resources -->
+		<resource>web-module/resources/commons-logging.properties</resource>
+		<resource>web-module/pom.xml</resource>
+		<!-- Parent resources -->
+		<resource>pom.xml</resource>
+	</resources>
+	<testSources></testSources>
+</archetype>
