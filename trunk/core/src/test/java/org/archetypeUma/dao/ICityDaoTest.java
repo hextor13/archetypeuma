@@ -30,8 +30,8 @@ public class ICityDaoTest {
      * Test of getAll method.
      */
     @Test
-    public void testGetAll() {
-        List<City> cities = cityDao.getAll();
+    public void testGetAllCache() {
+        List<City> cities = cityDao.getAllCache();
         assertEquals(3, cities.size());
     }
 

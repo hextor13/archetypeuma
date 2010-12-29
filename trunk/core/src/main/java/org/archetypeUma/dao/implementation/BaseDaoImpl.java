@@ -23,14 +23,6 @@ public class BaseDaoImpl<T, PK extends Serializable> extends
     @Autowired
     protected SessionFactory sessionFactory = null;
 
-    // public SessionFactory getSessionFactory() {
-    // return sessionFactory;
-    // }
-    //
-    // public void setSessionFactory(SessionFactory sessionFactory) {
-    // this.sessionFactory = sessionFactory;
-    // }
-
     /**
      * persistentClass.
      */
@@ -38,7 +30,7 @@ public class BaseDaoImpl<T, PK extends Serializable> extends
 
     /**
      * Constructor that takes in a class to see which type of entity to persist.
-     *
+     * 
      * @param sessionFactory2
      * @param sessionFactory
      * @param persistentClassP
@@ -63,4 +55,21 @@ public class BaseDaoImpl<T, PK extends Serializable> extends
         return result;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public final T merge(T object) {
+        T result = null;
+        result = (T) super.getHibernateTemplate().merge(object);
+        return result;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public final T get(final PK id) {
+        final T entity = (T) super.getHibernateTemplate().get(
+                this.persistentClass, id);
+        return entity;
+    }
 }

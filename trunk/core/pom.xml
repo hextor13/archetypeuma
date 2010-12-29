@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<parent>
-		<groupId>org.archetypeUma</groupId>
-		<artifactId>archetypeUma</artifactId>
-		<version>1.0-SNAPSHOT</version>
+	    <groupId>org.archetypeUma</groupId>
+	    <artifactId>archetypeUma</artifactId>
+        <version>1.0-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>archetypeUma-core</artifactId>
-	<name>archetypeUma - core</name>
-	<version>1.0-SNAPSHOT</version>
+	<groupId>${project.groupId}</groupId>
+	<artifactId>${project.artifactId}-core</artifactId>
+	<name>${project.artifactId} - Core</name>
+	<version>${core.version}</version>
+	<url>${project.url}</url>
 	<build>
 		<resources>
 			<resource>
@@ -23,34 +27,6 @@
 			</testResource>
 		</testResources>
 		<plugins>
-<!--            <plugin>-->
-<!--		        <groupId>org.apache.maven.plugins</groupId>-->
-<!--		        <artifactId>maven-antrun-plugin</artifactId>-->
-<!--		        <version>1.4</version>-->
-<!--		        <executions>-->
-<!--		          <execution>-->
-<!--		            <id>compile</id>-->
-<!--		            <phase>compile</phase>-->
-<!--		            <configuration>-->
-<!--		              <tasks>-->
-<!--		                <property name="compile_classpath" refid="maven.compile.classpath"/>-->
-<!--		                <property name="runtime_classpath" refid="maven.runtime.classpath"/>-->
-<!--		                <property name="test_classpath" refid="maven.test.classpath"/>-->
-<!--		                <property name="plugin_classpath" refid="maven.plugin.classpath"/>-->
-<!---->
-<!--		                <echo message="compile classpath: ${compile_classpath}"/>-->
-<!--		                <echo message="runtime classpath: ${runtime_classpath}"/>-->
-<!--		                <echo message="test classpath:    ${test_classpath}"/>-->
-<!--		                <echo message="plugin classpath:  ${plugin_classpath}"/>-->
-<!--		                <echo message="JAVA_HOME  ${JAVA_HOME}"/>-->
-<!--		              </tasks>-->
-<!--		            </configuration>-->
-<!--		            <goals>-->
-<!--		              <goal>run</goal>-->
-<!--		            </goals>-->
-<!--		          </execution>-->
-<!--		        </executions>-->
-<!--		      </plugin>-->
 		</plugins>
 	</build>
 	<dependencies>
@@ -62,40 +38,40 @@
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-context</artifactId>
-		    <version>3.0.3.RELEASE</version>
+		    <version>${spring.version}</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-test</artifactId>
-		    <version>3.0.3.RELEASE</version>
+		    <version>${spring.version}</version>
 	        <scope>test</scope>
 		</dependency>
 		<dependency>
 	        <groupId>junit</groupId>
 	        <artifactId>junit</artifactId>
-	        <version>4.5</version>
+	        <version>${junit.version}</version>
 	        <scope>test</scope>
 	    </dependency>
 	    <dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
-			<version>1.7.0</version>
+			<version>${commons-beanutils.version}</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-orm</artifactId>
-		    <version>3.0.3.RELEASE</version>
+		    <version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jmock</groupId>
 			<artifactId>jmock-junit4</artifactId>
-			<version>2.5.1</version>
+			<version>${jmock-junit4.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
-			<version>1.3</version>
+			<version>${commons-dbcp.version}</version>
 			<exclusions>
 				<exclusion>
 					<artifactId>xercesImpl</artifactId>
@@ -106,12 +82,17 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.0.8</version>
+            <version>${mysql-connector-java.version}</version>
         </dependency>
         <dependency>
 			<groupId>opensymphony</groupId>
 			<artifactId>oscache</artifactId>
-			<version>2.4</version>
+			<version>${oscache.version}</version>
 		</dependency>
+		<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>2.5.6.SEC01</version>
+        </dependency>
 	</dependencies>
 </project>

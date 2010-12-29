@@ -56,7 +56,7 @@ public class IUserManagerTest {
         cities.add(new City("MA", "Málaga"));
         context.checking(new Expectations() {
             {
-                one(cityDao).getAll();
+                one(cityDao).getAllCache();
                 will(returnValue(cities));
             }
         });
