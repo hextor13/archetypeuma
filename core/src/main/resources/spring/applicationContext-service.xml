@@ -14,13 +14,5 @@
 
     <context:annotation-config/>
 	<context:component-scan base-package="org.archetypeUma.service.implementation"/>
-
-    <!-- Capturamos de librae-context-ear la declaración de Transactional -->
-<!--    <import resource="classpath:/spring/applicationContext-transactional.xml"/>-->
-
-	<!-- Managers: For accessing DAOs -->
-    <!--<bean id="userManager" class="org.archetypeUma.service.implementation.UserManagerImpl">
-       <property name="cityDao" ref="cityDAO"/>
-       <property name="userDao" ref="userDAO"/>
-    </bean>
---></beans>
+    <import resource="classpath:/spring/applicationContext-transactional.xml"/>
+</beans>
