@@ -24,15 +24,18 @@
 		<column>PK_USER</column>
 		<column>NICK_USER</column>
 		<column>NAME_USER</column>
+		<column>CITY_USER</column>
 		<row>
 			<value description="PK_USER">-1</value>
 			<value description="NICK_USER">jcisneros</value>
 			<value description="NAME_USER">Javier Cisneros González</value>
+			<value description="CITY_USER">-1</value>
 		</row>
 		<row>
 			<value description="PK_CITY">-2</value>
 			<value description="CODE_CITY">admin</value>
 			<value description="NAME_USER">Administrator</value>
+			<value description="CITY_USER">-2</value>
 		</row>
 	</table>
 </dataset>

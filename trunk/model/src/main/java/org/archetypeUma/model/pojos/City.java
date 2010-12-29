@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 /**
  * Clase que representa una ciudad.
  *
@@ -15,6 +18,8 @@ import javax.persistence.Table;
  */
 @Entity(name = City.ENTITY_NAME)
 @Table(name = City.TABLE_NAME)
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
+@org.hibernate.annotations.Entity(mutable = false)
 public class City extends BaseObject {
 
     /**
