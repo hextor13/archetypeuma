@@ -2,10 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:t="http://myfaces.apache.org/tomahawk"
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <ui:composition>
-        <div class="footer">
-            <h:outputText value="Universidad de Málaga, Escuela Técnica Superior de Ingeniería Informática."></h:outputText>
-        </div>
+        <t:div styleClass="footer">
+            <h:outputText value="#{i18n['footer.informatica.uma']}"/>
+            <br/>
+            <h:outputText value="#{i18n['footer.uma']}"/>
+            <h:outputText value="by jcisneros" styleClass="alingRightFooter"/>
+        </t:div>
     </ui:composition>
 </html>
