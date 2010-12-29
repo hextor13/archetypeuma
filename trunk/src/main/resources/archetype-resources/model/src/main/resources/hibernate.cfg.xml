@@ -1,0 +1,21 @@
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+        <!-- Configuración de sessionFactory -->
+        <property name="hibernate.generate_statistics">true</property>
+        <property name="hibernate.connection.pool_size">100</property>
+        <property name="hibernate.max_fetch_depth">1</property>
+        <!-- Configuración caché 2º nivel -->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.provider_class">com.opensymphony.oscache.hibernate.OSCacheProvider</property>
+        <property name="hibernate.cache.use_query_cache">true</property>
+        <property name="hibernate.cache.use_structured_entries">true</property>
+        <!-- FIN configuración de sessionFactory -->
+
+	    <mapping class="org.archetypeUma.model.pojos.City" />
+	    <mapping class="org.archetypeUma.model.pojos.User" />
+	    
+	    <class-cache usage="read-only" include="all" class="org.archetypeUma.model.pojos.City" />
+  </session-factory>
+</hibernate-configuration>
