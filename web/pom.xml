@@ -2,18 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<parent>
-		<artifactId>archetypeUma</artifactId>
-		<groupId>org.archetypeUma</groupId>
-		<version>1.0-SNAPSHOT</version>
+	    <groupId>org.archetypeUma</groupId>
+	    <artifactId>archetypeUma</artifactId>
+        <version>1.0-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.archetypeUma</groupId>
-	<artifactId>archetypeUma-web</artifactId>
+	<groupId>${project.groupId}</groupId>
+	<artifactId>${project.artifactId}-web</artifactId>
 	<packaging>war</packaging>
-	<name>archetypeUma - Web</name>
-    <url>https://mojarra.dev.java.net/</url>
+	<name>${project.artifactId} - Web</name>
     <description>archetypeUma-web</description>
-	<version>1.0-SNAPSHOT</version>
+	<version>${web.version}</version>
+	<url>${project.url}</url>
     <build>
     	<resources>
     		<resource>
@@ -24,7 +24,6 @@
 				<directory>src/main/webapp/WEB-INF/spring
 				</directory>
 				<includes>
-					<include>applicationContext-ws.xml</include>
 					<include>applicationContext-security.xml</include>
 				</includes>
 				<targetPath>/spring</targetPath>
@@ -34,16 +33,16 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>${source.version}</source>
+                    <target>${source.version}</target>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.1</version>
+                <version>${maven-war-plugin.version}</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
 					<archive>
@@ -55,81 +54,18 @@
 					</archive>
                 </configuration>
             </plugin>
-              <plugin>
+            <plugin>
 			      <groupId>org.apache.maven.plugins</groupId>
 			      <artifactId>maven-surefire-plugin</artifactId>
-			      <version>2.6</version>
+			      <version>${maven-surefire-plugin.version}</version>
 			      <configuration>
 			        <skip>true</skip>
 			      </configuration>
-			    </plugin>
-<!--            <plugin>-->
-<!--		        <groupId>org.apache.maven.plugins</groupId>-->
-<!--		        <artifactId>maven-antrun-plugin</artifactId>-->
-<!--		        <version>1.4</version>-->
-<!--		        <executions>-->
-<!--		          <execution>-->
-<!--		            <id>compile</id>-->
-<!--		            <phase>compile</phase>-->
-<!--		            <configuration>-->
-<!--		              <tasks>-->
-<!--		                <property name="compile_classpath" refid="maven.compile.classpath"/>-->
-<!--		                <property name="runtime_classpath" refid="maven.runtime.classpath"/>-->
-<!--		                <property name="test_classpath" refid="maven.test.classpath"/>-->
-<!--		                <property name="plugin_classpath" refid="maven.plugin.classpath"/>-->
-<!---->
-<!--		                <echo message="compile classpath: ${compile_classpath}"/>-->
-<!--		                <echo message="runtime classpath: ${runtime_classpath}"/>-->
-<!--		                <echo message="test classpath:    ${test_classpath}"/>-->
-<!--		                <echo message="plugin classpath:  ${plugin_classpath}"/>-->
-<!--		                <echo message="JAVA_HOME  ${JAVA_HOME}"/>-->
-<!--		              </tasks>-->
-<!--		            </configuration>-->
-<!--		            <goals>-->
-<!--		              <goal>run</goal>-->
-<!--		            </goals>-->
-<!--		          </execution>-->
-<!--		        </executions>-->
-<!--		      </plugin>-->
-<!--			<plugin>-->
-<!--				<groupId>org.apache.cxf</groupId>-->
-<!--				<artifactId>cxf-codegen-plugin</artifactId>-->
-<!--				<version>2.0.10</version>-->
-<!--				<executions>-->
-<!--					<execution>-->
-<!--						<id>generate-sources</id>-->
-<!--						<phase>generate-sources</phase>-->
-<!--						<configuration>-->
-<!--							<sourceRoot>${basedir}/target/generated/src/main/java</sourceRoot>-->
-<!--							<wsdlOptions>-->
-<!--								<wsdlOption>-->
-<!--									<wsdl>${basedir}/src/main/wsdl/prueba.wsdl</wsdl>-->
-<!--								</wsdlOption>-->
-<!--							</wsdlOptions>-->
-<!--						</configuration>-->
-						<!--<configuration>
-						  <sourceRoot>${basedir}/target/generated/src/main/java</sourceRoot>
-						  <wsdlOptions>
-						    <wsdlOption>
-						      <wsdl>${basedir}/src/main/wsdl/myService.wsdl</wsdl>
-						      <extraargs>
-						        <extraarg>-b</extraarg>
-						        <extraarg>${basedir}/src/main/resources/wsdl/async_binding.xml</extraarg>
-						      </extraargs>
-						    </wsdlOption>
-						  </wsdlOptions>
-						</configuration>-->
-<!--						<goals>-->
-<!--							<goal>wsdl2java</goal>-->
-<!--						</goals>-->
-<!--					</execution>-->
-<!--				</executions>-->
-<!--			</plugin>-->
-
+		    </plugin>
           	<plugin>
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>maven-jetty-plugin</artifactId>
-                <version>6.1.25</version>
+                <version>${maven-jetty-plugin.version}</version>
                 <configuration> AJAX Push server deployment
                     <jettyConfig>jetty.xml</jettyConfig>
                     <contextPath>/</contextPath>
@@ -152,141 +88,66 @@
         </plugins>
         <finalName>${war.name}</finalName>
     </build>
-    <repositories>
-        <repository>
-            <id>java.net2</id>
-            <name>Repository hosting the jee6 artifacts</name>
-            <url>http://download.java.net/maven/2</url>
-        </repository>
-    </repositories>
     <dependencies>
-        <dependency>
-		    <groupId>org.apache.myfaces.core</groupId>
-		    <artifactId>myfaces-api</artifactId>
-		    <version>2.0.2</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.apache.myfaces.core</groupId>
-		    <artifactId>myfaces-impl</artifactId>
-		    <version>2.0.2</version>
-		</dependency>
-		<dependency>
-            <groupId>com.sun.facelets</groupId>
-            <artifactId>jsf-facelets</artifactId>
-            <version>1.1.14</version>
-        </dependency>
-		<dependency>
-			<groupId>org.apache.myfaces.tomahawk</groupId>
-			<artifactId>tomahawk</artifactId>
-			<version>1.1.10</version>
-		</dependency>
-<!--		<dependency>-->
-<!--		    <groupId>org.primefaces</groupId>-->
-<!--		    <artifactId>primefaces</artifactId>-->
-<!--		    <version>2.0.0</version>-->
-<!--		</dependency>-->
 		<dependency>
 		    <groupId>org.springframework.security</groupId>
 		    <artifactId>spring-security-web</artifactId>
-		    <version>3.0.3.RELEASE</version>
+            <version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
-			<version>3.0.3.RELEASE</version>
+            <version>${spring.version}</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-test</artifactId>
-		    <version>3.0.3.RELEASE</version>
+            <version>${spring.version}</version>
 		    <scope>test</scope>
 		</dependency>
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-orm</artifactId>
-		    <version>3.0.3.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>1.2</version>
+            <version>${spring.version}</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.archetypeUma</groupId>
 		    <artifactId>archetypeUma-core</artifactId>
-		    <version>1.0-SNAPSHOT</version>
+		    <version>${core.version}</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.archetypeUma</groupId>
 		    <artifactId>archetypeUma-model</artifactId>
-		    <version>1.0-SNAPSHOT</version>
+		    <version>${model.version}</version>
 		</dependency>
-	    <dependency>
-	        <groupId>org.apache.cxf</groupId>
-	        <artifactId>cxf-rt-core</artifactId>
-	        <version>2.2.10</version>
-	        <exclusions>
-				<exclusion>
-			     	<groupId>org.springframework</groupId>
-		            <artifactId>spring-core</artifactId>
-				</exclusion>
-			</exclusions>
-	    </dependency>
-	    <dependency>
-	        <groupId>org.apache.cxf</groupId>
-	        <artifactId>cxf-rt-frontend-simple</artifactId>
-	        <version>2.2.10</version>
-	    </dependency>
-	    <dependency>
-	        <groupId>org.apache.cxf</groupId>
-	        <artifactId>cxf-rt-frontend-jaxws</artifactId>
-	        <version>2.2.10</version>
-	    </dependency>
-	    <dependency>
-	        <groupId>org.apache.cxf</groupId>
-	        <artifactId>cxf-rt-transports-local</artifactId>
-	        <version>2.2.10</version>
-	    </dependency>
-	    <dependency>
-	        <groupId>org.apache.cxf</groupId>
-	        <artifactId>cxf-rt-transports-http</artifactId>
-	        <version>2.2.10</version>
-	    </dependency>
-	    <dependency>
-	        <groupId>org.apache.cxf</groupId>
-	        <artifactId>cxf-common-utilities</artifactId>
-	        <version>2.2.10</version>
-	        <exclusions>
-				<exclusion>
-			     	<groupId>org.springframework</groupId>
-		            <artifactId>spring-core</artifactId>
-				</exclusion>
-				<exclusion>
-			     	<groupId>org.springframework</groupId>
-		            <artifactId>spring-beans</artifactId>
-				</exclusion>
-				<exclusion>
-			     	<groupId>org.springframework</groupId>
-		            <artifactId>spring-context</artifactId>
-				</exclusion>
-			</exclusions>
-	    </dependency>
+		<dependency>
+            <groupId>org.apache.myfaces.core</groupId>
+            <artifactId>myfaces-api</artifactId>
+            <version>${jsf-myfaces.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.myfaces.core</groupId>
+            <artifactId>myfaces-impl</artifactId>
+            <version>${jsf-myfaces.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+   		<dependency>
+			<groupId>org.apache.myfaces.tomahawk</groupId>
+			<artifactId>tomahawk20</artifactId>
+			<version>${jsf-tomahawk.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>${jsf-primefaces.version}</version>
+		</dependency>
 	    <dependency>
 	        <groupId>junit</groupId>
 	        <artifactId>junit</artifactId>
-	        <version>4.5</version>
+	        <version>${junit.version}</version>
 	        <scope>test</scope>
 	    </dependency>
-	    <dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-		</dependency>
-<!--	    <dependency>-->
-<!--		  <groupId>org.glassfish.web</groupId>-->
-<!--		  <artifactId>jstl-impl</artifactId>-->
-<!--		  <version>1.2</version>-->
-<!--		</dependency>-->
     </dependencies>
 </project>
