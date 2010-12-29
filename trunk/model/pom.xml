@@ -6,9 +6,9 @@
         <version>${version}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>${groupId}</groupId>
-    <artifactId>${artifactId}-model</artifactId>
-    <version>${pom.parent.version}</version>
+	<groupId>${groupId}</groupId>
+	<artifactId>${artifactId}-model</artifactId>
+    <version>${version}</version>
     <packaging>jar</packaging>
     <name>${artifactId} - Model</name>
     <url>${project.url}</url>
