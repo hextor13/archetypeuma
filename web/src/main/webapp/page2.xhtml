@@ -1,0 +1,76 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:t="http://myfaces.apache.org/tomahawk"
+	template="/templates/template.xhtml">
+	<ui:define name="content">
+		<h:head>
+		    <title>Listado de usuarios</title>
+		</h:head>
+		<h:body>
+	        <h:form id="formUsers">
+		        <h:outputText value="Listado de usuarios"/>
+				<p:menu widgetVar="tieredMenu" context="'start','tl','br'" tiered="true" style="width:200px">  
+			        <p:submenu label="Navigations">  
+			            <p:submenu label="Prime Links">  
+			                <p:menuitem value="Prime" url="http://www.prime.com.tr"   
+			                        icon="/images/home.png"/>  
+			                <p:menuitem value="PrimeFaces" url="http://www.primefaces.org"   
+			                        icon="/images/home.png"/>  
+			            </p:submenu>  
+			            <p:menuitem value="TouchFaces" url="#{request.contextPath}/touch"   
+			                        icon="/images/mobile.png"/>  
+			        </p:submenu>  
+			    </p:menu>  
+				<p:dataTable var="user" value="#{userListAction.list}" paginator="true" rows="25" lazy="true"  
+		             paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"  
+		             rowsPerPageTemplate="10,25,50"  
+		             selection="#{userListAction.selected}" selectionMode="single"  
+		             onRowSelectComplete="userDialog.show()" onRowSelectUpdate="display">  
+				    <f:facet name="header">  
+				        Displaying user application.  
+				    </f:facet>
+				    <p:column headerText="Nick">  
+				        <h:outputText value="#{user.nick}" />  
+				    </p:column>
+				    <p:column headerText="Name">  
+				        <h:outputText value="#{user.name}" />  
+				    </p:column>
+				    <p:column headerText="City">  
+				        <h:outputText value="#{user.city.name}" />  
+				    </p:column>
+				</p:dataTable>
+				<h:link value="Home" outcome="helloWorld"/>
+				
+				   <p:dataTable var="car" value="#{tableBean.lazyModel}" paginator="true" rows="10" lazy="true"  
+                  paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"  
+                  rowsPerPageTemplate="5,10,15"  
+                  selection="#{tableBean.selectedCar}" selectionMode="single"  
+                  onRowSelectComplete="carDialog.show()" onRowSelectUpdate="display">  
+   
+         <f:facet name="header">  
+             Displaying 100,000,000 Cars  
+         </f:facet>  
+   
+         <p:column headerText="Model">  
+             <h:outputText value="#{car.model}" />  
+         </p:column>  
+   
+         <p:column headerText="Year">  
+             <h:outputText value="#{car.year}" />  
+         </p:column>  
+   
+         <p:column headerText="Manufacturer">  
+             <h:outputText value="#{car.manufacturer}" />  
+         </p:column>  
+   
+         <p:column headerText="Color">  
+             <h:outputText value="#{car.color}" />  
+         </p:column>  
+     </p:dataTable>  
+		    </h:form>
+		</h:body>
+	</ui:define>
+</ui:composition>
