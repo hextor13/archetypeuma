@@ -4,10 +4,11 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <archetypes>
     <archetype>
-      <groupId>target/generated-sources/archetype/src/main/resources/META-INF/maven/</groupId>
+      <groupId>org.archetypeUma</groupId>
       <artifactId>archetypeUma-archetype</artifactId>
       <version>1.0</version>
       <description>archetypeUma-archetype</description>
+      <repository>https://archetypeuma.googlecode.com/svn/trunk/</repository> 
     </archetype>
   </archetypes>
 </archetype-catalog>
