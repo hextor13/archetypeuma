@@ -132,7 +132,7 @@
         <jdbc.artifactId>mysql-connector-java</jdbc.artifactId>
         <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
         <jdbc.version>5.0.8</jdbc.version>
-        <jdbc.host>mysql.sigb</jdbc.host>
+        <jdbc.host>localhost</jdbc.host>
         <jdbc.port>3306</jdbc.port>
         <jdbc.dbname>archetype_db</jdbc.dbname>
         <jdbc.username>archetype_user</jdbc.username>

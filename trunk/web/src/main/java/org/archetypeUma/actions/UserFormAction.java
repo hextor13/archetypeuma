@@ -18,14 +18,14 @@ import org.archetypeUma.service.interfaces.IUserManager;
  */
 @ManagedBean(name = "userFormAction")
 @RequestScoped
-public class UserFormAction implements Serializable {
+public class UserFormAction extends BaseAction implements Serializable {
 
     private static final long serialVersionUID = 1234124123412L;
 
     @ManagedProperty(value = "#{userManager}")
     private IUserManager      userManager      = null;
     private UserForm          userForm         = new UserForm();
-    
+
     @ManagedProperty("#{param.idUser}")
     private Long              idUser           = null;
 
@@ -39,9 +39,18 @@ public class UserFormAction implements Serializable {
     public String done() {
         String page = "list";
         try {
-            User user = userForm.toEntity();
+            User user = null;
+            if ((userForm.getIdUser() == null)
+                    || (userForm.getIdUser().equals(new Long(0)))) {
+                user = userForm.toEntity();
+            } else {
+                user = userManager.getUser(userForm.getIdUser());
+                user = userForm.toEntity(user);
+            }
             user = userManager.save(user, userForm.getCity());
         } catch (Exception e) {
+            log.error(e.getMessage());
+            page = "form";
         }
         return page;
     }

@@ -54,6 +54,7 @@ public class UserForm implements IBaseForm<User> {
 
     public void fromEntity(final User user) {
         if (user != null) {
+            setIdUser(user.getId());
             setNick(user.getNick());
             setName(user.getName());
             if (user.getCity() != null) {
