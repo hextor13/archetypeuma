@@ -10,16 +10,16 @@
         http://www.springframework.org/schema/security
         http://www.springframework.org/schema/security/spring-security-3.0.xsd">
 
-	<http auto-config="true">
-		<intercept-url pattern="/login.html" access="ROLE_ANONYMOUS" />
-		<intercept-url pattern="/**" access="ROLE_USER" />
-		<form-login login-page="/login.html" default-target-url="/index.html" authentication-failure-url="/login.html" />
-	</http>
-	<authentication-manager>
-	    <authentication-provider>
-	        <user-service>
-	            <user name="admin" password="admin" authorities="ROLE_USER" />
-	        </user-service>
-	    </authentication-provider>
-	</authentication-manager>
+<!--	<http auto-config="true">-->
+<!--		<intercept-url pattern="/login.html" access="ROLE_ANONYMOUS" />-->
+<!--		<intercept-url pattern="/**" access="ROLE_USER" />-->
+<!--		<form-login login-page="/login.html" default-target-url="/index.html" authentication-failure-url="/login.html" />-->
+<!--	</http>-->
+<!--	<authentication-manager>-->
+<!--	    <authentication-provider>-->
+<!--	        <user-service>-->
+<!--	            <user name="admin" password="admin" authorities="ROLE_USER" />-->
+<!--	        </user-service>-->
+<!--	    </authentication-provider>-->
+<!--	</authentication-manager>-->
 </beans:beans>
