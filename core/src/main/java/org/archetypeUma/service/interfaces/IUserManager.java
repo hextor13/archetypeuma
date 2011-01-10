@@ -1,5 +1,6 @@
 package org.archetypeUma.service.interfaces;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.archetypeUma.dao.interfaces.ICityDao;
@@ -9,7 +10,7 @@ import org.archetypeUma.model.pojos.User;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional(readOnly = true)
-public interface IUserManager {
+public interface IUserManager extends Serializable {
 
     /**
      * Get all users.

@@ -20,6 +20,8 @@ import org.springframework.stereotype.Service;
 @Service(value = "userManager")
 public class UserManagerImpl implements IUserManager {
 
+    private static final long serialVersionUID = 23323323L;
+
     @Autowired
     @Qualifier("userDao")
     private IUserDao userDao = null;
