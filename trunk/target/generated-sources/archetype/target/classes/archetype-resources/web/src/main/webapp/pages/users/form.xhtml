@@ -1,0 +1,42 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:t="http://myfaces.apache.org/tomahawk"
+	template="/templates/template.xhtml">
+	<ui:define name="content">
+		<h:head>
+		    <title><h:outputText value="${symbol_pound}{i18n['userEdit.title']}" /></title>
+		</h:head>
+		<h:body syleClass="body">
+	        <h:form id="formUsers" enctype="multipart/form-data">
+	        	<span class="title"><h:outputText value="${symbol_pound}{i18n['userEdit.title']}" styleClass="headTitle"/></span>
+	        	<t:panelGrid columns="3" styleClass="table" headerClass="headTable" footerClass="footTable" cellpadding="0" cellspacing="0" border="0" width="100%" columnClasses="width20,width50,width30">
+		        	<h:outputLabel id="labelNick" for="nick" value="${symbol_pound}{i18n['userEdit.nick']}" styleClass="label"/>
+					<h:inputText styleClass="input" size="80" id="nick" value="${symbol_pound}{userFormAction.userForm.nick}" required="true" maxlength="80" />
+					<t:message for="nick" styleClass="fieldError" detailFormat="{1} ${symbol_pound}{i18n['required']}." showSummary="false" showDetail="true" />
+	
+		        	<h:outputLabel id="labelName" for="name" value="${symbol_pound}{i18n['userEdit.name']}" styleClass="label"/>
+					<h:inputText styleClass="input" size="80" id="name" value="${symbol_pound}{userFormAction.userForm.name}" required="true" maxlength="80" />
+					<t:message for="name" styleClass="fieldError" detailFormat="{1} ${symbol_pound}{i18n['required']}." showSummary="false" showDetail="true" />
+	
+		        	<h:outputLabel id="labelCity" for="city" value="${symbol_pound}{i18n['userEdit.city']}" styleClass="label"/>
+					<h:selectOneMenu id="city" value="${symbol_pound}{userFormAction.userForm.city}" styleClass="input" size="80">
+						<f:selectItems value="${symbol_pound}{combosAction.cities}" />
+					</h:selectOneMenu>
+					<t:message for="city" styleClass="fieldError" detailFormat="{1} ${symbol_pound}{i18n['required']}." showSummary="false" showDetail="true" />
+	        	
+	        		<h:outputLabel id="labelImage" for="image" value="${symbol_pound}{i18n['userEdit.image']}" styleClass="label"/>
+					<t:inputFileUpload styleClass="input" id="image" value="${symbol_pound}{userFormAction.userForm.image}" accept="image/*"/>
+					<t:message for="image" styleClass="fieldError" detailFormat="{1} ${symbol_pound}{i18n['required']}." showSummary="false" showDetail="true" />
+	        	</t:panelGrid>
+		        <t:commandButton id="buttonDone" styleClass="buttonDone" value="${symbol_pound}{i18n['button.done']}" action="${symbol_pound}{userFormAction.done}"/>
+		        <t:commandButton id="buttonBack" styleClass="buttonBack" value="${symbol_pound}{i18n['button.back']}" action="list" immediate="true"/>
+		    </h:form>
+		</h:body>
+	</ui:define>
+</ui:composition>
