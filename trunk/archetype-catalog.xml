@@ -6,7 +6,7 @@
     <archetype>
       <groupId>org.archetypeUma</groupId>
       <artifactId>archetypeUma-archetype</artifactId>
-      <version>1.0</version>
+      <version>1.0-SNAPSHOT</version>
       <description>archetypeUma-archetype</description>
       <repository>https://archetypeuma.googlecode.com/svn/trunk/</repository> 
     </archetype>
