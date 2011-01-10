@@ -99,7 +99,6 @@
         <module>model</module>
         <module>core</module>
         <module>web</module>
-        <module>ear</module>
     </modules>
 
     <!-- ******************************************** -->
@@ -115,8 +114,7 @@
         <model.version>1.0-SNAPSHOT</model.version>
         <core.version>1.0-SNAPSHOT</core.version>
         <web.version>1.0-SNAPSHOT</web.version>
-        <ear.version>1.0-SNAPSHOT</ear.version>
-        <copyright.year>2010</copyright.year>
+        <copyright.year>2011</copyright.year>
         <project.url>http://code.google.com/p/archetypeuma/</project.url>
         <developer.company>Universidad de Málaga</developer.company>
 		<dbunit.maven.version>1.0-beta-3</dbunit.maven.version>
@@ -164,7 +162,7 @@
         <junit.version>4.0</junit.version>
         <jsf-tomahawk.version>1.1.10</jsf-tomahawk.version>
         <jsf-primefaces.version>2.2.RC2</jsf-primefaces.version>
-        <spring.version>3.0.3.RELEASE</spring.version>
+        <spring.version>3.0.5.RELEASE</spring.version>
         <hibernate.dependency.version>3.5.6-Final</hibernate.dependency.version>
         <oscache.version>2.4</oscache.version>
         <mysql-connector-java.version>5.0.8</mysql-connector-java.version>
