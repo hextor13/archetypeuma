@@ -1,0 +1,18 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <ui:composition>
+        <t:div styleClass="footer">
+            <h:outputText value="${symbol_pound}{i18n['footer.informatica.uma']}"/>
+            <br/>
+            <h:outputText value="${symbol_pound}{i18n['footer.uma']}"/>
+            <h:outputText value="by jcisneros" styleClass="alingRightFooter"/>
+        </t:div>
+    </ui:composition>
+</html>

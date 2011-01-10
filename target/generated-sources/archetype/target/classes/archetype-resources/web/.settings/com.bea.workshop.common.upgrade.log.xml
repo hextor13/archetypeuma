@@ -1,0 +1,8 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<upgrade-log>
+  <entry time="2010-07-08 16:18:41 UTC">
+    <upgrade-participant pluginId="com.bea.workshop.common.wtp.core" pluginVersion="2.1.0.20080808135653" class="com.bea.workshop.common.wtp.core.upgrade.internal.WtpComponentFileUpgradeParticipant"/>
+  </entry>
+</upgrade-log>

@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	template="/templates/template.xhtml">
+	<ui:define name="content">
+		<h:head>
+			<title>Listado de usuarios</title>
+		</h:head>
+		<h:body syleClass="body">
+			<h:form id="formUsers">
+				<span class="title"><h:outputText value="#{i18n['users']}" /></span>
+				<t:dataTable id="users" var="user" value="#{userListAction.users}"
+					sortColumn="nick" sortAscending="true" styleClass="list"
+					headerClass="datatableHeader" columnClasses="width20,width40,width40,width20">
+					<t:column id="user_name">
+						<f:facet name="header">
+							<h:outputText value="Nick" />
+						</f:facet>
+						<t:outputText value="#{user.nick}" escape="true" />
+					</t:column>
+					<t:column id="user_date">
+						<f:facet name="header">
+							<h:outputText value="Date creation" />
+						</f:facet>
+						<t:outputText value="#{user.dateCreation}" escape="true" />
+					</t:column>
+					<t:column id="user_image">
+						<f:facet name="header">
+							<h:outputText value="Image" />
+						</f:facet>
+					</t:column>
+					<t:column id="user_edit" styleClass="button_edit">
+						<f:facet name="header">
+							<h:outputText value="Edit" />
+						</f:facet>
+						<t:commandLink action="#{userFormAction.edit}" id="edit">
+			            	<f:param name="idUser" value="#{user.id}"/>
+			            	<h:graphicImage value="/resources/images/edit.png" border="0"/>
+			        	</t:commandLink>
+					</t:column>
+				</t:dataTable>
+			</h:form>
+		</h:body>
+	</ui:define>
+</ui:composition>
