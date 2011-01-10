@@ -2,7 +2,7 @@
 .footer {border-bottom:8px solid #3D689B;text-align:center;padding:5px;}
 .alingRightFooter {float:right;}
 .header {text-align:center;}
-.content {width:88%;padding-left:2%;float:left;}
+.content {width:86%;padding-left:2%;float:left;}
 .body {width:100%;}
 .list {width:100%;}
 .headTitle {width:100%;align:center;}
@@ -12,7 +12,7 @@
 .label{margin-top:2px;margin-bottom:2px;}
 .button_edit{text-align:center;}
 .title{text-align:center;font-size: 2em;display:block}
-.menu_left{float:left;width:10%;}
+.menu_left{float:left;width:12%;}
 .page{float:left;width:100%;}
 .width20{width:20%;}
 .width50{width:50%;}

@@ -27,9 +27,9 @@
 					</h:selectOneMenu>
 					<t:message for="city" styleClass="fieldError" detailFormat="{1} #{i18n['required']}." showSummary="false" showDetail="true" />
 	        	
-	        		<h:outputLabel id="labelImage" for="image" value="#{i18n['userEdit.image']}" styleClass="label"/>
+	        		<!--<h:outputLabel id="labelImage" for="image" value="#{i18n['userEdit.image']}" styleClass="label"/>
 					<t:inputFileUpload styleClass="input" id="image" value="#{userFormAction.userForm.image}" accept="image/*"/>
-					<t:message for="image" styleClass="fieldError" detailFormat="{1} #{i18n['required']}." showSummary="false" showDetail="true" />
+					<t:message for="image" styleClass="fieldError" detailFormat="{1} #{i18n['required']}." showSummary="false" showDetail="true" />-->
 	        	</t:panelGrid>
 		        <t:commandButton id="buttonDone" styleClass="buttonDone" value="#{i18n['button.done']}" action="#{userFormAction.done}"/>
 		        <t:commandButton id="buttonBack" styleClass="buttonBack" value="#{i18n['button.back']}" action="list" immediate="true"/>
