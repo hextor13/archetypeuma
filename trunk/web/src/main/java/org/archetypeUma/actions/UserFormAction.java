@@ -25,6 +25,8 @@ public class UserFormAction implements Serializable {
     @ManagedProperty(value = "#{userManager}")
     private IUserManager      userManager      = null;
     private UserForm          userForm         = new UserForm();
+    
+    @ManagedProperty("#{param.idUser}")
     private Long              idUser           = null;
 
     public UserFormAction() {
