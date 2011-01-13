@@ -7,16 +7,16 @@ Java is an object oriented programming language which is based in syntax from C.
 Java was maked by Sun Microsystems. At the beginnings, the main motivation for that company was to unify in one language all incompatible archetypes which were appearing. Later, Java language took Internet as base to grow and to become stronger.
 Java was originally created as a programming tool for a set-top-box proyect called 7. This proyect was maked for a team with thirteen members which were governed by James Gosling.
 The main advantages of Java language are:
-Robust
-Dinamic
-Multithreaded
-High performance
-Interpreted
-Portable
-Secure
-Distributed
-Object oriented
-Architecture Neutral
+ * Robust
+ * Dinamic
+ * Multithreaded
+ * High performance
+ * Interpreted
+ * Portable
+ * Secure
+ * Distributed
+ * Object oriented
+ * Architecture Neutral
 
 = How does it work? =
 
@@ -43,14 +43,7 @@ It´s important explain the POJO concept in this section because of it´ll be ve
 
 = Links =
 
-
-
-
-
-
-
-
-#summary JAVA
+ * http://java.sun.com/
 
 = ¿Qué es? =
 
@@ -58,17 +51,18 @@ Java es un lenguaje de programación orientado a objetos, basado en la sintaxis 
 Fue creado por la empresa Sun Microsystems. En principio la principal motivación de la empresa fue unificar en un lenguaje la multitud de arquitecturas incompatibles que estaban surgiendo. Después el lenguaje tomo internet como campo de batalla para crecer y hacerse fuerte.
 Java se creó originalmente como una herramienta de programación para un proyecto set-top-box conocido como 7. Fue realizado por un equipo de 13 personas, dirigidas por James Gosling.
 Las principales ventajas de java son:
-Robusto
-Dinámico
-Multiflujo
-Alto rendimiento
-Interpretado
-Portable
-Seguro
-Distribuido
-Orientado a objetos
-Dinámico
-No dependiente de la arquitectura
+
+ * Robusto
+ * Dinámico
+ * Multiflujo
+ * Alto rendimiento
+ * Interpretado
+ * Portable
+ * Seguro
+ * Distribuido
+ * Orientado a objetos
+ * Dinámico
+ * No dependiente de la arquitectura
 
 = ¿Como funciona? =
 
@@ -95,4 +89,6 @@ Lanzándolo desde la línea de comando con la aplicación javac.
 javac @options @classes
 Es importante explicar el concepto de POJO en este apartado ya que será muy utilizado en los apartados de hibernate y en la arquitectura.
 
-= Links =
+= Enlaces =
+
+ * http://java.sun.com/
