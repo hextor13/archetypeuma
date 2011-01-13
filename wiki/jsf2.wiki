@@ -25,11 +25,24 @@ Requisitos obligatorios: JRE de JAVA, recomendada la versión 1.6
 JSF es un estándar por lo que cuenta con varias implementaciones de su especificación. El enlace a la instalación de la implementación de myfaces 2.0 es:
 Instalación de myfaces 2.0.
 
+= Uso =
+
+Los componentes más importantes de la especificación son:
+
+||Termino||Descripción||
+||UI Component (componente de usuario o simplemente denominado componente)||Un objeto mantenido en el server, que provee funcionalidad especifica para interactuar con el usuario final. Los UI components son JavaBeans con properties, métodos y eventos. Ellos son organizados en una vista, la cual es un árbol de componentes usualmente mostrados como una página.||
+||Renderer||Responsable por mostrar un componente UI y traducir la entrada del usuario en un valor al interior del componente. Los Renderers pueden ser diseñados para trabajar con uno o mas UI components.||
+||Validator||Responsable por asegurarse que el valor ingresado por el usuario es aceptable. Uno o mas validadores pueden ser asociados con un simple UI component.||
+||Backing Beans||Son JavaBeans especializados que coleccionan valores desde los UI components e implementan métodos relacionados a los eventos de los UI components. Ellos también pueden almacenar referencias a UI components.||
+||Converter||Convierte el valor para y desde un componente para ser mostrado. Todos los UI components pueden ser asociados con un simple converter.||
+||Events y Listeners||	JSF usa el modelo event/listener (también usado por Swing). UI components (y otros objetos) generan eventos, y los listeners pueden ser registrados para manejar estos eventos.||
+||Mensajes||Información que es muestra de regreso al usuario. Solo ciertas partes de la aplicación (backing beans, validators, converters) pueden generar información o mensajes de error que pueden ser mostrados de regreso al usuario.||
+||Navigation||La habilidad para moverse de una pagina a otra. JSF tiene un sistema poderoso de navegación que esta integrado con event listeners especializados.||
+
 = Links=
 
-http://javaserverfaces.java.net/nonav/rlnotes/2.0.0/index.html
-
-http://jcp.org/aboutJava/communityprocess/edr/jsr314/index2.html
+ * http://javaserverfaces.java.net/nonav/rlnotes/2.0.0/index.html
+ * http://jcp.org/aboutJava/communityprocess/edr/jsr314/index2.html
 
 = ¿Qué es? =
 
@@ -59,9 +72,8 @@ Instalación de myfaces 2.0.
 
 Los componentes más importantes de la especificación son:
 
-
 ||Termino||Descripción||
-||UI Component (componente de usuario o simplemente denominado componente)||Un objeto mantenido en el server, que provee funcionalidad especifica para interactuar con el usuario final. Los UI components son JavaBeans con properties, metodos y eventos. Ellos son organizados en una vista, la cual es un árbol de componentes usualmente mostrados como una página.||
+||UI Component (componente de usuario o simplemente denominado componente)||Un objeto mantenido en el server, que provee funcionalidad especifica para interactuar con el usuario final. Los UI components son JavaBeans con properties, métodos y eventos. Ellos son organizados en una vista, la cual es un árbol de componentes usualmente mostrados como una página.||
 ||Renderer||Responsable por mostrar un componente UI y traducir la entrada del usuario en un valor al interior del componente. Los Renderers pueden ser diseñados para trabajar con uno o mas UI components.||
 ||Validator||Responsable por asegurarse que el valor ingresado por el usuario es aceptable. Uno o mas validadores pueden ser asociados con un simple UI component.||
 ||Backing Beans||Son JavaBeans especializados que coleccionan valores desde los UI components e implementan métodos relacionados a los eventos de los UI components. Ellos también pueden almacenar referencias a UI components.||
@@ -72,6 +84,5 @@ Los componentes más importantes de la especificación son:
 
 = Enlaces =
 
-http://javaserverfaces.java.net/nonav/rlnotes/2.0.0/index.html
-
-http://jcp.org/aboutJava/communityprocess/edr/jsr314/index2.html
+ * http://javaserverfaces.java.net/nonav/rlnotes/2.0.0/index.html
+ * http://jcp.org/aboutJava/communityprocess/edr/jsr314/index2.html
