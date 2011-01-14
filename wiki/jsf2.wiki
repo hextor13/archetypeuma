@@ -12,21 +12,21 @@ Faces can keep your UI components automatically and sinchronize them with your J
 = How does it work? =
 
 JSF is executed on the Server, for example a Faces application will be executed in a web container like Tomcat, Oracle Application or Jboss, and will show HTML or another client´s tags.
-When we make click on a button, Face executes an request which is sending from our browser to the Server. Faces brings that request to the event which will be procesed by our Server´s logic. ese request hacia el evento que será procesado por nuestra lógica en el Server. Faces must to display too each UI widget in the browser.
+When we make click on a button, Face executes an request which is sending from our browser to the Server. Faces brings that request to the event which will be procesed by our Server´s logic. Faces must to display in the browser too each UI widget defined by us.
 
 = Instalation =
 
-Requisitos obligatorios: JRE de JAVA, recomendada la versión 1.6 
+Necessary requirements: JRE de JAVA, version 1.6 recommended 
 
-JSF es un estándar por lo que cuenta con varias implementaciones de su especificación. El enlace a la instalación de la implementación de myfaces 2.0 es:
-Instalación de myfaces 2.0.
+JSF is a standard which has several implementations of its specification Through this link we can to install myfaces 2.0 implementation:
+Instalation of myfaces 2.0.
 
-= Uso =
+= Use =
 
-Los componentes más importantes de la especificación son:
+The most important components of the specification are:
 
-||Termino||Descripción||
-||UI Component (componente de usuario o simplemente denominado componente)||Un objeto mantenido en el server, que provee funcionalidad especifica para interactuar con el usuario final. Los UI components son JavaBeans con properties, métodos y eventos. Ellos son organizados en una vista, la cual es un árbol de componentes usualmente mostrados como una página.||
+||Component||Description||
+||UI Component (user´s component or simply named component)||An object saved in the server, which provides the specific funcionality to que provee funcionalidad especifica para interactuar con el usuario final. Los UI components son JavaBeans con properties, métodos y eventos. Ellos son organizados en una vista, la cual es un árbol de componentes usualmente mostrados como una página.||
 ||Renderer||Responsable por mostrar un componente UI y traducir la entrada del usuario en un valor al interior del componente. Los Renderers pueden ser diseñados para trabajar con uno o mas UI components.||
 ||Validator||Responsable por asegurarse que el valor ingresado por el usuario es aceptable. Uno o mas validadores pueden ser asociados con un simple UI component.||
 ||Backing Beans||Son JavaBeans especializados que coleccionan valores desde los UI components e implementan métodos relacionados a los eventos de los UI components. Ellos también pueden almacenar referencias a UI components.||
