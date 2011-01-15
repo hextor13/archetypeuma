@@ -18,7 +18,7 @@ When we make click on a button, Face executes an request which is sending from o
 
 Necessary requirements: JRE de JAVA, version 1.6 recommended 
 
-JSF is a standard which has several implementations of its specification Through this link we can to install myfaces 2.0 implementation:
+JSF is a standard which has several implementations of its specification. Through this link we can to install myfaces 2.0 implementation:
 Instalation of myfaces 2.0.
 
 = Use =
@@ -26,9 +26,9 @@ Instalation of myfaces 2.0.
 The most important components of the specification are:
 
 ||Component||Description||
-||UI Component (user´s component or simply named component)||An object saved in the server, which provides the specific funcionality to que provee funcionalidad especifica para interactuar con el usuario final. Los UI components son JavaBeans con properties, métodos y eventos. Ellos son organizados en una vista, la cual es un árbol de componentes usualmente mostrados como una página.||
-||Renderer||Responsable por mostrar un componente UI y traducir la entrada del usuario en un valor al interior del componente. Los Renderers pueden ser diseñados para trabajar con uno o mas UI components.||
-||Validator||Responsable por asegurarse que el valor ingresado por el usuario es aceptable. Uno o mas validadores pueden ser asociados con un simple UI component.||
+||UI Component (user´s component or simply named component)||An object saved in the server, which provides the specific functionality to interact with final user. UI components are JavaBeans with properties, methods and events. They are organized in a view which is a tree of components usually display like a page.||
+||Renderer||It´s responsible to display a UI component and translate the user´s input in a component´s inner value. The Renderers can be designed to work with one or more UI components.||
+||Validator||It´s responsible to validate the value indicated by user being correct. One or more validators can be asociated with a simple UI component.||
 ||Backing Beans||Son JavaBeans especializados que coleccionan valores desde los UI components e implementan métodos relacionados a los eventos de los UI components. Ellos también pueden almacenar referencias a UI components.||
 ||Converter||Convierte el valor para y desde un componente para ser mostrado. Todos los UI components pueden ser asociados con un simple converter.||
 ||Events y Listeners||	JSF usa el modelo event/listener (también usado por Swing). UI components (y otros objetos) generan eventos, y los listeners pueden ser registrados para manejar estos eventos.||
