@@ -29,11 +29,11 @@ The most important components of the specification are:
 ||UI Component (user´s component or simply named component)||An object saved in the server, which provides the specific functionality to interact with final user. UI components are JavaBeans with properties, methods and events. They are organized in a view which is a tree of components usually display like a page.||
 ||Renderer||It´s responsible to display a UI component and translate the user´s input in a component´s inner value. The Renderers can be designed to work with one or more UI components.||
 ||Validator||It´s responsible to validate the value indicated by user being correct. One or more validators can be asociated with a simple UI component.||
-||Backing Beans||Son JavaBeans especializados que coleccionan valores desde los UI components e implementan métodos relacionados a los eventos de los UI components. Ellos también pueden almacenar referencias a UI components.||
-||Converter||Convierte el valor para y desde un componente para ser mostrado. Todos los UI components pueden ser asociados con un simple converter.||
-||Events y Listeners||	JSF usa el modelo event/listener (también usado por Swing). UI components (y otros objetos) generan eventos, y los listeners pueden ser registrados para manejar estos eventos.||
-||Mensajes||Información que es muestra de regreso al usuario. Solo ciertas partes de la aplicación (backing beans, validators, converters) pueden generar información o mensajes de error que pueden ser mostrados de regreso al usuario.||
-||Navigation||La habilidad para moverse de una pagina a otra. JSF tiene un sistema poderoso de navegación que esta integrado con event listeners especializados.||
+||Backing Beans||They are JavaBeans which are specialized to collect values from UI componets and implement methods that are relationated with events of UI components. They can too storing references to UI components. ||
+||Converter|| It converts the value from and for a component which will be displayed. All UI components can be associated with a simple converter.||
+||Events y Listeners||	JSF uses event/listener model (it´s used by Swing too). UI components (and other objects) generate events, and the listeners can be registrated to manage these events.||
+||Messages|| Information that is back displayed to users. Only some parts of the application(backing beans, validators, converters) can generate information or error messages which can be returned to users.||
+||Navigation||The ability to move La habilidad para moverse de una pagina a otra. JSF tiene un sistema poderoso de navegación que esta integrado con event listeners especializados.||
 
 = Links=
 
