@@ -78,7 +78,7 @@ Al programar una prueba en Jmock hay que tener en cuenta varios factores que son
 ||Método||Descripción||
 ||equal(n)||Los argumentos son iguales que n.||
 ||same(o)||Los argumentos son un objeto como o.||
-||any(Class<T> type)||El argumento es alguna instancia del tipo que se ||establezca en type.||
+||any(Class<T> type)||El argumento es alguna instancia del tipo que se establezca en type.||
 ||a(Class<T> type)||El argumento es una instancia del tipo o de una subclase.||
 ||an(Class<T> type)||El argumento es una instancia del tipo o de una subclase.||
 ||aNull(Class<T> type)||El argumento es null.||
