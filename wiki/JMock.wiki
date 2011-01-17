@@ -117,7 +117,7 @@ Realmente los test de Junit solo tienen mucha dificultad cuando hay condiciones 
 
 = Links=
 
-
+ * http://www.jmock.org/
 
 = ¿Qué es? =
 
@@ -234,3 +234,5 @@ Hay dos métodos uno que le hace un test a getAllCity y otro a getAll. En ambos 
 Realmente los test de Junit solo tienen mucha dificultad cuando hay condiciones dentro del método que se esta testeando. Por cada 'if' que hubiera en el código habría que hacer un caso de estudio o un método que lo testee.
 
 = Enlaces =
+
+ * http://www.jmock.org/
