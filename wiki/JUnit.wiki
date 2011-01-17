@@ -1,4 +1,4 @@
-#summary jsf2.0
+#summary JUnit
 #labels Junit,test,java,j2ee
 
 = What´s it? =
@@ -19,10 +19,12 @@ Todos los test en Junit tienen que llevar la anotación:
 Esta anotación expresa que vamos a realizar un test en Junit utilizando spring.
 
 La siguiente anotación:
+{{{
 @ContextConfiguration(locations = {
         "classpath:/spring/applicationContext-resources.xml",
         "classpath:/spring/applicationContext-dao.xml",
         "classpath:/spring/applicationContext-service.xml" })
+}}}
 Se usa para especificar el contexto de Spring que es necesario para que el test se ejecute correctamente.
 
 Cada método que sirva de test de otro método de la aplicación hay que catalogarlos con la anotación 
@@ -32,25 +34,26 @@ Cada método que sirva de test de otro método de la aplicación hay que catalog
 = Instalation =
 
 Maven utiliza determinados ciclos de vida solo para la ejecución de test. Teniendo como dependencia la Api de Junit:
-
+{{{
 <dependency>
 <groupId>junit</groupId>
 <artifactId>junit</artifactId>
 <version>4.5</version>
 <scope>test</scope>
 </dependency>
-
+}}}
 Los beans de spring necesitan ser inyectados para las pruebas. Spring ha resuelto este mecanismo pero hay que inyectar la dependencia a spring-test.
-
+{{{
 <dependency>
 <groupId>org.springframework</groupId>
 <artifactId>spring-test</artifactId>
 <version>3.0.3.RELEASE</version>
 </dependency>
-
+}}}
 = Use =
 
 El ejemplo se va a presentar con la clase ICityDao.java
+{{{
 package org.archetypeUma.dao;
 import static org.junit.Assert.assertEquals;
 import java.util.List;
@@ -79,6 +82,7 @@ public class ICityDaoTest {
         this.cityDao = cityDao;
     }
 }
+}}}
 Hay que inyectar la capa DAO con @Autowired y probar uno a uno todos los métodos de esta capa. En este caso se ha probado el método getAll. Se ha llegado a la conclusión de que funciona correctamente ya que en la base de datos hay 3 ciudades que han sido precargada con el sample-data.xml y es lo que este método ha obtenido.
 
 = Links=
@@ -103,10 +107,12 @@ Todos los test en Junit tienen que llevar la anotación:
 Esta anotación expresa que vamos a realizar un test en Junit utilizando spring.
 
 La siguiente anotación:
+{{{
 @ContextConfiguration(locations = {
         "classpath:/spring/applicationContext-resources.xml",
         "classpath:/spring/applicationContext-dao.xml",
         "classpath:/spring/applicationContext-service.xml" })
+}}}
 Se usa para especificar el contexto de Spring que es necesario para que el test se ejecute correctamente.
 
 Cada método que sirva de test de otro método de la aplicación hay que catalogarlos con la anotación 
@@ -115,25 +121,26 @@ Cada método que sirva de test de otro método de la aplicación hay que catalog
 = Instalación =
 
 Maven utiliza determinados ciclos de vida solo para la ejecución de test. Teniendo como dependencia la Api de Junit:
-
+{{{
 <dependency>
 <groupId>junit</groupId>
 <artifactId>junit</artifactId>
 <version>4.5</version>
 <scope>test</scope>
 </dependency>
-
+}}}
 Los beans de spring necesitan ser inyectados para las pruebas. Spring ha resuelto este mecanismo pero hay que inyectar la dependencia a spring-test.
-
+{{{
 <dependency>
 <groupId>org.springframework</groupId>
 <artifactId>spring-test</artifactId>
 <version>3.0.3.RELEASE</version>
 </dependency>
-
+}}}
 = Uso =
 
 El ejemplo se va a presentar con la clase ICityDao.java
+{{{
 package org.archetypeUma.dao;
 import static org.junit.Assert.assertEquals;
 import java.util.List;
@@ -162,6 +169,7 @@ public class ICityDaoTest {
         this.cityDao = cityDao;
     }
 }
+}}}
 Hay que inyectar la capa DAO con @Autowired y probar uno a uno todos los métodos de esta capa. En este caso se ha probado el método getAll. Se ha llegado a la conclusión de que funciona correctamente ya que en la base de datos hay 3 ciudades que han sido precargada con el sample-data.xml y es lo que este método ha obtenido.
 
 = Enlaces =
