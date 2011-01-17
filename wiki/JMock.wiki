@@ -28,6 +28,93 @@ Solo hay que meter en el pom.xml la dependencia al jar de JMock.
 = Use =
 
 
+Al programar una prueba en Jmock hay que tener en cuenta varios factores que son muy importantes:
+ * El número de invocaciones a un Mock.
+
+||Método||Descripción||
+||oneOf||La invocación ha este método se ha producido una sola vez.||
+||exactly(n).of||La invocación es esperada n veces.||
+||atLeast(n).of||La invocación es esperada hasta n veces.||
+||atMost(n).of||La invocación es esperada al menos n veces.||
+||between(min, max).of||La invocación se espera entre un intervalo.||
+||allowing||La invocación es permitida algún número de veces pero no tiene porque suceder.||
+||ignoring||Similar a la de permitir.||
+||never||La invocación a este mock no se debería de producir.||
+
+
+ * Comprobación de argumentos. Se comprueba que los argumentos que entran a un método son los esperados:
+||Método||Descripción||
+||equal(n)||Los argumentos son iguales que n.||
+||same(o)||Los argumentos son un objeto como o.||
+||any(Class< T > type)||El argumento es alguna instancia del tipo que se establezca en type.||
+||a(Class< T > type)||El argumento es una instancia del tipo o de una subclase.||
+||an(Class< T > type)||El argumento es una instancia del tipo o de una subclase.||
+||aNull(Class< T > type)||El argumento es null.||
+||aNonNull(Class< T > type)||El argumento no es null.||
+||not(m)||Los argumentos no son m.||
+||anyOf(m1, m2, ..., mn)||Los argumentos se encuentrar entre m1 y mn.||
+||allOf(m1, m2, ..., mn)||Los argumentos son los que se encuentrar entre m1 y mn.||
+
+ * Acciones. Se puede especificar que devuelve cada Mock, los métodos que lo consiguen son: 
+||Método||Descripción||
+||will(returnValue(v))||Devuelve el objeto c al ser llamado.||
+||will(returnIterator(c))||Devuelve un nuevo Iterador sobre la colección c para cada invocación.||
+||will(returnIterator(v1, v2, ..., vn))||Devuelve un nuevo iterador para cada elemento invocación, desde v1 hasta vn.||
+||will(throwException(e))||Devuelve una excepción.||
+||will(doAll(a1, a2, ..., an))||Hace muchas acciones sobre una invocación.||
+
+Ejemplo de test realizado con JMock:
+{{{
+package org.archetypeUma.services;
+@RunWith(JMock.class)
+public class IUserManagerTest {
+    // Mock context
+    private Mockery      context     = new Mockery();
+    private IUserManager userManager = null;
+    private IUserDao     userDao     = context.mock(IUserDao.class);
+    private ICityDao     cityDao     = context.mock(ICityDao.class);
+
+    @Before
+    public void setUp() {
+        userManager = new UserManagerImpl();
+        userManager.setUserDao(userDao);
+        userManager.setCityDao(cityDao);
+    }
+
+    @Test
+    public void testGetAll() {
+        final List<User> usuarios = new ArrayList<User>();
+        usuarios.add(new User("jcisneros", "javier"));
+        context.checking(new Expectations() {
+            {
+                one(userDao).getAll();
+                will(returnValue(usuarios));
+            }
+        });
+        assertEquals(userManager.getAll(), usuarios);
+        context.assertIsSatisfied();
+    }
+
+    @Test
+    public void testGetAllCity() {
+        final List<City> cities = new ArrayList<City>();
+        cities.add(new City("MA", "Málaga"));
+        context.checking(new Expectations() {
+            {
+                one(cityDao).getAllCache();
+                will(returnValue(cities));
+            }
+        });
+        assertEquals(userManager.getAllCity(), cities);
+        context.assertIsSatisfied();
+    }
+}
+}}}
+En el ejemplo del arquetipo hay una clase que hace el test a IUserManager.java.
+Hay dos métodos uno que le hace un test a getAllCity y otro a getAll. En ambos se comprueba que se esste llamando al dao para conseguir los resultados y se comprueba que los datos que vienen por la salida del método coinciden con los valores que esta devolviendo el dao.
+Realmente los test de Junit solo tienen mucha dificultad cuando hay condiciones dentro del método que se esta testeando. Por cada 'if' que hubiera en el código habría que hacer un caso de estudio o un método que lo testee.
+
+
 = Links=
 
 
@@ -78,11 +165,11 @@ Al programar una prueba en Jmock hay que tener en cuenta varios factores que son
 ||Método||Descripción||
 ||equal(n)||Los argumentos son iguales que n.||
 ||same(o)||Los argumentos son un objeto como o.||
-||any(Class<T> type)||El argumento es alguna instancia del tipo que se establezca en type.||
-||a(Class<T> type)||El argumento es una instancia del tipo o de una subclase.||
-||an(Class<T> type)||El argumento es una instancia del tipo o de una subclase.||
-||aNull(Class<T> type)||El argumento es null.||
-||aNonNull(Class<T> type)||El argumento no es null.||
+||any(Class< T > type)||El argumento es alguna instancia del tipo que se establezca en type.||
+||a(Class< T > type)||El argumento es una instancia del tipo o de una subclase.||
+||an(Class< T > type)||El argumento es una instancia del tipo o de una subclase.||
+||aNull(Class< T > type)||El argumento es null.||
+||aNonNull(Class< T > type)||El argumento no es null.||
 ||not(m)||Los argumentos no son m.||
 ||anyOf(m1, m2, ..., mn)||Los argumentos se encuentrar entre m1 y mn.||
 ||allOf(m1, m2, ..., mn)||Los argumentos son los que se encuentrar entre m1 y mn.||
