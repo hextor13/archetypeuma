@@ -10,30 +10,30 @@ It´s suitable for the development para el desarrollo dirigido por las pruebas. 
 
 = How does it work? =
 
-JUnit test are executed as a simple Java class, although those have a type of injections and annotations that do them more specials. Therefore, the best way to execute the test is through other applications which are able to interpret them. The method more usual is through Maven, Ant or any IDE which has integrated unitary tests into their properties.La forma más utilizada es por maven, ant o por algún IDE que ya tenga bien integradas las pruebas unitarias dentro de sus características.
+JUnit test are executed as a simple Java class, although those have a type of injections and annotations that do them more specials. Therefore, the best way to execute the test is through other applications which are able to interpret them. The method more usual is through Maven, Ant or any IDE which has integrated unitary tests into their properties.
 
-Junit proporciona una Api para la ejecución de los test. Tiene una serie de clases y objetos que facilitan el testeo.
+Junit provides an Api to execute the tests. That has a set of Java classes and objects to facilitate the testing.
 
-Todos los test en Junit tienen que llevar la anotación:
+All JUnit tests must have this annotation: 
 @RunWith(SpringJUnit4ClassRunner.class)
-Esta anotación expresa que vamos a realizar un test en Junit utilizando spring.
+This annotation expresses we going to make a JUnit test using Spring.
 
-La siguiente anotación:
+Next annotation:
 {{{
 @ContextConfiguration(locations = {
         "classpath:/spring/applicationContext-resources.xml",
         "classpath:/spring/applicationContext-dao.xml",
         "classpath:/spring/applicationContext-service.xml" })
 }}}
-Se usa para especificar el contexto de Spring que es necesario para que el test se ejecute correctamente.
+It´s used to specify the Spring´s context which is necessary to execute the test correcty.
 
-Cada método que sirva de test de otro método de la aplicación hay que catalogarlos con la anotación 
+Each method which could be used like a test for another method must be cataloged with the next annotation:
 @Test
 
 
 = Instalation =
 
-Maven utiliza determinados ciclos de vida solo para la ejecución de test. Teniendo como dependencia la Api de Junit:
+Maven uses determined life cycles for execution of tests. Having as dependency the JUnit Java: 
 {{{
 <dependency>
 <groupId>junit</groupId>
