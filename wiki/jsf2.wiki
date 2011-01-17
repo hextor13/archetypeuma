@@ -33,7 +33,7 @@ The most important components of the specification are:
 ||Converter|| It converts the value from and for a component which will be displayed. All UI components can be associated with a simple converter.||
 ||Events y Listeners||	JSF uses event/listener model (it´s used by Swing too). UI components (and other objects) generate events, and the listeners can be registrated to manage these events.||
 ||Messages|| Information that is back displayed to users. Only some parts of the application(backing beans, validators, converters) can generate information or error messages which can be returned to users.||
-||Navigation||The ability to move La habilidad para moverse de una pagina a otra. JSF tiene un sistema poderoso de navegación que esta integrado con event listeners especializados.||
+||Navigation||The ability to move from one page to another. JSF has a powerful navigation system that is integrated with specialized event listeners.||
 
 = Links=
 
