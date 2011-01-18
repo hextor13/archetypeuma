@@ -2,20 +2,19 @@
 
 = What´s it? =
 
-JMock es una API para las pruebas unitarias de sistema en Java. Utiliza Junit para algunas operaciones.
+JMock is an API for unitary system tests in Java. It uses JUnit to do some operations.
 
 = How does it work? =
-
-JMock permite la creación de test unitarios exhibiendo determinados componentes y sustituyéndolos por sus 'Mocks'. Mocks es una expresión que representa una burla. Esa es la principal ventaja de los Mocks, no hace falta probar que hace un objeto que tiene el programa si se esta seguro que el programa funciona. Lo mejor es crear un objeto “Mockery” que sustituya a toda esa funcionalidad y que hagamos el test dependiendo de lo que devuelvan.
-Los test de JMock se apoyan en Junit4 por lo que hay que declarar en la cabecera la anotación:
+JMock allows to create unitary tests. JMock shows  determined components and replace them by his 'Mocks'. Mocks is an expression that    represents a mock. That´s the main advantage of Mocks, it´s not necessary to test what does an object of the program do if being sure the program works right. The best of create an object “Mockery” which replaces all functionality  and we do the test depending what they return.
+The JMock tests are relied on Junit4 so must declare the next annotation into the header:
 @RunWith(JMock.class) 
-Cada test tiene que ir acompañado de la anotación
+Each test must be accompanied of the annotation
 @test
 
 
 = Instalation =
 
-Solo hay que meter en el pom.xml la dependencia al jar de JMock.
+Only must introduce into the pom.xml file the dependency to JMock´s jar 
 {{{
 <dependency>
 <groupId>org.jmock</groupId>
@@ -28,8 +27,8 @@ Solo hay que meter en el pom.xml la dependencia al jar de JMock.
 = Use =
 
 
-Al programar una prueba en Jmock hay que tener en cuenta varios factores que son muy importantes:
- * El número de invocaciones a un Mock.
+To program a test in JMock we must consider several factors which are very important:
+ * The number of invocations to a Mock
 
 ||Método||Descripción||
 ||oneOf||La invocación ha este método se ha producido una sola vez.||
@@ -151,7 +150,7 @@ Al programar una prueba en Jmock hay que tener en cuenta varios factores que son
  * El número de invocaciones a un Mock.
 
 ||Método||Descripción||
-||oneOf||La invocación ha este método se ha producido una sola vez.||
+||oneOf||La invocación a este método se ha producido una sola vez.||
 ||exactly(n).of||La invocación es esperada n veces.||
 ||atLeast(n).of||La invocación es esperada hasta n veces.||
 ||atMost(n).of||La invocación es esperada al menos n veces.||
