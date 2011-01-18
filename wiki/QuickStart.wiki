@@ -1,13 +1,42 @@
 #QuickStart.
 
-= Introduction =
+La maquina virtual de java es requisito imprescindible para que el programa se ejecute correctamente. Es muy probable que el usuario ya tenga instalado en su computadora la maquina virtual de java sobre la que se ejecuta la aplicación pero si no la tiene puede obtenerla de http://java.sun.com. El proyecto necesita la versión 1.6 de la JDK de Java. Más información de la instalación de Java en el enlace.
 
-Add your content here.
+Una vez este instalada la maquina virtual ya se puede correr cualquier aplicación java. El primer paso sería instalarnos Maven. Tenemos un enlace al manual de instalación en: Enlace a Maven.
 
+Ahora se puede invocar al arquetipo ArchetypeUma:
 
-= Details =
+mvn archetype:generate -DarchetypeCatalog=https://archetypeuma.googlecode.com/svn/trunk/archetype-catalog.xml -DarchetypeGroupId=org.archetypeUma -DarchetypeArtifactId=archetypeUma-archetype -DarchetypeVersion=1.0-SNAPSHOT
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Se crearán unas carpetas y ficheros en el directorio que tengamos el shell o consola de windows. Por lo que es conveniente que se cree en el directorio de trabajo en el que vaya a correr eclipse.
+
+Una vez descargado el proyecto entero, se puede continuar trabajando. 
+
+A continuación hay que instalar la base de datos. Ya sea MySQL o postgresql o cualquiera si cambiarmos el driver y la dependencia que esta en el pom.xml principal.
+
+Bien, si esta instalada hay que crear una base de datos y un usuario que tenga permisos para eso:
+
+create database archetype_db;
+
+Se crea el usuario:
+
+CREATE USER 'archetype_user'@'localhost' IDENTIFIED BY 'archetype _pwd';
+
+GRANT ALL PRIVILEGES ON *.* TO 'archetype_user'@'localhost' IDENTIFIED BY 'archetype _pwd' WITH GRANT OPTION;
+
+Esta base de datos y usuario se ha creado así porque en el arquetipo viene con ese nombre y ese password. Se puede poner el que quiera si se cambian las líneas en el pom.xml principal del proyecto.
+Estas son las líneas que habría que sustituir:
+
+        <jdbc.dbname>archetype_db</jdbc.dbname>
+        <jdbc.username>archetype_user</jdbc.username>
+        <jdbc.password>archetype_pwd</jdbc.password>
+
+Dependiendo del IDE en el que se quiera instalar hay que integrarlo, para esto existe los goals de maven:
+
+•	Eclipse
+mvn eclipse:clean eclipse:eclipse
+
+•	Intellij IDEA
+mvn idea:clean idea:idea
+
+Esto tardará un poco. Ya que además de crear el proyecto y descargarse las dependencias propias del plugin, se descarga todos los códigos fuentes que se utiliza en el proyecto. Este proyecto al tener tantas dependencias tarda bastante en bajárselas todas.
