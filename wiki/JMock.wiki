@@ -54,15 +54,15 @@ To program a test in JMock we must consider several factors which are very impor
 ||anyOf(m1, m2, ..., mn)||The arguments are between m1 y mn.||
 ||allOf(m1, m2, ..., mn)||The arguments are which are found between m1 y mn.||
 
- * Actions. Se puede especificar que devuelve cada Mock, los métodos que lo consiguen son: 
-||Método||Descripción||
-||will(returnValue(v))||Devuelve el objeto c al ser llamado.||
-||will(returnIterator(c))||Devuelve un nuevo Iterador sobre la colección c para cada invocación.||
-||will(returnIterator(v1, v2, ..., vn))||Devuelve un nuevo iterador para cada elemento invocación, desde v1 hasta vn.||
-||will(throwException(e))||Devuelve una excepción.||
-||will(doAll(a1, a2, ..., an))||Hace muchas acciones sobre una invocación.||
+ * Actions. It´s possible to specify what return each Mock, the methods which achieve that are:
+||Method||Description||
+||will(returnValue(v))||It´s returns the object c to be called.||
+||will(returnIterator(c))||It´s returns a new iterador over the collection named c by each invocation.||
+||will(returnIterator(v1, v2, ..., vn))||It´s a new un nuevo iterator by each element of the invocation, from v1 to vn.||
+||will(throwException(e))||It´s returns an exception.||
+||will(doAll(a1, a2, ..., an))||It does many actions on an invocation.||
 
-Ejemplo de test realizado con JMock:
+Example of test done with JMock:
 {{{
 package org.archetypeUma.services;
 @RunWith(JMock.class)
@@ -109,9 +109,9 @@ public class IUserManagerTest {
     }
 }
 }}}
-En el ejemplo del arquetipo hay una clase que hace el test a IUserManager.java.
-Hay dos métodos uno que le hace un test a getAllCity y otro a getAll. En ambos se comprueba que se esste llamando al dao para conseguir los resultados y se comprueba que los datos que vienen por la salida del método coinciden con los valores que esta devolviendo el dao.
-Realmente los test de Junit solo tienen mucha dificultad cuando hay condiciones dentro del método que se esta testeando. Por cada 'if' que hubiera en el código habría que hacer un caso de estudio o un método que lo testee.
+In this example of archetype there's a class to do the test for IUserManager.java.
+There're two methods: one does a test for getAllCity and another for getAll. Both of them check if the dao is called to get the results and test the data from output of the method is equal the values which the dao returns. 
+Really the test of JUnit only have very  much difficult when there are conditions into the method which is being test.  By each 'if' that exists into the code, should to do a method to test it.
 
 
 = Links=
