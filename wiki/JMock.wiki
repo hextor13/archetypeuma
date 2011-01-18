@@ -30,31 +30,31 @@ Only must introduce into the pom.xml file the dependency to JMock´s jar
 To program a test in JMock we must consider several factors which are very important:
  * The number of invocations to a Mock
 
-||Método||Descripción||
-||oneOf||La invocación ha este método se ha producido una sola vez.||
-||exactly(n).of||La invocación es esperada n veces.||
-||atLeast(n).of||La invocación es esperada hasta n veces.||
-||atMost(n).of||La invocación es esperada al menos n veces.||
-||between(min, max).of||La invocación se espera entre un intervalo.||
-||allowing||La invocación es permitida algún número de veces pero no tiene porque suceder.||
-||ignoring||Similar a la de permitir.||
-||never||La invocación a este mock no se debería de producir.||
+||Method||Description||
+||oneOf||The invocation to this method has been only once.||
+||exactly(n).of||The invocation is expected n times.||
+||atLeast(n).of||The invocation is expected until n times.||
+||atMost(n).of||The invocation is expected at least n times.||
+||between(min, max).of||The invocation is expected from a range.||
+||allowing||The invocation is allowed some number of times but could not occur.||
+||ignoring||Similar to previous.||
+||never||The invocation to this mock should not occur.||
 
 
- * Comprobación de argumentos. Se comprueba que los argumentos que entran a un método son los esperados:
-||Método||Descripción||
-||equal(n)||Los argumentos son iguales que n.||
-||same(o)||Los argumentos son un objeto como o.||
-||any(Class< T > type)||El argumento es alguna instancia del tipo que se establezca en type.||
-||a(Class< T > type)||El argumento es una instancia del tipo o de una subclase.||
-||an(Class< T > type)||El argumento es una instancia del tipo o de una subclase.||
-||aNull(Class< T > type)||El argumento es null.||
-||aNonNull(Class< T > type)||El argumento no es null.||
-||not(m)||Los argumentos no son m.||
-||anyOf(m1, m2, ..., mn)||Los argumentos se encuentrar entre m1 y mn.||
-||allOf(m1, m2, ..., mn)||Los argumentos son los que se encuentrar entre m1 y mn.||
+ * Checking arguments. Checking the arguments that enter to a method are the expecteds:
+||Method||Description||
+||equal(n)||The arguments are equal to n.||
+||same(o)||The arguments are an object like o.||
+||any(Class< T > type)||The argument is some instance of type established in type.||
+||a(Class< T > type)||The argument is an instance of the type or of a subclass.||
+||an(Class< T > type)||The argument is an instance of the type or of a subclass.||
+||aNull(Class< T > type)||The argument is null.||
+||aNonNull(Class< T > type)||The argument isn´t null.||
+||not(m)||The arguments aren´t m.||
+||anyOf(m1, m2, ..., mn)||The arguments are between m1 y mn.||
+||allOf(m1, m2, ..., mn)||The arguments are which are found between m1 y mn.||
 
- * Acciones. Se puede especificar que devuelve cada Mock, los métodos que lo consiguen son: 
+ * Actions. Se puede especificar que devuelve cada Mock, los métodos que lo consiguen son: 
 ||Método||Descripción||
 ||will(returnValue(v))||Devuelve el objeto c al ser llamado.||
 ||will(returnIterator(c))||Devuelve un nuevo Iterador sobre la colección c para cada invocación.||
