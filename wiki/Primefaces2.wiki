@@ -1,15 +1,44 @@
 #summary Primefaces 2.0
 
-= What is? =
+= What´s it? =
 
-Primefaces is a tag galery which to JSF standar.
+
+
+= How does it work? =
+
 
 
 = Instalation =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
 
-= Links =
+
+= Use =
+
+
+= Links=
+
+
+
+= ¿Qué es? =
+
+Primefaces es una galería de componentes JSF 2. Ha tenido una gran aceptación en su primera versión cuando funcionaba bajo JSF 1.2. Ahora han sido los primeros en adaptar sus componentes a  JSF 2.0. Lo que les da cierta ventaja en pruebas y optimización que el resto de librerías de uso similar.
+Es desarrollado por una empresa Turca, denominada Prime Technology, que ofrece su software como código abierto y software libre.
+
+
+
+= ¿Como funciona ? =
+
+
+
+
+= Instalación =
+
+
+
+
+= Uso =
+
+
+
+
+= Enlaces =
