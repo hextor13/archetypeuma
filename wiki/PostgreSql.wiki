@@ -29,9 +29,9 @@ Además de instalar el motor de la base de datos, lo major para el mantenimiento
 sudo apt-get install pgadmin3
 }}}
 Según la vversión del ordenador se instalará una versión de postgresql, en este caso se ha instalado la:
-
- * PostgreSQL 8.4.5 on x86_64-pc-linux-gnu, compiled by GCC gcc-4.4.real (Ubuntu 4.4.3-4ubuntu5) 4.4.3, 64-bit
-
+{{{
+PostgreSQL 8.4.5 on x86_64-pc-linux-gnu, compiled by GCC gcc-4.4.real (Ubuntu 4.4.3-4ubuntu5) 4.4.3, 64-bit
+}}}
 Para entrar en el programa:
 {{{
 sudo su postgres -c psql
@@ -58,7 +58,7 @@ DBUnit tiene un problema con esta base de datos. Ya que DBUnit intenta eliminar 
 
 = Links=
 
-
+ * http://www.postgresql.org
 
 = ¿Qué es? =
 
@@ -88,9 +88,9 @@ Además de instalar el motor de la base de datos, lo major para el mantenimiento
 sudo apt-get install pgadmin3
 }}}
 Según la vversión del ordenador se instalará una versión de postgresql, en este caso se ha instalado la:
-
- * PostgreSQL 8.4.5 on x86_64-pc-linux-gnu, compiled by GCC gcc-4.4.real (Ubuntu 4.4.3-4ubuntu5) 4.4.3, 64-bit
-
+{{{
+PostgreSQL 8.4.5 on x86_64-pc-linux-gnu, compiled by GCC gcc-4.4.real (Ubuntu 4.4.3-4ubuntu5) 4.4.3, 64-bit
+}}}
 Para entrar en el programa:
 {{{
 sudo su postgres -c psql
@@ -116,3 +116,5 @@ Es importante instalar los drivers como psqlODBC y demás componente de postgres
 DBUnit tiene un problema con esta base de datos. Ya que DBUnit intenta eliminar el esquema de la base de datos desde el mismo esquema de base de datos que esta utilizando y eso en postgresql da error. Habría que eliminarlo desde otro esquema de base de datos. El mismo problema se puede presentar en otras bases de datos, por ejemplo en Oracle.
 
 = Enlaces =
+
+ * http://www.postgresql.org
