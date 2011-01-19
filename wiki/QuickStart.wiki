@@ -1,4 +1,4 @@
-#QuickStart
+# QuickStart
 
 La maquina virtual de java es requisito imprescindible para que el programa se ejecute correctamente. Es muy probable que el usuario ya tenga instalado en su computadora la maquina virtual de java sobre la que se ejecuta la aplicación pero si no la tiene puede obtenerla de http://java.sun.com. El proyecto necesita la versión 1.6 de la JDK de Java. Más información de la instalación de Java en el enlace.
 
