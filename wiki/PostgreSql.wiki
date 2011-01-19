@@ -1,4 +1,4 @@
-#summary mysql
+#summary PostgreSql
 
 = What´s it? =
 
