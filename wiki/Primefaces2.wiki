@@ -49,7 +49,9 @@ Primefaces tiene definido en la librería UIComponents muchos componentes, los c
 }}}
 En la cabecera de cada página donde se quiera utilizar este componente hay que establecer que se va a utilizar esta librería de primefaces.
 
+{{{
 xmlns:p="http://primefaces.prime.com.tr/ui"
+}}}
 
 Ahora se puede utilizar el componente:
 {{{
