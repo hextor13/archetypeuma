@@ -50,7 +50,7 @@ It´s important to install drivers as psqlODBC and other PostgreSQL's components
 
 = Use =
 
-DBUnit tiene un problema con esta base de datos. Ya que DBUnit intenta eliminar el esquema de la base de datos desde el mismo esquema de base de datos que esta utilizando y eso en postgresql da error. Habría que eliminarlo desde otro esquema de base de datos. El mismo problema se puede presentar en otras bases de datos, por ejemplo en Oracle.
+DBUnit has a problem with this database.DBUnit tries to delete the database schema from the own schema which is using and this causes error in PostgreSQL. It should be deleted from other database schema. The same problem could appear in other databases, for example Oracle.
 
 = Links=
 
