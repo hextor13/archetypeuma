@@ -26,7 +26,8 @@ In addition to installing the database engine, the best for the maintenance will
 {{{
 sudo apt-get install pgadmin3
 }}}
-Depending the computer's version, installling a version of PostgreSQL, for this case we has installed the next:{{{
+Depending the computer's version, installling a version of PostgreSQL, for this case we has installed the next:
+{{{
 PostgreSQL 8.4.5 on x86_64-pc-linux-gnu, compiled by GCC gcc-4.4.real (Ubuntu 4.4.3-4ubuntu5) 4.4.3, 64-bit
 }}}
 To come into the program:
