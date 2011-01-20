@@ -2,9 +2,8 @@
 
 = What´s it? =
 
-PostgreSQL es un sistema de gestión de base de datos relacional orientada a objetos y sotware libre, publicado bajo la licencia BSD.
-Como muchos otros proyectos de código abierto, el desarrollo de PostgreSQL no es manejado por una empresa y/o persona, sino que es dirigido por una comunidad de desarrolladores que trabajan de forma desinteresada, altruista, libre y/o apoyados por organizaciones comerciales. Dicha comunidad es denominada el PGDG (PostgreSQL Global Development Group).
-PostgreSQL ha tenido una larga evolución, la cual se inicia en 1982 con el proyecto Ingres en la Universidad de Berkeley. Este proyecto, liderado por Michael Stonebraker.
+PostgreSQL is a relational database management system oriented to objects and free software, published under BSD licence. As many other Open Source projects, the development about PostgreSQL isn't managed by a company or/and a person, but it's directed by a community of developers who work disinterested, altruist, free way or/and supported by business. That community is called PGDG (PostgreSQL Global Development Group).
+PostgreSQL has had a large evolution which began in 1982 with Ingres project in Berkeley's University. Este proyecto, liderado por Michael Stonebraker.
 Para el año 1996 se unieron al proyecto personas ajenas a la Universidad como Marc Fournier de Hub.Org Networking Services, Bruce Momjian y Vadim B. Mikheev quienes proporcionaron el primer servidor de desarrollo no universitario para el esfuerzo de desarrollo de código abierto y comenzaron a trabajar para estabilizar el código de Postgres95.
 
 
