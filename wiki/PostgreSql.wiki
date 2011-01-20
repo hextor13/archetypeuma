@@ -3,8 +3,8 @@
 = What´s it? =
 
 PostgreSQL is a relational database management system oriented to objects and free software, published under BSD licence. As many other Open Source projects, the development about PostgreSQL isn't managed by a company or/and a person, but it's directed by a community of developers who work disinterested, altruist, free way or/and supported by business. That community is called PGDG (PostgreSQL Global Development Group).
-PostgreSQL has had a large evolution which began in 1982 with Ingres project in Berkeley's University. Este proyecto, liderado por Michael Stonebraker.
-Para el año 1996 se unieron al proyecto personas ajenas a la Universidad como Marc Fournier de Hub.Org Networking Services, Bruce Momjian y Vadim B. Mikheev quienes proporcionaron el primer servidor de desarrollo no universitario para el esfuerzo de desarrollo de código abierto y comenzaron a trabajar para estabilizar el código de Postgres95.
+PostgreSQL has had a large evolution which began in 1982 with Ingres project in Berkeley's University. This project was led by Michael Stonebraker.
+In 1996 joined this project people outside the University as Marc Fournier from Hub.Org Networking Services, Bruce Momjian and Vadim B. Mikheev who provided the first non-university development server to development of open source code and started to set  Postgres95 code.
 
 
 = How does it work? =
