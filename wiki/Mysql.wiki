@@ -19,7 +19,8 @@ The data types are very important in each database because these are very joined
 
 Mysql must be installed in diferent way and with a different software to each Operative System:
 
- * Linux: Several distributions already include a MySQL.{{{
+ * Linux: Several distributions already include a MySQL.
+{{{
 apt-get install mysql
 }}} 
  * Windows:
