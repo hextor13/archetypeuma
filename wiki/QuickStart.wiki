@@ -4,7 +4,7 @@ The Java Virtual Machine (JVM) is an essential requirement to the program will b
 
 Once installed Virtual Machine, already it's possible to run any Java application. El primer paso sería instalarnos Maven. We have a link to the installation manual: Enlace a Maven.
 
-Now, it's possible to invoke to ArchetypeUma:
+Now, it's possible to invoke to ArchetypeUma :
 {{{
 mvn archetype:generate -DremoteRepositories=https://archetypeuma.googlecode.com/svn/trunk/archetype-catalog.xml -DarchetypeGroupId=org.archetypeUma -DarchetypeArtifactId=archetypeUma-archetype -DarchetypeVersion=1.0-SNAPSHOT
 }}}
@@ -41,8 +41,7 @@ mvn idea:clean idea:idea
 
 This will spends a little time because in addition to create the project and download the own dependencies of the plugin, it downloads all source code which are uses into the project. This project has many dependencies and for this reason takes long time to download all.ste proyecto al tener tantas dependencias tarda bastante en bajárselas todas.
 
-
-#summary QuickStart
+= Versión española =
 
 La maquina virtual de java es requisito imprescindible para que el programa se ejecute correctamente. Es muy probable que el usuario ya tenga instalado en su computadora la maquina virtual de java sobre la que se ejecuta la aplicación pero si no la tiene puede obtenerla de http://java.sun.com. El proyecto necesita la versión 1.6 de la JDK de Java. Más información de la instalación de Java en el enlace.
 
