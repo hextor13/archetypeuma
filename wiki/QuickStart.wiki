@@ -1,10 +1,10 @@
 #summary QuickStart
 
-The Java Virtual Machine (JVM) is an essential requirement to the program will be executed correctly. Very probably the user already has installed JVM in his computer to execute the application. But, if he hasn't that, he can obtain in http://java.sun.com. The project needs Java JDK in version 1.6. More information about Java installation in the link.
+The [Java] Virtual Machine (JVM) is an essential requirement to the program will be executed correctly. Very probably the user already has installed JVM in his computer to execute the application. But, if he hasn't that, he can obtain in [Java]. The project needs [Java] JDK in version 1.6. More information about Java installation in the link.
 
-Once installed Virtual Machine, already it's possible to run any Java application. El primer paso sería instalarnos Maven. We have a link to the installation manual: Enlace a Maven.
+Once installed Virtual Machine, already it's possible to run any Java application. El primer paso sería instalarnos [maven3].
 
-Now, it's possible to invoke to ArchetypeUma :
+Now, it's possible to invoke to [ArchetypeUma] :
 {{{
 mvn archetype:generate -DremoteRepositories=https://archetypeuma.googlecode.com/svn/trunk/archetype-catalog.xml -DarchetypeGroupId=org.archetypeUma -DarchetypeArtifactId=archetypeUma-archetype -DarchetypeVersion=1.0-SNAPSHOT
 }}}
@@ -12,7 +12,7 @@ Be created a folders and files into our directory where is the shell or Windows 
 
 Once downloaded  the full project, it´s possible continue working.
 
-Then, installing database, MySQL,PostgreSQL or another if changing the driver and the dependency which is in the main pom.xml.
+Then, installing database, [Mysql],[PostgreSql] or another if changing the driver and the dependency which is in the main pom.xml.
 
 Well, if it´s installed must create a database and an user with permission to that:
 
@@ -31,7 +31,7 @@ These are the lines which must be changed:
         <jdbc.username>archetype_user</jdbc.username>
         <jdbc.password>archetype_pwd</jdbc.password>
 }}}
-Depending IDE installed must be integrated. To do that, must use the following goals of Maven:
+Depending IDE installed must be integrated. To do that, must use the following goals of [maven3]:
 
  * Eclipse
 mvn eclipse:clean eclipse:eclipse
@@ -43,19 +43,19 @@ This will spends a little time because in addition to create the project and dow
 
 = Versión española =
 
-La maquina virtual de java es requisito imprescindible para que el programa se ejecute correctamente. Es muy probable que el usuario ya tenga instalado en su computadora la maquina virtual de java sobre la que se ejecuta la aplicación pero si no la tiene puede obtenerla de http://java.sun.com. El proyecto necesita la versión 1.6 de la JDK de Java. Más información de la instalación de Java en el enlace.
+La maquina virtual de [Java] es requisito imprescindible para que el programa se ejecute correctamente. Es muy probable que el usuario ya tenga instalado en su computadora la maquina virtual de java sobre la que se ejecuta la aplicación pero si no la tiene puede obtenerla de [Java]. El proyecto necesita la versión 1.6 de la JDK de [Java]. Más información de la instalación de Java en el enlace.
 
-Una vez este instalada la maquina virtual ya se puede correr cualquier aplicación java. El primer paso sería instalarnos Maven. Tenemos un enlace al manual de instalación en: Enlace a Maven.
+Una vez este instalada la maquina virtual ya se puede correr cualquier aplicación java. El primer paso sería instalarnos [maven3].
 
-Ahora se puede invocar al arquetipo ArchetypeUma:
+Ahora se puede invocar al arquetipo [ArchetypeUma]:
 {{{
 mvn archetype:generate -DarchetypeCatalog=https://archetypeuma.googlecode.com/svn/trunk/archetype-catalog.xml -DarchetypeGroupId=org.archetypeUma -DarchetypeArtifactId=archetypeUma-archetype -DarchetypeVersion=1.0-SNAPSHOT
 }}}
-Se crearán unas carpetas y ficheros en el directorio que tengamos el shell o consola de windows. Por lo que es conveniente que se cree en el directorio de trabajo en el que vaya a correr eclipse.
+Se crearán unas carpetas y ficheros en el directorio que tengamos el shell o consola de windows. Por lo que es conveniente que se cree en el directorio de trabajo en el que vaya a correr [eclipse].
 
 Una vez descargado el proyecto entero, se puede continuar trabajando. 
 
-A continuación hay que instalar la base de datos. Ya sea MySQL o postgresql o cualquiera si cambiarmos el driver y la dependencia que esta en el pom.xml principal.
+A continuación hay que instalar la base de datos. Ya sea [Mysql], [PostgreSql] o cualquiera si cambiarmos el driver y la dependencia que esta en el pom.xml principal.
 
 Bien, si esta instalada hay que crear una base de datos y un usuario que tenga permisos para eso:
 
