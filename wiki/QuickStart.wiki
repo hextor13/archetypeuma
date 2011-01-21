@@ -6,7 +6,7 @@ Once installed Virtual Machine, already it's possible to run any Java applicatio
 
 Now, it's possible to invoke to ArchetypeUma:
 {{{
-mvn archetype:generate -DarchetypeCatalog=https://archetypeuma.googlecode.com/svn/trunk/archetype-catalog.xml -DarchetypeGroupId=org.archetypeUma -DarchetypeArtifactId=archetypeUma-archetype -DarchetypeVersion=1.0-SNAPSHOT
+mvn archetype:generate -DremoteRepositories=https://archetypeuma.googlecode.com/svn/trunk/archetype-catalog.xml -DarchetypeGroupId=org.archetypeUma -DarchetypeArtifactId=archetypeUma-archetype -DarchetypeVersion=1.0-SNAPSHOT
 }}}
 Be created a folders and files into our directory where is the shell or Windows console. For this reason, should create into work directory where will run Eclipse.
 
