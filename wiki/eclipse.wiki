@@ -27,6 +27,11 @@ O desde el enlace:
  * Para Windows:
 Se descarga un zip y se descomprime en la carpeta en la que se desee instalar. 
 
+ * Para Linux:
+Se descarga un tar y se descomprime en la carpeta en la que se desee instalar. 
+
+Es importante seleccionar una carpeta de trabajo. Ya que eclipse se rige en todas sus rutas relativas por este "workspace".
+
 = Use =
 
 Eclipse permite una gran variedad de aplicaciones webs, aplicaciones standalone, plugins y más para desarrollar. 
