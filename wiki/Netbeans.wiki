@@ -1,0 +1,43 @@
+#summary netbeans
+#labels Netbeans,java,UMA,IDE
+
+= What´s it? =
+
+
+
+= How does it work? =
+
+
+
+= Instalation =
+
+
+
+= Use =
+
+
+= Links=
+
+
+
+= ¿Qué es? =
+
+
+
+
+= ¿Como funciona ? =
+
+
+
+
+= Instalación =
+
+
+
+
+= Uso =
+
+
+
+
+= Enlaces =
