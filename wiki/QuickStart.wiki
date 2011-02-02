@@ -53,7 +53,7 @@ mvn archetype:generate -DarchetypeCatalog=https://archetypeuma.googlecode.com/sv
 }}}
 Se crearán unas carpetas y ficheros en el directorio que tengamos el shell o consola de windows. Por lo que es conveniente que se cree en el directorio de trabajo en el que vaya a correr [eclipse].
 
-Una vez descargado el proyecto entero, se puede continuar trabajando. 
+Una vez descargado el proyecto entero, editaremos el fichero pom.xml y cambiaremos la variable war.name al mismo nombre que se le halla puesto al proyecto. 
 
 A continuación hay que instalar la base de datos. Ya sea [Mysql], [PostgreSql] o cualquiera si cambiarmos el driver y la dependencia que esta en el pom.xml principal.
 
