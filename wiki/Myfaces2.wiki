@@ -3,6 +3,21 @@
 
 = What´s it? =
 
+Myfaces en la versión 2.0 es una implementación de JSF 2. Sólo es un estándar, define un marco de trabajo. 
+Lo mejor es empezar con una breve introducción de JSF y myfaces para entender mejor Myfaces.
+
+JSF es un estándar de programación web basado en eventos. Es decir, intenta aplicar el modelo tradicional de eventos, tan utilizados en Delphi y VisualBasic, al entorno web.
+JSF abre a la web el modelo tradicional de componentes. Aprovechando que debe de crear estos componentes hace que estos sean reproducibles en diferentes dispositivos no solo en el html típico de un explorador web. Siendo ampliable así a pda, móviles y otros dispositivos.
+El paso de transformación de un componente JSF en el elemento resultante, que puede ser otro cualquiera pero que en este proyecto será el html, se hace a partir de un proceso que se conoce como renderizado.
+JSF separa el renderizado del componente para poder adaptarlo a cualquier dispositivo de salida.
+
+Las principales características de JSF son:
+ * Permite modificar o incorporar componentes propios o de terceros.
+ * Permite configurar y definir externamente el flujo de navegación entre las pantallas.
+ * Aporta un ciclo de vida claro y estándar.
+ * Incluye validadores, eventos, javabeans, conversores.
+
+Como mejora importante hay que incluir que myfaces 2.0 ya trae integrada la tecnología de facelets. Ya que jsf es una tecnología orientada a componentes y las JSP es una tecnología orientada a generar serlets. Pero al no coincidir había que hacer que alguien las casará. Es por lo que facelets, una tecnología orientada a construir árboles de componentes en JSF era tan habitual en los proyectos y por lo que ha sido incluida como estándar en myfaces2.0. 
 
 
 = How does it work? =
