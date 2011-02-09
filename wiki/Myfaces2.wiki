@@ -37,9 +37,11 @@ LAs fases del ciclo de vida de JSF es el siguiente:
 
 Los listeners son clases que se instancia entre los diferentes ciclos de vida de JSF2. Se declaran de la siguiente forma:
 
+{{{
 <lifecycle>
 <phase-listener>org.archetypeUma.listener.selection.PruebaPhaseListener</phase-listener>
 </lifecycle>
+}}}
 
 El fichero de configuración de myfaces es faces-config.xml, aunque se puede cambiar el nombre no es necesario.
 
@@ -69,17 +71,17 @@ FacesContest. Las principales características de este objeto son:
 Si lo que se necesita es crear un componente propio. Hay 3 pasos mínimos que hay que seguir:
 
  * Declara el componente: Lleva la lógica del componente. Debe de heredar de la clase UIComponentBase. Hay que asignarle el renderer y el tag. Los métodos más importantes son:
-o	setRenderType: en el constructor para asignar el render.
-o	getFamily: devuelve el tipo del componte.
-o	object getBean: devuelve el objeto para obtener los valores a pintar.
-o	restoreState y saveState: mantienen los valores al recomponer el árbol de componentes.
-o	processUpdates: Actualización del BackBean.
+ - setRenderType: en el constructor para asignar el render.
+ - getFamily: devuelve el tipo del componte.
+ - object getBean: devuelve el objeto para obtener los valores a pintar.
+ - restoreState y saveState: mantienen los valores al recomponer el árbol de componentes.
+ - processUpdates: Actualización del BackBean.
  * Declarar el tag: Extiende de UIComponentTag. Los métodos más importantes que hay que implementar son:
-o	getComponentType: tipo de componente.
-o	getRendererType: tipo de render que lo pinta.
+ - getComponentType: tipo de componente.
+ - getRendererType: tipo de render que lo pinta.
  * Declarar el render: Recupera los parámetros de la request y se los pasa al componente. Existe la posibilidad de tener distintos RenderKits en función de la salida. Debe de heredar de la clase Renderer. Los métodos más importantes que debe de implementar al heredar de esta clase son:
-o	decode: extrae los parámetros de la request.
-o	EncodeBegin, encodeEnd, encodeChildren: pintan las etiquetas inicial, final y anidadas, respectivamente.
+ - decode: extrae los parámetros de la request.
+ - EncodeBegin, encodeEnd, encodeChildren: pintan las etiquetas inicial, final y anidadas, respectivamente.
 
 
 = Instalation =
