@@ -95,7 +95,108 @@ Si lo que se necesita es crear un componente propio. Hay 3 pasos mínimos que ha
 
 = Instalation =
 
+Se añade en el pom.xml del proyecto web las dependencias al core de myfaces 2.0:
 
+{{{
+<dependency>
+<groupId>org.apache.myfaces.core</groupId>
+<artifactId>myfaces-api</artifactId>
+<version>2.0.2</version>
+</dependency>
+
+<dependency>
+<groupId>org.apache.myfaces.core</groupId>
+<artifactId>myfaces-impl</artifactId>
+<version>2.0.2</version>
+</dependency>
+}}}
+
+Junto a las galerías de componentes JSF que quieran insertarse. En este caso Tomahawk:
+{{{
+<dependency>
+<groupId>org.apache.myfaces.tomahawk</groupId>
+<artifactId>tomahawk20</artifactId>
+<version>1.1.10</version>
+</dependency>
+}}}
+El servlet encargado del funcionamiento de myfaces es FacesServlet, hay que declararlo en web.xml junto a unos parámetros de configuración de myfaces2.0.
+{{{
+<servlet>
+<servlet-name>Faces Servlet</servlet-name>
+<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet-mapping>
+<servlet-name>Faces Servlet</servlet-name>
+<url-pattern>*.html</url-pattern>
+</servlet-mapping>
+}}}
+Hace falta añadir un fichero faces-config.xml con las reglas de navegación de las páginas jsf. También se declara otros elementos y componentes de jsf.
+{{{
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+              version="2.0">
+
+</faces-config>
+}}}
+Se añade la internacionalización, en este caso se ha decidido que el fichero se llame i18n.properties
+{{{
+<application>
+<variable-resolver>org.springframework.web.jsf.DelegatingVariableResolver</variable-resolver>
+<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+<resource-bundle>
+<base-name>i18n</base-name>
+<var>i18n</var>
+</resource-bundle>
+<message-bundle>i18n</message-bundle>
+<locale-config>
+<default-locale>es</default-locale>
+<supported-locale>es</supported-locale>
+<supported-locale>en</supported-locale>
+</locale-config>
+</application>
+}}}
+Se crea un template por defecto que será actualizado llegado el momento de arrancar el proyecto ya que ahora mismo es muy básico:
+
+template.xhtml
+{{{
+<f:view contentType="text/html">
+		<h:head>
+			<title><h:outputText value="#{i18n['title']}" /></title>
+			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/a>
+			<ui:insert name="head"></ui:insert>
+			<h:outputStylesheet name="styles.css" library="css"/>
+			<h:outputStylesheet name="skin.css" library="css"/>
+		</h:head>
+		<h:body syleClass="body">
+			<t:div id="column1" styleClass="column1"><br/></t:div>
+			<t:div id="column2" styleClass="column2">
+<ui:include src="/common/header.xhtml" />
+<t:div id="page" styleClass="page">
+						<t:div id="content" styleClass="content">
+							<ui:insert name="content"></ui:insert>
+						</t:div>
+					</t:div>
+			<ui:include src="/common/footer.xhtml" />
+			</t:div>
+		<t:div id="column3" styleClass="column3"><br/></t:div>
+		</h:body>
+</f:view>
+}}}
+En el fichero meta.xhtml se especifican todos los metas de la aplicación.
+
+meta.xhtml
+{{{
+<html>
+<head>
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+</html>
+}}}
 
 = Use =
 
