@@ -88,7 +88,7 @@ La estructura estándar de un proyecto en Maven es:
 ||/aplicacion/target/dots||Otras salidas de documentos||
 ||/aplicacion/target/{#filename}||En los proyectos war tienen el contenido de la creación del war||
 
-Tabla X. Estructura de carpetas de un proyecto maven.
+Tabla. Estructura de carpetas de un proyecto maven.
 
 Archetype: Son plantillas con las definir la base de proyectos tipo con el fin de reutilizarlas.
 
@@ -206,7 +206,140 @@ Las ventajas de Maven en la producción de proyectos software:
 = ¿Como funciona ? =
 
 
+A continuación se van a describir unos conceptos importantes de maven:
 
+ * Los ficheros POM (Project Object Model) son ficheros en formato XML obligatorio en todo proyecto Maven, donde se incluye la información (meta-datos) necesaria para que éste pueda construir y gestionar el proyecto.
+ * Artefacto: Es para maven la unidad mínima con la que trabaja a la hora de gestionar sus dependencias.
+ * Coordenadas: Sistema con el maven determina de forma única a cada uno de sus artefactos.
+ * Goal: Son las unidades de mínimas de ejecución. Las tareas más simples.
+ * Ciclo de vida: Secuencia de etapas que propone maven para la gestión de un proyecto.
+
+Las fases del ciclo de vida de maven son:
+
+ * pre-clean: ejecuta los procesos necesarios para la limpieza.
+ * clean: elimina todos los ficheros generados en la construcción previa.
+ * post-clean: ejecuta los procesos necesarios al finalizar la limpieza del proyecto.
+ * validate: valida que el proyecto es correcto y tiene toda la información necesaria.
+ * inicializate: Inicializa la construcción, modificando propiedades o creando directorios.
+ * generate-sources: Genera algún código fuente para utilizarlo en la compilación.
+ * process-sources: Procesa el código fuente anterior.
+ * generate-resources: Genera los recursos para incluirlos en el paquete.
+ * process-resources: Copia y procesa los recursos al directorio de trabajo.
+ * compile: Compila el código fuente.
+ * process-classes: Ejecuta unas tareas después del la generación de los códigos compilados, por ejemplo por si hubiera que cambiar el bytecode de las clases.
+ * generate-test-sources: Genera algunos códigos fuentes de los test para la inclusión en la compilación.
+ * process-test-sources: Procesa el código fuente de los test, por ejemplo filtrar algunas variables.
+ * generate-test-resources: Crea los recursos para el test.
+ * process-test-resources: Copia y procesa los recursos dentro del directorio destino de los test.
+ * test-compile: Compila el código fuente de los test dentro del directorio destino de los test.
+ * process-test-classes: Hace un postprocesado de la generación de ficheros de la compilación de los test. Por ejemplo se cambia el bytecode.
+ * test: compila el código y ejecuta los unit test correspondientes. Sin embargo no es requisito para que el proyecto sea desplegado.
+ * prepare-package: Prepara algunas operaciones necesarias antes del empaquetado.
+ * package: toma el código compilado y lo empaqueta en un formato distribuible como JAR o WAR.
+ * pre-integration-test: prepara algunas operaciones antes que se ejecuten los test de integración.
+ * integration-test: Despliega el proyecto si es necesario en ambiente de pruebas donde se puedan correr pruebas de integración.
+ * post-integration-test: prepara algunas operaciones después que se ejecuten los test de integración. Esto puede incluir la limpieza del entorno.
+ * verify: ejecuta cualquier verificación para cumplir los parámetros de calidad.
+ * install: instala el jar o war en el repositorio local para que otras aplicaciones locales la puedan usar.
+ * deploy: copia el jar o war a un repositorio remoto para que pueda ser usado por otro desarrollador o proyecto.
+ * pre-site: ejecuta los procesos necesarios para la generación del site.
+ * site: genera la documentación del site proyecto
+ * post-site: ejecuta los procesos necesarios al finalizar la documentación del site y prepara para el despliegue.
+ * site-deploy: despliega la generación del site al servidor especificado.
+
+Estructura de directorios: Propuesta que realiza maven para organizar los distintos archivos que conforman un proyecto.
+
+Los proyectos en maven siempre marcan una determinada estructura, esto simplifica el trabajo a la hora de migrar un equipo de desarrollo a otro proyecto de maven, ya que todos mantienen las mismas pautas. 
+La estructura estándar de un proyecto en Maven es:
+
+||Directorio||Descripción||
+||/aplicacion/pom.xml||Fichero de configuración de maven||
+||/aplicacion/src/||Código fuente||
+||/aplicacion/src/main/java/||Código fuente de java||
+||/aplicacion/src/test/java/||Test de JUnits||
+||/aplicacion/src/main/resources/||Recursos necesarios en el classpath||
+||/aplicacion/src/test/resources/|| Recursos necesarios en el classpath para los test||
+||/aplicacion/src/main/webapp||Contiene los html, jsp y demás contenidos de una aplicación web||
+||/aplicacion/target/classes/||Clases ya compiladas||
+||/aplicacion/target/test-classes/||Las clases de los test ya compiladas||
+||/aplicacion/target/dots||Otras salidas de documentos||
+||/aplicacion/target/{#filename}||En los proyectos war tienen el contenido de la creación del war||
+
+Tabla. Estructura de carpetas de un proyecto maven.
+
+Archetype: Son plantillas con las definir la base de proyectos tipo con el fin de reutilizarlas.
+
+Los archetype son simples plugins de maven, uno de ellos es el archetype create, el cual permite crear un proyecto base al proporcionar la plantilla del mismo.
+El archetype create recibe una serie de parámetros los cuales son:
+
+ * archetypeGroupId: Identificador del grupo del archetipo.
+
+ * groupId, es usado como identificador del conjunto de librerías en este caso hemos usado org.archetypeUma como nombre para nuestro paquete de librerías.
+
+ * artifactId, es usado como identificador particular de una librería en particular.
+
+Cuando se usan archetypes creados por uno mismo se tiene que especificar los tres parámetros de todo archetype (groupId, artifactId, version) de la siguiente manera.  
+
+{{{
+mvn archetype:create -DarchetypeGroupId=<archetype-groupId> -DarchetypeArtifactId=<archetype-artifactId> -DarchetypeVersion=<archetype-version> -DgroupId=<my.groupid> -DartifactId=<my-artifactId>
+}}}
+
+Si es la primera vez que se ejecuta un comando Maven éste tomará algo de tiempo pues Maven creará el repositorio inicial .m2 y descargará todas las librerías necesarias para construir el proyecto.
+En este caso el archetype contiene la plantilla de un proyecto web.
+
+Finalizado el proceso de construcción del artefacto, Maven lo deposita en repositorios.
+
+ * Repositorio: Estructura de directorios y archivos que usa maven para almacenar, organizar y recuperar artefactos. Existen repositorios locales (file://) y remotos (http://)
+ * Existen dos tipo de repositorios:
+
+ - Repositorio local: situado en la máquina del desarrollador. Almacena artefactos instalados (maven install) y descargados de repositorios remotos.
+
+ - Repositorio remotos: repositorios accesibles a través de protocolos file:// y http://.
+ - internos: utilizados por las empresas para almacenar sus artefactos que son compartidos por los desarrolladores.
+
+ - externos: repositorios públicos utilizados para almacenar artefactos de terceros.
+ 
+Hay varias herramientas que permiten gestionar un repositorio. Si el lector esta interesado en profundizar en el tema le aconsejamos que siga por Archiva o Artefactory, que son software libre muy utilizado.
+
+Profiles: Son un mecanismo (no alternativa) de configurar el proceso de construcción.
+En ciertos proyectos es importante trabajar con varias bases de datos, en varios entornos diferentes o en varios servidores. Las librerías  y las variables de configuración  que se necesitan para arrancar en cada entorno son diferentes. Maven resuelve esto mediante profiles:
+
+{{{
+<profiles>
+<profile>
+<id>mysql</id>
+<activation>
+<property>
+<name>db</name>
+<value>mysql</value>
+</property>
+</activation>
+<properties>
+<driver>org.mysql.Driver</driver>
+</properties>
+</profile>
+<profile>
+<id>postgresql</id>
+<activation>
+<property>
+<name>db</name>
+<value>postgresql</value>
+</property>
+</activation>
+<properties>
+<driver>org.postgresql.Driver</driver>
+</properties>
+</profile>
+</profiles>
+}}}
+
+Basta con pasarle a maven con que perfil quiere instalar.
+
+{{{
+mvn -Pmysql clean 
+}}}
+
+Los perfiles en la versión 3 de Maven hay que meterlos en el fichero M2_HOME/conf/settings.xml,   antes maven acostumbraba meterlos en un fichero profiles.xml que acompañaba al pom.xml principal.
 
 = Instalación =
 
