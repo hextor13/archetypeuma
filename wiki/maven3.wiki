@@ -207,9 +207,230 @@ Los ficheros de configuración de maven pueden verse en diferentes niveles:
 = Use =
 
 
+Los tag más importantes en el uso de maven son:
+
+ * <groupId> El id del grupo al que pertenece el proyecto.
+ * <artifactId> El id del artifact o proyecto (en la mayoría de los casos el nombre del proyecto).
+ * <version> La versión del artifact en el grupo especificado.
+{{{
+<groupId>org.archetypeUma</groupId>
+<artifactId>archetypeUma-model</artifactId>
+<packaging>jar</packaging>
+<version>1.0-SNAPSHOT</version>
+}}}
+Lo de -SNAPSHOT en el nombre de la versión hay que explicarlo detalladamente. Si dependemos de un jar que tenga -SNAPSHOT, cada vez que compilemos, aunque ese jar esté en nuestro repositorio local, maven ira a buscarlos a los repositorios comunes o de Internet, para ver si hay una versión de fecha más moderna. Si la hay, se la bajará. Por tanto, suele ser útil en un equipo de trabajo mantener la "coletilla" -SNAPSHOT en los jar que todavía están en desarrollo y sufren cambios frecuentes.
+Si no ponemos -SNAPSHOT, una vez bajado el jar a nuestro repositorio local, maven NO se preocupará de buscar si hay versiones más modernas en los repositorios remotos.
+En los poms se pueden definir muchos componentes. Se van a explicar los que han sido utilizados para crear esta arquitectura y los más utilizados.
+Empezando por developers, sirve para especificar los desarrolladores y el equipo que ha intervenido en el proyecto.
+{{{
+<developers>
+<developer>
+<id>jcisneros</id>
+<name>Javier Cisneros González</name>
+<email>javicisneros@gmail.es</email>
+</developer>
+</developers>
+}}}
+scm: son las siglas de Source Code Management (Gestión de código fuente), es la revisión de múltiples versiones de una misma unidad de información. Con el siguiente XML se especifica donde esta el código del proyecto. Esto no es obligatorio pero si es muy guardarlo en el pom principal del proyecto.
+
+{{{
+<scm>
+<connection>scm:svn:https://archetypeuma.googlecode.com/svn/trunk/</connection>
+<developerConnection>scm:svn:https://archetypeuma.googlecode.com/svn/trunk/
+</developerConnection>
+<url></url>
+</scm>
+}}}
+licenses: Las licencias del proyecto se marcan bajo la etiqueta XML llamada licences. En las siguientes líneas se especifica que el proyecto será de software libre bajo la licencia  Apache License 2.0 y  European Union Public License.
+{{{
+<licenses>
+<license>
+<name>EUPL v1.0</name>
+<url>http://ec.europa.eu/idabc/eupl</url>
+<comments>European Union Public License</comments>
+</license>
+<license>
+<name>Apache License 2.0</name>
+<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+<comments />
+</license>
+</licenses>
+}}}
+modules: La etiqueta module asigna al pom los submodulos que se ejecutarán después de ejecutarse el mismo. Es ideal para lanzar una construcción en varios modulos, ya que crearlo en uno solo puede resultar muy engorroso.
+{{{
+<modules>
+<module>model</module>
+<module>core</module>
+<module>web</module>
+</modules>
+}}}
+repositories: Maven se baja las dependencias de los servidores que sirven de repositorios. Esos repositorios pueden estar en cualquier sitio de Internet o de una red local. Hay que especificarle al proyecto donde están los repositorios desde los que se quiere descargar las dependencias del proyecto.
+En el siguiente ejemplo se utiliza el repositorio público de Jboss.
+{{{
+<repositories>
+<repository>
+<id>jboss</id>
+<name>JBoss repository</name>
+<url>http://repository.jboss.org/maven2</url>
+</repository>
+</repositories>
+}}}
+pluginRepositories: Al igual que el caso anterior, maven busca los plugins en los repositorios remotos, en lugar de apuntar con la etiqueta repositories, se utiliza pluginRepositories.
+{{{
+<pluginRepositories>
+<pluginRepository>
+<id>appfuse</id>
+<url>http://static.appfuse.org/repository</url>
+</pluginRepository>
+
+<pluginRepository>
+<id>alfresco</id>
+<url>http://maven.alfresco.com/nexus/content/repositories/sourcesense-public</url>
+</pluginRepository>
+
+<pluginRepository>
+<id>maven2-repository.dev.java.net</id>
+<name>Java.net Repository for Maven</name>
+<url>http://download.java.net/maven/2/</url>
+<layout>default</layout>
+</pluginRepository>
+
+<pluginRepository>
+<id>mc-release</id>
+<name>Local Maven repository of releases</name>
+<url>http://mc-repo.googlecode.com/svn/maven2/releases</url>
+<snapshots>
+<enabled>false</enabled>
+</snapshots>
+<releases>
+<enabled>true</enabled>
+</releases>
+</pluginRepository>
+
+<pluginRepository>
+<id>repo1</id>
+<name>Repo-1 for Maven 2</name>
+<url>http://repo1.maven.org/maven2/</url>
+<layout>default</layout>
+</pluginRepository>
+</pluginRepositories>
+}}}
+resources: Se especifica los recursos que necesitarán las clases java para funcionar correctamente. Aquí caben muchas posibilidades... plantillas, xml, ficheros estáticos. Se suele poner el fichero de recursos de maven  src/main/resources. Al meterlo se empaquetaría en el jar, war o ear como un fichero más.
+{{{
+<resources>
+<resource>
+<filtering>true</filtering>
+<directory>src/main/resources</directory>
+</resource>
+</resources>
+}}}
+testResources: Se especifica con  testResources cual será el directorio de recursos para los test. Es decir, que si un test necesita determinado fichero para utilizar, por ejemplo un xml, este se buscará en estos directorios.
+{{{
+<testResources>
+<testResource>
+<filtering>true</filtering>
+<directory>src/test/resources</directory>
+</testResource>
+</testResources>
+}}}
+dependency: Los proyectos en Java se han llenado de librerías que tienen que interactuar entre si para formar los proyectos, lo más abstractos posibles. Solo hay que especificar el groupId el artifactId y la versión que se desea descargar.
+Este es un ejemplo de como añadir una dependencia a un pom.xml en un proyecto de Maven.
+{{{
+<dependency>
+<groupId>log4j</groupId>
+<artifactId>log4j</artifactId>
+<version>1.2.15</version>
+</dependency>
+}}}
+ * groupId: es usado como identificador del conjunto de librerías en este caso se ha usado log4j como nombre para nuestro paquete de librerías.
+ * artifactId: es usado como identificador particular de una librería en particular. Como log4j solo tiene una coincide con el groupId pero esto no debe porque ser así.
+ * version: Es la versión de la librería que se desea meter como dependencia en el proyecto.
+ * scope: es la fase del ciclo de vida de maven a la que se le asociará la dependencia. Existen seis ámbitos en los que una dependencia puede ser declarada limitando así su transitividad:
+
+ * Compile, es el ámbito por defecto. Las dependencias están disponibles en el proyecto y en sus proyectos dependientes.
+ * Provided, se espera que el JDK, la aplicación o el contenedor provea la dependencia.
+ * Runtime, la dependencia no es requerida en tiempo de compilación pero sí para la ejecución.
+ * Test, son dependencias que son requeridas solo cuando se compila y ejecuta los test.
+ * System, similar a provided pero se le debe indicar el jar que contiene la dependencia
+ * Import, (a partir a la version 2.0.9) solo es usado en una dependencia del tipo POM en la sección . Indica que el POM utilizado debe ser remplazado con las dependencias que éste tenga en su sección
+
+{{{
+<dependency>
+<groupId>javassist</groupId>
+<artifactId>javassist</artifactId>
+<version>3.9.0.GA</version>
+<scope>runtime</scope>
+</dependency>
+}}}
+
+En el scope se añade runtime para que la dependencia este presente solo en el empaquetado final del proyecto. Ya que no es necesaria ni a la hora de compilar, ni para los test ni en el resto de fases del ciclo de vida de maven.
+{{{
+<dependency>
+<groupId>junit</groupId>
+<artifactId>junit</artifactId>
+<version>4.5</version>
+<scope>test</scope>
+</dependency>
+}}}
+En este scope le pasamos como argumento test, ya que solo será necesario en la fase de test y este jar no deberá de estar presente en el empaquetado final del proyecto, ni en el war ni en el ear.
+
+La nomenclatura de las dependencias es la siguiente:
+
+artetifacId – version – package(jar, war, aer)
+En un ejemplo
+myfaces-core-2.0.0.jar
+
+La versión corresponde a mayor – minor – parches en este caso 2.0.0 Segunda versión, aún sin cambios y sin parches arreglados.
+
+Un plugin es un programa que se ejecuta en maven. Partiendo del ejemplo de compilar, solo es necesario tener el plugin de  maven-compiler-plugin en el pom.xml para que se compilara el proyecto. Hay muchos tipos de plugins y es perfectamente ampliable por cada usuario que necesite alguna funcionalidad que no este creada.
+{{{
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-compiler-plugin</artifactId>
+<version>2.0.2</version>
+<configuration>
+<source>1.5</source>
+<target>1.5</target>
+</configuration>
+</plugin>
+}}}
+En la siguiente tabla se muestra una serie de plugins muy utilizados en los proyectos que se están utilizando hoy en día.
+
+||Pluguins más utilizados||Descripción||
+||maven-clean-plugin||Limpia el directorio de trabajo.||
+||maven-compiler-plugin||Compila el código fuente.||
+||maven-deploy-plugin||Despliega el artefacto en un servidor remoto.||
+||maven-install-plugin||Instala el artefacto en el repositorio local.||
+||maven-resources-plugin||Copia los recursos al directorio de salida.||
+||maven-site-plugin||Genera el site del proyecto||
+||maven-surefire-plugin||Ejecuta los test de Junit||
+
+Tabla. Plugin más utilizados de maven.
+
+A continuación se describen las órdenes más importantes de maven que todo aquel que trabaje con esta herramienta debe de conocer:
+
+||Comando||Descripción||
+||mvn –version||Ver la versión de maven.||
+||mvn clean||Limpiar el directorio de trabajo de maven de un proyecto es sencillo solo hay que añadir clean. El directorio de trabajo es la carpeta target.||
+||mvn help||Mostrar la ayuda de maven con el comando.||
+||mvn -X||Si hay algún problema y ha salido el mensaje BUILD FAILURE se puede comprobar que ha pasado  escribiendo -X con lo que se ven las trazas en modo DEBUG.||
+||mvn test||Ejecutar la fase del ciclo de vida de maven referente a los test. ||
+||mvn package||Empaquetar en un jar, war o un ear. No instala los empaquetados en el repositorio local ni remoto.||
+||mvn install||Instalar en el repositorio. Compila el proyecto, ejecuta los test, empaqueta los war y ear e instala el artefacto en el repositorio local de maven. (%M2_REPO%)||
+||mvn deploy||Si lo que se pretende es instalar en un repositorio remoto en vez de en el local. Se ejecuta un deploy. Esto tendría que hacerlo un sistema de integración continua como es Hudson.||
+||mvn dependency:tree||Obtener el árbol de dependencias y optimizarlas para excluir las que no se necesiten.||
+||mvn dependency:resolve||Muestra una listado de todos los artefactos que han sido resueltos.||
+||mvn clean install -o -Dmaven.test.skip=true||En un equipo de desarrollo la orden más utilizada es la compilación, empaquetado e instalación. Con el argumento -o seleccionamos el modo offline. Algo que será útil en el equipo de desarrollo cada vez que se compile, ya que no se perderá tiempo en conectarse con los repositorios externos. Con el argumento -Dmaven.test.skip=true  nos saltamos en el al ciclo de vida la fase de test y por tanto todos los plugins asociados a este ciclo de vida. Al igual que el argumento anterior esto hará que se compile más rápidamente el proyecto.||
+||mvn compile||Compila los fuentes del proyecto.||
+||mvn  eclipse:eclipse||Crea un proyecto en eclipse a partir de un proyecto maven.||
+||mvn idea:idea||Crea un proyecto en Intellij IDEA a partir de un proyecto maven.||
+
+Tabla. Comandos más importantes de maven.
+
 = Links=
 
-
+ * http://maven.apache.org/
+ * http://maven.apache.org/download.html
 
 = ¿Qué es? =
 
@@ -641,3 +862,6 @@ A continuación se describen las órdenes más importantes de maven que todo aqu
 Tabla. Comandos más importantes de maven.
 
 = Enlaces =
+
+ * http://maven.apache.org/
+ * http://maven.apache.org/download.html
