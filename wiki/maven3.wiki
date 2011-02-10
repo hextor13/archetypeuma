@@ -2,7 +2,30 @@
 
 = What´s it? =
 
+Maven es una herramienta para la gestión del ciclo de vida de las aplicaciones. Funciona como una aplicación en Java y es un Opensource de la fundación Apache. Bajo una licencia Apache Licence 2.0.
 
+¿Pero que es gestionar el ciclo de vida de un software? Maven tiene las virtudes de poder crear un proyecto o descargárselo de algún repositorio, construirlo, definir las dependencias, integrar el proyecto con los IDE's, compilación, empaquetado, pruebas unitarias, pruebas de estrés y funcionalidad, calidad y documentación del código. 
+Maven tiene su opositor en Ant también de Apache. Ant tiene menos funcionalidad que Maven es ya que solo es un constructor de proyectos, una funcionalidad de las muchas que tiene Maven. Es fácil pensar que maven es un complemento de Ant, al tener más funcionalidad y por poder invocarse desde Maven.
+Las ventajas de Maven en la producción de proyectos software:
+
+ * Hacer el proceso de construcción fácil.
+ * Proveer un proceso de construcción uniforme.
+ * Proveer una cantidad de información sobre el proyecto.
+ * Servir como guía de buenas practicas de desarrollo de software.
+ * Permitir una migración transparente a nuevas funcionalidades.
+ * Setup simple de proyectos siguiendo buenas practicas de software. Generar un proyecto nuevo en pocos segundos.
+ * Manejo de dependencias incluyendo actualizaciones automáticas. Tanto dependencias primarias como transitivas.
+ * Permite trabajar de una forma fácil con múltiples proyectos al mismo tiempo.
+ * Grande y creciente repositorio de librerías y metadatos externo a nuestro proyecto. Liberando así el sistema de control de versiones de contener jar´s.
+ * Es extensible. Haciendo uso de sus sistema de plugins en java o en lenguajes de scripts.
+ * Acceso instantáneo a nueva funcionalidades con una mínima o ninguna configuración.
+ * Posibilidad del uso de tareas ant para manejar dependencias y despliegue fuera de maven.
+ * Maven esta preparado para un gran número de builds para proyectos, ya sea tipo jar, war, ear.
+ * Usando los metadatos asociados al proyecto, maven es genera un sitio web o pdf incluyendo cualquier documentación que se quiera. Además de toda la información que maven añade como api, java doc, información sobre desarrolladores, informes de test, etc.
+ * Manejo de release y publicación de distribuciones. Maven pude ser integrado con el sistema de control de versiones y manejar las releases de un proyecto en un tag concreto. Maven puede publicar distribuciones basadas en jar, en un archivo incluyendo dependencias y documentación, o una distribución de fuentes.
+ * Manager de dependencias: Maven impulsa el uso de un repositorio central de JAR´s y otras.
+ * Los inconvenientes de maven en la gestión de proyectos software:
+ * Su curva de aprendizaje es muy pronunciada. Los informáticos que desarrollen el proyecto deben de estar muy preparados en conocimientos de Java.
 
 = How does it work? =
 
