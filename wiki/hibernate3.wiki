@@ -109,27 +109,16 @@ Es necesario crear una serie de beans para que la aplicación sepa cual es el da
 A conticuación se listan las anotaciones más utilizadas:
 
 ||Anotación||Descripción||
-@Entity	Declara la entidad que será persistida
-@Table(name=”TABLE_USER”);	Asigna el nombre de la tabla
-@Id	Representa la clave primaria de la tabla
-@GeneratedValue	Generá la clave primaria, en esta ocasión se creará una secuencia, pero hibernate da varias posibilidades.
-@Lob	Corresponden a los campos del tipo BLOB y CLOB.
-@Temporal	@Temporal(TemporalType.DATE) definido para el tipo java.sql.Date.
-@Temporal(TemporalType.TIME) definido para el tipo java.sql.Time.
-@Temporal(TemporalType.TIMESTAMP)
-definido para el tipo java.sql.Timestamp.
-@Transient	Se marca así un atributo no será persistido.
-@OneToOne
-@ManyToOne
-@OneToMany
-@ManyToMany	Relaciones entre tablas. A la izquierda del To se entiende que es esa misma clase y a la derecha la otra clase.
-@JoinColumn (ManyToOne)
-@JoinTable (ManyToMany)	Indica como se relacionan las dos tablas.
-@Inheritance
-	Expresa herencia, se puede utilizar de varias formas según la estrategia para recuperar los datos:
-strategy=InheritanceType.TABLE_PER_CLASS
-strategy=InheritanceType.JOINED
-(strategy=InheritanceType.SINGLE_TABLE)
+||@Entity||Declara la entidad que será persistida||
+||@Table(name=”TABLE_USER”);||Asigna el nombre de la tabla||
+||@Id||Representa la clave primaria de la tabla||
+||@GeneratedValue||Generá la clave primaria, en esta ocasión se creará una secuencia, pero hibernate da varias posibilidades.||
+||@Lob||Corresponden a los campos del tipo BLOB y CLOB.||
+||@Temporal||@Temporal(TemporalType.DATE) definido para el tipo java.sql.Date. @Temporal(TemporalType.TIME) definido para el tipo java.sql.Time. @Temporal(TemporalType.TIMESTAMP) definido para el tipo java.sql.Timestamp.||
+||@Transient||Se marca así un atributo no será persistido.||
+||@OneToOne, @ManyToOne, @OneToMany, @ManyToMany||Relaciones entre tablas. A la izquierda del To se entiende que es esa misma clase y a la derecha la otra clase.||
+||@JoinColumn (ManyToOne), @JoinTable (ManyToMany)||Indica como se relacionan las dos tablas.||
+||@Inheritance||Expresa herencia, se puede utilizar de varias formas según la estrategia para recuperar los datos: strategy=InheritanceType.TABLE_PER_CLASS, strategy=InheritanceType.JOINED, (strategy=InheritanceType.SINGLE_TABLE)||
 
 
 Hay que tener en cuenta como hibernate recupera los elementos, para eso existen dos atributos en las anotaciones:
@@ -155,17 +144,16 @@ Lo que se pretende es hacer que búsqueda sea lo más fácil posible de crear y 
 
 = Links=
 
+ * http://www.hibernate.org/
 
-http://www.hibernate.org/
+ * Documentation core
+ - http://docs.jboss.org/hibernate/stable/core/reference/en/html/
 
-Documentation core
-http://docs.jboss.org/hibernate/stable/core/reference/en/html/
+ * Documentation entityManager
+- http://docs.jboss.org/hibernate/stable/entitymanager/reference/en/html/
 
-Documentation entityManager
-http://docs.jboss.org/hibernate/stable/entitymanager/reference/en/html/
-
-Documentation annotation
-http://docs.jboss.org/hibernate/stable/annotations/reference/en/html/
+* Documentation annotation
+ - http://docs.jboss.org/hibernate/stable/annotations/reference/en/html/
 
 = ¿Qué es? =
 
@@ -276,13 +264,13 @@ Es necesario crear una serie de beans para que la aplicación sepa cual es el da
 
 = Enlaces =
 
-http://www.hibernate.org/
+ * http://www.hibernate.org/
 
-Documentation core
-http://docs.jboss.org/hibernate/stable/core/reference/en/html/
+ * Documentation core
+ - http://docs.jboss.org/hibernate/stable/core/reference/en/html/
 
-Documentation entityManager
-http://docs.jboss.org/hibernate/stable/entitymanager/reference/en/html/
+ * Documentation entityManager
+- http://docs.jboss.org/hibernate/stable/entitymanager/reference/en/html/
 
-Documentation annotation
-http://docs.jboss.org/hibernate/stable/annotations/reference/en/html/
+* Documentation annotation
+ - http://docs.jboss.org/hibernate/stable/annotations/reference/en/html/
