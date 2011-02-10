@@ -66,7 +66,7 @@ Las fases del ciclo de vida de maven son:
  * install: instala el jar o war en el repositorio local para que otras aplicaciones locales la puedan usar.
  * deploy: copia el jar o war a un repositorio remoto para que pueda ser usado por otro desarrollador o proyecto.
  * pre-site: ejecuta los procesos necesarios para la generación del site.
-site: genera la documentación del site proyecto
+ * site: genera la documentación del site proyecto
  * post-site: ejecuta los procesos necesarios al finalizar la documentación del site y prepara para el despliegue.
  * site-deploy: despliega la generación del site al servidor especificado.
 
@@ -114,9 +114,12 @@ Finalizado el proceso de construcción del artefacto, Maven lo deposita en repos
 
  * Repositorio: Estructura de directorios y archivos que usa maven para almacenar, organizar y recuperar artefactos. Existen repositorios locales (file://) y remotos (http://)
  * Existen dos tipo de repositorios:
+
  - Repositorio local: situado en la máquina del desarrollador. Almacena artefactos instalados (maven install) y descargados de repositorios remotos.
+
  - Repositorio remotos: repositorios accesibles a través de protocolos file:// y http://.
  - internos: utilizados por las empresas para almacenar sus artefactos que son compartidos por los desarrolladores.
+
  - externos: repositorios públicos utilizados para almacenar artefactos de terceros.
  
 Hay varias herramientas que permiten gestionar un repositorio. Si el lector esta interesado en profundizar en el tema le aconsejamos que siga por Archiva o Artefactory, que son software libre muy utilizado.
