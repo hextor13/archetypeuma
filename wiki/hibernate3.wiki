@@ -260,7 +260,41 @@ Es necesario crear una serie de beans para que la aplicación sepa cual es el da
 = Uso =
 
 
+A conticuación se listan las anotaciones más utilizadas:
 
+||Anotación||Descripción||
+||@Entity||Declara la entidad que será persistida||
+||@Table(name=”TABLE_USER”);||Asigna el nombre de la tabla||
+||@Id||Representa la clave primaria de la tabla||
+||@GeneratedValue||Generá la clave primaria, en esta ocasión se creará una secuencia, pero hibernate da varias posibilidades.||
+||@Lob||Corresponden a los campos del tipo BLOB y CLOB.||
+||@Temporal||@Temporal(TemporalType.DATE) definido para el tipo java.sql.Date. @Temporal(TemporalType.TIME) definido para el tipo java.sql.Time. @Temporal(TemporalType.TIMESTAMP) definido para el tipo java.sql.Timestamp.||
+||@Transient||Se marca así un atributo no será persistido.||
+||@OneToOne, @ManyToOne, @OneToMany, @ManyToMany||Relaciones entre tablas. A la izquierda del To se entiende que es esa misma clase y a la derecha la otra clase.||
+||@JoinColumn (ManyToOne), @JoinTable (ManyToMany)||Indica como se relacionan las dos tablas.||
+||@Inheritance||Expresa herencia, se puede utilizar de varias formas según la estrategia para recuperar los datos: strategy=InheritanceType.TABLE_PER_CLASS, strategy=InheritanceType.JOINED, (strategy=InheritanceType.SINGLE_TABLE)||
+
+
+Hay que tener en cuenta como hibernate recupera los elementos, para eso existen dos atributos en las anotaciones:
+
+ * FetchType.LAZY: recuperación tardía. Valor por defecto para:
+ - OneToMany
+ - ManyToMany
+ * FetchType.EAGER: recuperación temprana. Valor por defecto para:
+ - OneToOne
+ - ManyToOne
+
+Y se pueden utilizar los métodos para recuperarlos:
+ * session.get() hace recuperación temprana.
+ * session.load() hace recuperación tardía
+
+Existen muchas formas de interactuar con la base de datos por medio de hibernate. Todas distintas en esencia aunque la mayoría hacen lo mismo.
+
+ * Criterias: Son unos objetos que definen búsquedas condicionales contra algunos objetos. Es decir, si se esta buscando las vuelos con salida de málaga y destino granada, en las que estas son elegidas en combos, lo ideal sería ponerlo en este tipo de búsquedas.
+ * HQL: Es un lenguaje creado para ser utilizado desde hibernate. Tiene una nomenclatura sencilla y parecida al sql pero con algunas diferencias para que se interactúe con objetos y no con tablas.
+ * Query: son un tipo de búsqueda especial en hibernate, la cual se puede definir en una anotación o ponerla directamente.
+
+Lo que se pretende es hacer que búsqueda sea lo más fácil posible de crear y de entender, pero no queremos confundir al lector, con los tres tipos de búsqueda se puede hacer las mismas búsquedas.
 
 = Enlaces =
 
