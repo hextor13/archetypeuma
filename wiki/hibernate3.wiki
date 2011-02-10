@@ -1,4 +1,4 @@
-#summary jetty
+#summary hibernate3
 #labels Hibernate,ORM,examples,JPA
 
 = What´s it? =
