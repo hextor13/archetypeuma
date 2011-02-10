@@ -3,7 +3,34 @@
 
 = What´s it? =
 
+Hibernate es un ORM (Object-Relational Mapping) para Java.  Es una capa de persistencia objeto/relacional y un generador de sentencias sql. Permite diseñar objetos persistentes que podrán incluir polimorfismo, relaciones, colecciones, y un gran número de tipos de datos. De una manera muy rápida y optimizada puede generar BBDD en cualquiera de los entornos soportados : Oracle, DB2, MySql, Postgresql.
+Es software libre y su código es abierto, bajo licencia LGPL. Actualmente el proyecto pertenece a  Red Hat pero esta cedido a la fundación Apache.
 
+Fue creado en 2001 por Gavin King.
+
+Un ORM es una tecnología capaz de entender que una clase de Java se corresponde con una tabla de la base de datos y que un objeto de Java se corresponde con una tupla de la base de datos.
+
+Hibernate ha estado mejorando. La mejora más significativa la consiguió cuando cambio los engorrosos XML por anotaciones, después de que saliera el estándar JPA.
+
+El estándar JPA (Java Persistence API) fue descrito en la Java Specification Request (JSR) 220.
+
+Con el fin de meter al lector en conocimiento de la utilizad de hibernate se va a exponer un ejemplo de como se insertaba un usuario en base de datos antes de hibernate y después de hibernate.
+
+ * Sin hibernate:
+{{{
+Class.forName("org.hsqldb.jdbcDriver");
+String url = "jdbc:hsqldb:./Databases/ejemplo";
+Connection connection = DriverManager.getConnection(url, "root", "pass");
+String ins = "INSERT INTO TABLE_USER VALUES("jcisneros", "javier")";
+Statement stmt = null;
+stmt = connection.createStatement();
+stmt.executeUpdate(ins);
+}}}
+ * Con hibernate y spring:
+{{{
+User user = new User("jcisneros", "javier");
+userDao.save(user);
+}}}
 
 = How does it work? =
 
@@ -19,11 +46,48 @@
 = Links=
 
 
+http://www.hibernate.org/
+
+Documentation core
+http://docs.jboss.org/hibernate/stable/core/reference/en/html/
+
+Documentation entityManager
+http://docs.jboss.org/hibernate/stable/entitymanager/reference/en/html/
+
+Documentation annotation
+http://docs.jboss.org/hibernate/stable/annotations/reference/en/html/
 
 = ¿Qué es? =
 
 
+Hibernate es un ORM (Object-Relational Mapping) para Java.  Es una capa de persistencia objeto/relacional y un generador de sentencias sql. Permite diseñar objetos persistentes que podrán incluir polimorfismo, relaciones, colecciones, y un gran número de tipos de datos. De una manera muy rápida y optimizada puede generar BBDD en cualquiera de los entornos soportados : Oracle, DB2, MySql, Postgresql.
+Es software libre y su código es abierto, bajo licencia LGPL. Actualmente el proyecto pertenece a  Red Hat pero esta cedido a la fundación Apache.
 
+Fue creado en 2001 por Gavin King.
+
+Un ORM es una tecnología capaz de entender que una clase de Java se corresponde con una tabla de la base de datos y que un objeto de Java se corresponde con una tupla de la base de datos.
+
+Hibernate ha estado mejorando. La mejora más significativa la consiguió cuando cambio los engorrosos XML por anotaciones, después de que saliera el estándar JPA.
+
+El estándar JPA (Java Persistence API) fue descrito en la Java Specification Request (JSR) 220.
+
+Con el fin de meter al lector en conocimiento de la utilizad de hibernate se va a exponer un ejemplo de como se insertaba un usuario en base de datos antes de hibernate y después de hibernate.
+
+ * Sin hibernate:
+{{{
+Class.forName("org.hsqldb.jdbcDriver");
+String url = "jdbc:hsqldb:./Databases/ejemplo";
+Connection connection = DriverManager.getConnection(url, "root", "pass");
+String ins = "INSERT INTO TABLE_USER VALUES("jcisneros", "javier")";
+Statement stmt = null;
+stmt = connection.createStatement();
+stmt.executeUpdate(ins);
+}}}
+ * Con hibernate y spring:
+{{{
+User user = new User("jcisneros", "javier");
+userDao.save(user);
+}}}
 
 = ¿Como funciona ? =
 
