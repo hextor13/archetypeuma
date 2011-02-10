@@ -422,9 +422,9 @@ Los ficheros de configuración de maven pueden verse en diferentes niveles:
 
 Los tag más importantes en el uso de maven son:
 
- * <groupId>: El id del grupo al que pertenece el proyecto.
- * <artifactId>: El id del artifact o proyecto (en la mayoría de los casos el nombre del proyecto).
- * <version>: La versión del artifact en el grupo especificado.
+ * <groupId> El id del grupo al que pertenece el proyecto.
+ * <artifactId> El id del artifact o proyecto (en la mayoría de los casos el nombre del proyecto).
+ * <version> La versión del artifact en el grupo especificado.
 {{{
 <groupId>org.archetypeUma</groupId>
 <artifactId>archetypeUma-model</artifactId>
@@ -622,7 +622,7 @@ Tabla. Plugin más utilizados de maven.
 
 A continuación se describen las órdenes más importantes de maven que todo aquel que trabaje con esta herramienta debe de conocer:
 
-Comando	Descripción
+||Comando||Descripción||
 ||mvn –version||Ver la versión de maven.||
 ||mvn clean||Limpiar el directorio de trabajo de maven de un proyecto es sencillo solo hay que añadir clean. El directorio de trabajo es la carpeta target.||
 ||mvn help||Mostrar la ayuda de maven con el comando.||
@@ -633,14 +633,10 @@ Comando	Descripción
 ||mvn deploy||Si lo que se pretende es instalar en un repositorio remoto en vez de en el local. Se ejecuta un deploy. Esto tendría que hacerlo un sistema de integración continua como es Hudson.||
 ||mvn dependency:tree||Obtener el árbol de dependencias y optimizarlas para excluir las que no se necesiten.||
 ||mvn dependency:resolve||Muestra una listado de todos los artefactos que han sido resueltos.||
-||mvn clean install -o -Dmaven.test.skip=true||En un equipo de desarrollo la orden más utilizada es la compilación, empaquetado e instalación.||
-
-Con el argumento -o seleccionamos el modo offline. Algo que será útil en el equipo de desarrollo cada vez que se compile, ya que no se perderá tiempo en conectarse con los repositorios externos.
-
-Con el argumento -Dmaven.test.skip=true  nos saltamos en el al ciclo de vida la fase de test y por tanto todos los plugins asociados a este ciclo de vida. Al igual que el argumento anterior esto hará que se compile más rápidamente el proyecto.
-mvn compile	Compila los fuentes del proyecto.
-mvn  eclipse:eclipse	Crea un proyecto en eclipse a partir de un proyecto maven.
-mvn idea:idea	Crea un proyecto en Intellij IDEA a partir de un proyecto maven.
+||mvn clean install -o -Dmaven.test.skip=true||En un equipo de desarrollo la orden más utilizada es la compilación, empaquetado e instalación. Con el argumento -o seleccionamos el modo offline. Algo que será útil en el equipo de desarrollo cada vez que se compile, ya que no se perderá tiempo en conectarse con los repositorios externos. Con el argumento -Dmaven.test.skip=true  nos saltamos en el al ciclo de vida la fase de test y por tanto todos los plugins asociados a este ciclo de vida. Al igual que el argumento anterior esto hará que se compile más rápidamente el proyecto.||
+||mvn compile||Compila los fuentes del proyecto.||
+||mvn  eclipse:eclipse||Crea un proyecto en eclipse a partir de un proyecto maven.||
+||mvn idea:idea||Crea un proyecto en Intellij IDEA a partir de un proyecto maven.||
 
 Tabla. Comandos más importantes de maven.
 
