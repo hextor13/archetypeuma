@@ -166,7 +166,43 @@ Los perfiles en la versión 3 de Maven hay que meterlos en el fichero M2_HOME/co
 
 = Instalation =
 
+Requisitos obligatorios: JDK de JAVA, recomendada la versión 1.6 
 
+Descargar la versión 3.0 de la web oficial de Apache Maven:
+http://maven.apache.org/download.html
+o desde la página de este proyecto:
+
+Declarar las variables de entorno:
+
+ * En linux:
+
+ - export MAVEN_HOME=/home/user/carpetasInstalacion/apache-maven-3.0
+
+ - export M2_REPO=/home/user/carpetasInstalacion/repositorioMaven
+
+ - export M2=/home/user/carpetasInstalacion/apache-maven-3.0
+
+ - export MAVEN_OPTS=-Xms512 -Xmx512 -XX:MaxPermSize=512m
+
+ * En windows:
+ - set MAVEN_HOME=/C:/carpetasInstalacion/apache-maven-3.0
+ - set M2_REPO=/C:/carpetasInstalacion/apache-maven-3.0
+ - set M2=/C:/carpetasInstalacion/apache-maven-3.0
+ - export MAVEN_OPTS=-Xms512 -Xmx512 -XX:MaxPermSize=512m
+
+Meter maven en el path del sistema operativo, para poder ejecutarlo desde cualquier punto del sistema de ficheros:
+ * En linux:
+
+ - export PATH=$PATH:$MAVEN_HOME/bin
+
+ * En windows:
+
+ - set PATH=$PATH;$MAVEN_HOME/bin
+
+Los ficheros de configuración de maven pueden verse en diferentes niveles:
+ * Global: $M2_HOME/conf/settings.xml
+ * Por usuario: ~/.m2/settings.xml
+ * Por proyecto: pom.xml
 
 = Use =
 
