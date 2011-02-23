@@ -13,13 +13,19 @@
 			<h:form id="formUsers">
 				<span class="title"><h:outputText value="#{i18n['users']}" /></span>
 				<t:dataTable id="users" var="user" value="#{userListAction.users}"
-					sortColumn="nick" sortAscending="true" styleClass="list" 
+					sortColumn="nick" sortAscending="true" styleClass="list"
 					headerClass="datatableHeader" columnClasses="width20,width40,width40,width20">
-					<t:column id="user_name">
+					<t:column id="user_nick">
 						<f:facet name="header">
 							<h:outputText value="Nick" />
 						</f:facet>
 						<t:outputText value="#{user.nick}" escape="true" />
+					</t:column>
+					<t:column id="user_name">
+						<f:facet name="header">
+							<h:outputText value="Name" />
+						</f:facet>
+						<t:outputText value="#{user.name}" escape="true" />
 					</t:column>
 					<t:column id="user_date">
 						<f:facet name="header">
