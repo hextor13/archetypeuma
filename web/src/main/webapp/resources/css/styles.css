@@ -4,7 +4,7 @@
 .header {text-align:center;}
 .content {width:86%;padding-left:2%;float:left;}
 .body {width:100%;}
-.list {width:100%;}
+.list {width:100%;align:center;}
 .headTitle {width:100%;align:center;}
 .menuItem {background-color:#95221A;border-bottom:1px solid #000000;border-right:1px solid #000000;border-top:1px solid #CC6666;color:#FFFFFF;display:block;font-size:9pt;padding:5px 10px;text-decoration:none;width:178px;}
 .fieldError{color:#FF2B2B;font-style:italic;padding-left:5px;}
