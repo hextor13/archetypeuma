@@ -10,7 +10,9 @@ mvn archetype:generate -DremoteRepositories=https://archetypeuma.googlecode.com/
 }}}
 Be created a folders and files into our directory where is the shell or Windows console. For this reason, should create into work directory where will run Eclipse.
 
-Once downloaded  the full project, it´s possible continue working.
+Una vez descargado el proyecto entero, se puede continuar trabajando, pero antes hay que en trar en el fichero pom.xml y cambiar la propiedad war.name y poner el nombre del artifactId que se le haya puesto al  proyecto.
+
+<war.name>archetypeUma</war.name>
 
 Then, installing database, [Mysql],[PostgreSql] or another if changing the driver and the dependency which is in the main pom.xml.
 
@@ -53,7 +55,9 @@ mvn archetype:generate -DarchetypeCatalog=https://archetypeuma.googlecode.com/sv
 }}}
 Se crearán unas carpetas y ficheros en el directorio que tengamos el shell o consola de windows. Por lo que es conveniente que se cree en el directorio de trabajo en el que vaya a correr [eclipse].
 
-Una vez descargado el proyecto entero, editaremos el fichero pom.xml y cambiaremos la variable war.name al mismo nombre que se le halla puesto al proyecto. 
+Una vez descargado el proyecto entero, se puede continuar trabajando, pero antes hay que en trar en el fichero pom.xml y cambiar la propiedad war.name y poner el nombre del artifactId que se le haya puesto al  proyecto.
+
+<war.name>archetypeUma</war.name>
 
 A continuación hay que instalar la base de datos. Ya sea [Mysql], [PostgreSql] o cualquiera si cambiarmos el driver y la dependencia que esta en el pom.xml principal.
 
